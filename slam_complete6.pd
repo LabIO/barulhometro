@@ -1,7 +1,7 @@
-#N canvas 534 401 848 393 10;
+#N canvas 532 402 848 393 10;
 #X declare -lib iemnet -lib mrpeach;
 #X obj 29 4 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 3049 1;
+-1 -1 0 1;
 #X obj 369 -67 loadbang;
 #X obj 49 -23 -;
 #X obj 53 3 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
@@ -136,7 +136,7 @@
 #X obj 309 173 line;
 #X obj 309 200 s timer;
 #X obj 119 202 r timer;
-#X obj 58 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 58 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 333 148 -8;
 #X obj 333 127 r barraReset;
@@ -212,7 +212,7 @@
 #N canvas 452 112 757 751 COLUMN 0;
 #X obj 181 310 hsv2rgb;
 #X obj 184 206 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 12700 1;
+-258113 -260097 0 1;
 #X msg 181 283 \$1 1 1;
 #X obj 181 139 expr 1 - $f1/$f2;
 #X obj 296 344 r size;
@@ -343,7 +343,7 @@
 ;
 #X msg 135 -22 0;
 #X msg 190 -24 1;
-#X obj 42 -64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 42 -64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 40 -87 inlet;
 #X obj 33 -39 gemhead;
@@ -559,7 +559,7 @@
 #X obj 238 70 r T_Y;
 #X obj 280 69 r T_Z;
 #X obj 241 3 loadbang;
-#X obj 118 20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 118 20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 117 -5 inlet;
 #X obj 123 49 gemhead 51;
@@ -598,7 +598,7 @@
 #X msg 486 -61 reset \, dimen 1024 768 \, offset 1440 0 \, border 1
 \, create \, 1;
 #X obj 666 287 juri_count;
-#N canvas 624 574 450 300 OSC-in 1;
+#N canvas 622 574 450 300 OSC-in 0;
 #X obj 211 -71 import iemnet mrpeach;
 #X obj 27 -48 unpackOSC;
 #X obj 20 83 line;
@@ -659,10 +659,6 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 15 5 14 0;
 #X connect 15 6 16 0;
 #X restore 29 -67 pd OSC-in;
-#X msg 369 -29 \; Mode 0 \; db_thresh 60 \; db_dCOR 30 \; shiftH 0.04
-\; size 15 \; V_X -3 \; V_Y 1 \; V_Z 0 \; sizeVOTE 150 \; B_X -3 \;
-B_Y 2 \; B_Z 0 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; C_X
--3 \; C_Y 1.8 \; ctrl 0 \; MostraTexto 0 \; MostraBarra 0 \;;
 #N canvas 413 174 614 581 video 0;
 #X floatatom 404 -144 5 0 0 0 - - -;
 #X obj 425 -88 print;
@@ -867,8 +863,11 @@ font MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text - \;;
 #X connect 85 0 4 0;
 #X restore 183 141 pd JURI;
 #X text 156 283 Ver 24 Fev 2014;
+#X msg 369 -29 \; Mode 0 \; db_thresh 60 \; db_dCOR 30 \; shiftH 0.04
+\; size 15 \; sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z
+0 \; ctrl 0 \; MostraTexto 0 \; MostraBarra 0 \;;
 #X connect 0 0 2 0;
-#X connect 1 0 46 0;
+#X connect 1 0 50 0;
 #X connect 2 0 3 0;
 #X connect 3 0 5 0;
 #X connect 4 0 2 1;
