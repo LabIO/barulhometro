@@ -1,8 +1,8 @@
-#N canvas 1 105 698 641 10;
+#N canvas 668 122 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
 #X obj -713 176 adc~;
 #X obj -248 -52 table barulho;
-#N canvas 776 117 533 588 calc_barulho 0;
+#N canvas 774 118 533 588 calc_barulho 0;
 #X obj 41 -34 inlet;
 #X obj 41 37 spigot;
 #X obj 46 77 f;
@@ -76,7 +76,7 @@ the "10 value" and output (right) the vote;
 #X connect 10 0 0 0;
 #X connect 11 0 9 0;
 #X restore -249 -30 pd barulho_array;
-#N canvas 713 127 450 484 sendOSC 0;
+#N canvas 703 132 450 484 sendOSC 1;
 #X obj 206 47 inlet;
 #X obj 46 49 r conn1;
 #X obj 33 125 t f b;
@@ -102,6 +102,12 @@ the "10 value" and output (right) the vote;
 #X obj 237 18 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 36 192 connect localhost 3322;
+#X obj 272 344 r desliga;
+#X msg 270 371 send /desliga go;
+#X obj 231 425 r Mode;
+#X msg 214 454 send /Mode \$1;
+#X obj 314 414 r RecoverTimer;
+#X msg 323 453 send /RecoverTimer \$1;
 #X connect 0 0 14 0;
 #X connect 0 0 20 0;
 #X connect 1 0 4 0;
@@ -127,6 +133,12 @@ the "10 value" and output (right) the vote;
 #X connect 20 0 19 0;
 #X connect 21 0 20 1;
 #X connect 22 0 7 0;
+#X connect 23 0 24 0;
+#X connect 24 0 13 0;
+#X connect 25 0 26 0;
+#X connect 26 0 13 0;
+#X connect 27 0 28 0;
+#X connect 28 0 13 0;
 #X restore -364 537 pd sendOSC;
 #X floatatom -345 241 12 0 0 1 maximum_barulho_(10) - -;
 #X obj -345 54 bng 50 250 50 0 empty empty 3)_set_value_10 55 25 0
@@ -147,18 +159,18 @@ noise (vote 10) on 5 seconds 4) set the value 10 OBS: \$1 argument
 out of range (in the [pd barulho_array]? why? - the color of the column
 becomes red too early;
 #X obj -672 27 tgl 50 0 empty empty 1)_check_silence 55 25 0 14 -204786
--1 -1 1 1;
-#X obj -680 410 bng 50 250 50 0 empty empty 2)_set_silence 55 25 0
+-1 -1 0 1;
+#X obj -689 410 bng 50 250 50 0 empty empty 2)_set_silence 55 25 0
 14 -4034 -1 -1;
-#X floatatom -680 477 12 0 0 0 - - -;
+#X floatatom -689 477 12 0 0 0 - - -;
 #X text -334 115 3) write this value in the box below;
 #X text -678 171 cut low f;
-#X floatatom -740 467 5 0 0 0 - - -;
-#X obj -698 510 - 60;
-#X obj -740 419 print;
-#X obj -698 364 spigot;
-#X obj -648 320 r ctrl;
-#X obj -648 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X floatatom -749 467 5 0 0 0 - - -;
+#X obj -707 510 - 60;
+#X obj -749 419 print;
+#X obj -707 364 spigot;
+#X obj -657 320 r ctrl;
+#X obj -657 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
 #N canvas 374 435 289 267 barulho_table 0;
 #X obj -174 15 inlet~;
@@ -185,22 +197,21 @@ becomes red too early;
 #X obj -627 281 envrms~;
 #X obj -390 471 r barulho_vote;
 #X obj -210 481 r timer_ctrl;
-#N canvas 266 217 282 382 interface 0;
+#N canvas 192 325 687 427 interface 1;
 #X obj -704 -15 bng 100 250 50 0 empty empty barulhometro_ctrl 17 7
 0 10 -4034 -1 -1;
-#X obj -696 105 bng 100 250 50 0 empty empty timer_on 17 7 0 10 -4160
+#X obj -685 111 bng 100 250 50 0 empty empty timer_on 17 7 0 10 -4160
 -1 -1;
-#X obj -574 105 bng 100 250 50 0 empty empty timer_off 17 7 0 10 -159808
--1 -1;
+#X obj -574 105 bng 100 250 50 0 empty empty timer_off 20 50 0 10 -159808
+-262144 -262144;
 #X msg -708 221 \; ctrl-r 1 \;;
 #X msg -688 266 \; timer_ctrl 1;
-#X msg -563 268 \; timer_ctrl 0 \;;
-#N canvas 123 105 412 205 OSCandroid 0;
+#X msg -574 212 \; timer_ctrl 0 \;;
+#N canvas 113 110 412 205 OSCandroid 0;
 #X obj -727 23 dumpOSC 8000;
 #X msg -724 138 \; ctrl-r 1 \;;
 #X msg -552 138 \; timer_ctrl 1;
 #X msg -460 137 \; timer_ctrl 0 \;;
-#X msg -654 138 \; barulho_vote 0;
 #X obj -404 111 print;
 #X obj -641 -7 routeOSC /accxyz /1/push1 /1/push4 /1/push2 /1/push5
 ;
@@ -209,21 +220,52 @@ becomes red too early;
 #X obj -474 17 sel 1;
 #X obj -407 15 sel 1;
 #X obj -541 15 sel 1;
-#X connect 0 0 7 0;
-#X connect 7 1 1 0;
-#X connect 7 2 4 0;
-#X connect 7 3 2 0;
-#X connect 7 4 3 0;
+#X obj -666 95 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -599 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -536 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -459 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -654 138 \; desliga bang;
+#X connect 0 0 6 0;
+#X connect 6 1 1 0;
+#X connect 6 1 11 0;
+#X connect 6 2 15 0;
+#X connect 6 2 12 0;
+#X connect 6 3 2 0;
+#X connect 6 3 13 0;
+#X connect 6 4 3 0;
+#X connect 6 4 14 0;
 #X restore -625 326 pd OSCandroid;
 #X obj -560 5 bng 30 250 50 0 empty empty zera_voto 35 7 0 10 -191407
 -1 -1;
 #X msg -560 47 \; barulho_vote 0;
+#X obj -560 -33 r timer_ctrl;
+#X obj -380 18 vradio 35 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X obj -380 166 s Mode;
+#X text -339 25 Geral;
+#X text -339 60 Timer;
+#X text -339 95 Barulho;
+#X text -339 130 Vota;
+#X obj -696 -73 r Mode;
+#X obj -699 -48 sel 2;
+#X obj -280 46 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text -260 42 Mostra barra timer;
+#X obj -280 66 s RecoverTimer;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 5 0;
 #X connect 7 0 8 0;
+#X connect 9 0 7 0;
+#X connect 10 0 11 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 0;
+#X connect 18 0 20 0;
 #X restore -247 17 pd interface;
-#X obj -463 507 speedlim 40;
 #N canvas 653 287 228 198 noise_level 0;
 #X obj 70 125 outlet;
 #X obj 2 -36 adc~;
@@ -239,11 +281,11 @@ becomes red too early;
 #X connect 5 0 0 0;
 #X restore -671 84 pd noise_level;
 #X obj -672 106 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 51.1014 256;
+20 -262144 -1 -1 0 256;
 #X obj -432 321 max 0;
-#X obj -698 534 s Noiselvl;
+#X obj -707 534 s Noiselvl;
 #X obj -432 241 r Noiselvl;
-#N canvas 1 222 450 300 CONTROL 0;
+#N canvas 787 443 213 327 CONTROL 1;
 #X msg -118 220 \; ctrl 0 \;;
 #X obj -118 63 sel 1 0;
 #X msg -91 158 \; ctrl 1 \;;
@@ -259,42 +301,44 @@ becomes red too early;
 #X connect 6 0 1 0;
 #X restore -469 95 pd CONTROL;
 #X obj -330 167 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 0 256;
+20 -262144 -1 -1 16054.8 256;
 #X obj -432 349 s NoiseSum;
 #X obj -330 143 r NoiseSum;
 #X obj -345 328 nbx 5 28 -1e+37 1e+37 0 0 empty empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 0 256;
+6 40 0 20 -262144 -1 -1 13.1948 256;
 #X obj -345 391 s barulho_vote;
+#X obj -463 507 speedlim 200;
+#X text -254 558 Ver 24 Fev 2014;
 #X connect 0 0 15 0;
 #X connect 0 1 15 0;
-#X connect 2 0 40 0;
-#X connect 2 1 47 0;
+#X connect 2 0 39 0;
+#X connect 2 1 46 0;
 #X connect 4 0 5 0;
 #X connect 8 0 2 2;
 #X connect 9 0 32 0;
 #X connect 10 0 28 0;
 #X connect 10 0 16 0;
-#X connect 11 0 37 0;
+#X connect 11 0 48 0;
 #X connect 12 0 2 1;
 #X connect 13 0 7 2;
-#X connect 14 0 43 0;
+#X connect 14 0 42 0;
 #X connect 15 0 10 0;
 #X connect 17 0 18 0;
-#X connect 20 0 38 0;
+#X connect 20 0 37 0;
 #X connect 21 0 22 0;
 #X connect 22 0 26 1;
 #X connect 25 0 26 0;
-#X connect 26 0 41 0;
+#X connect 26 0 40 0;
 #X connect 28 0 26 0;
 #X connect 29 0 30 0;
 #X connect 30 0 28 1;
 #X connect 32 0 8 0;
 #X connect 34 0 7 1;
 #X connect 35 0 7 3;
-#X connect 37 0 7 0;
-#X connect 38 0 39 0;
-#X connect 40 0 45 0;
-#X connect 42 0 2 0;
-#X connect 44 0 32 1;
-#X connect 46 0 44 0;
-#X connect 47 0 48 0;
+#X connect 37 0 38 0;
+#X connect 39 0 44 0;
+#X connect 41 0 2 0;
+#X connect 43 0 32 1;
+#X connect 45 0 43 0;
+#X connect 46 0 47 0;
+#X connect 48 0 7 0;
