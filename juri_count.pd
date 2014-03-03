@@ -1,6 +1,6 @@
-#N canvas 641 139 677 658 10;
-#X obj 3 -48 nbx 4 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
--262144 -1 -1 5 256;
+#N canvas 602 141 677 658 10;
+#X obj 3 -48 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-1-set empty 0
+-8 0 25 -262144 -1 -1 2 256;
 #X msg 311 90 add2 \$1;
 #X msg 378 124 list 5.2 9 5.1 0.23 5;
 #X msg 383 62 set list;
@@ -22,7 +22,7 @@
 #X obj 55 56 tabwrite votos;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array votos 5 float 3;
-#A 0 5 5.2 9 5.1 0.23;
+#A 0 2 3.5 20 38 2.33;
 #X coords 0 11 5 -1 200 100 1 0 0;
 #X restore 203 31 graph;
 #X floatatom 133 33 5 0 0 0 - - -;
@@ -68,29 +68,29 @@
 #X restore 329 511 pd ROUND;
 #X obj 3 -7 t f f;
 #X obj 3 41 s JuriVote-1;
-#X obj 3 92 nbx 4 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25 -262144
--1 -1 5.2 256;
+#X obj 3 92 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-2-set empty 0
+-8 0 25 -262144 -1 -1 3.5 256;
 #X obj 30 157 tabwrite votos;
 #X obj 111 113 loadbang;
 #X obj 3 133 t f f;
 #X msg 111 134 1;
 #X obj 3 181 s JuriVote-2;
-#X obj 3 222 nbx 4 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
--262144 -1 -1 9 256;
+#X obj 3 222 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-3-set empty 0
+-8 0 25 -262144 -1 -1 20 256;
 #X obj 30 287 tabwrite votos;
 #X obj 111 243 loadbang;
 #X obj 3 263 t f f;
 #X msg 111 264 2;
 #X obj 3 311 s JuriVote-3;
-#X obj 3 352 nbx 4 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
--262144 -1 -1 5.1 256;
+#X obj 3 352 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-4-set empty 0
+-8 0 25 -262144 -1 -1 38 256;
 #X obj 30 417 tabwrite votos;
 #X obj 111 373 loadbang;
 #X obj 3 393 t f f;
 #X msg 112 394 3;
 #X obj 3 441 s JuriVote-4;
-#X obj 3 472 nbx 4 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
--262144 -1 -1 0.23 256;
+#X obj 3 472 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-5-set empty 0
+-8 0 25 -262144 -1 -1 2.33 256;
 #X obj 30 537 tabwrite votos;
 #X obj 111 493 loadbang;
 #X obj 3 513 t f f;
@@ -103,6 +103,7 @@
 #X floatatom 252 48 5 0 0 0 - - -;
 #X obj 389 489 line;
 #X msg 368 464 0 \, \$1 1500;
+#X obj 533 -36 r calc_juri;
 #X connect 0 0 33 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
@@ -160,3 +161,4 @@
 #X connect 60 0 17 0;
 #X connect 63 0 32 0;
 #X connect 64 0 63 0;
+#X connect 65 0 22 0;
