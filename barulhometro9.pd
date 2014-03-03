@@ -1,4 +1,4 @@
-#N canvas 581 128 698 641 10;
+#N canvas 95 182 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
 #X obj -713 176 adc~;
 #X obj -248 -52 table barulho;
@@ -201,16 +201,17 @@ becomes red too early;
 #X obj -627 281 envrms~;
 #X obj -390 471 r barulho_vote;
 #X obj -210 481 r timer_ctrl;
-#N canvas 513 196 687 539 interface 1;
-#X obj -704 -15 bng 100 250 50 0 empty empty barulhometro_ctrl 17 7
+#N canvas 381 201 722 530 interface 0;
+#N canvas 21 146 1202 728 INTERFACE-GOP 0;
+#X obj 115 323 bng 100 250 50 0 empty empty barulhometro_ctrl 17 7
 0 10 -4034 -1 -1;
-#X obj -685 111 bng 100 250 50 0 empty empty timer_on 17 7 0 10 -4160
--1 -1;
-#X obj -574 105 bng 100 250 50 0 empty empty timer_off 20 50 0 10 -159808
+#X obj 125 177 bng 100 250 50 0 empty empty timer_on 17 45 0 13 -4160
+-1 -262144;
+#X obj 238 177 bng 100 250 50 0 empty empty timer_off 20 50 0 10 -159808
 -262144 -262144;
-#X msg -708 221 \; ctrl-r 1 \;;
-#X msg -688 266 \; timer_ctrl 1;
-#X msg -574 212 \; timer_ctrl 0 \;;
+#X msg 115 433 \; ctrl-r 1 \;;
+#X msg 125 282 \; timer_ctrl 1;
+#X msg 238 287 \; timer_ctrl 0 \;;
 #N canvas 111 115 412 205 OSCandroid 0;
 #X obj -727 23 dumpOSC 8000;
 #X msg -724 138 \; ctrl-r 1 \;;
@@ -242,48 +243,54 @@ becomes red too early;
 #X connect 6 3 13 0;
 #X connect 6 4 3 0;
 #X connect 6 4 14 0;
-#X restore -625 326 pd OSCandroid;
-#X obj -560 5 bng 30 250 50 0 empty empty zera_voto 35 7 0 10 -191407
+#X restore 303 530 pd OSCandroid;
+#X obj 251 360 bng 30 250 50 0 empty empty zera_voto 35 7 0 10 -191407
 -1 -1;
-#X msg -560 47 \; barulho_vote 0;
-#X obj -560 -33 r timer_ctrl;
-#X obj -435 -46 vradio 35 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 3;
-#X obj -435 102 s Mode;
-#X text -394 -39 Geral;
-#X text -394 -4 Timer;
-#X text -394 31 Barulho;
-#X text -394 66 Vota;
-#X obj -696 -73 r Mode;
-#X obj -699 -48 sel 2;
-#X obj -433 163 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X text -413 159 Mostra barra timer;
-#X obj -433 183 s RecoverTimer;
-#X obj -228 -75 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
--8 0 26 -262144 -1 -1 2 256;
-#X obj -228 11 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 3.5 256;
-#X obj -229 99 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 20 256;
-#X obj -228 215 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-26 -262144 -1 -1 38 256;
-#X obj -230 324 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-26 -262144 -1 -1 2.33 256;
-#X obj -227 76 s juri;
-#X obj -231 168 s juri;
-#X obj -229 282 s juri;
-#X obj -230 395 s juri;
-#X msg -229 53 /juri/2 \$1;
-#X msg -231 142 /juri/3 \$1;
-#X msg -229 259 /juri/4 \$1;
-#X msg -230 368 /juri/5 \$1;
-#X obj -229 -13 s juri;
-#X msg -229 -35 /juri/1 \$1;
-#X obj -426 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 251 402 \; barulho_vote 0;
+#X obj 251 322 r timer_ctrl;
+#X obj 403 137 vradio 55 1 0 4 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X obj 393 379 s Mode;
+#X text 463 155 Geral;
+#X text 465 214 Timer;
+#X text 467 264 Barulho;
+#X text 464 325 Vota;
+#X obj 60 297 r Mode;
+#X obj 57 322 sel 2;
+#X obj 114 491 tgl 50 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 178 507 Mostra barra timer;
+#X obj 116 556 s RecoverTimer;
+#X obj 610 144 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
+-8 0 26 -262144 -1 -1 5 256;
+#X obj 610 186 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
+-262144 -1 -1 3 256;
+#X obj 610 228 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
+-262144 -1 -1 3 256;
+#X obj 610 270 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
+-262144 -1 -1 3 256;
+#X obj 610 312 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
+-262144 -1 -1 1.23 256;
+#X obj 687 229 s juri;
+#X obj 694 285 s juri;
+#X obj 687 340 s juri;
+#X obj 695 360 s juri;
+#X msg 609 229 /juri/2 \$1;
+#X msg 610 283 /juri/3 \$1;
+#X msg 611 337 /juri/4 \$1;
+#X msg 617 358 /juri/5 \$1;
+#X obj 677 171 s juri;
+#X msg 610 170 /juri/1 \$1;
+#X obj 583 426 bng 50 250 50 0 empty empty empty 17 7 0 10 -257985
 -1 -1;
-#X obj -423 317 s /juri;
-#X msg -424 285 /juri/calc bang;
+#X msg 581 483 /juri/calc bang;
+#X obj 582 515 s juri;
+#X text 554 153 JURI 1;
+#X text 556 196 JURI 2;
+#X text 556 322 JURI 5;
+#X text 556 280 JURI 4;
+#X text 556 238 JURI 3;
+#X text 637 437 Calcula VOTOS;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 5 0;
@@ -303,8 +310,10 @@ becomes red too early;
 #X connect 32 0 28 0;
 #X connect 33 0 29 0;
 #X connect 35 0 34 0;
-#X connect 36 0 38 0;
-#X connect 38 0 37 0;
+#X connect 36 0 37 0;
+#X connect 37 0 38 0;
+#X coords 0 -1 1 1 700 500 1 100 100;
+#X restore -1923 -35 pd INTERFACE-GOP;
 #X restore -247 17 pd interface;
 #N canvas 653 287 228 198 noise_level 0;
 #X obj 70 125 outlet;
@@ -341,14 +350,14 @@ becomes red too early;
 #X connect 6 0 1 0;
 #X restore -469 95 pd CONTROL;
 #X obj -330 167 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 379.346 256;
+20 -262144 -1 -1 0 256;
 #X obj -432 349 s NoiseSum;
 #X obj -330 143 r NoiseSum;
 #X obj -345 328 nbx 5 28 -1e+37 1e+37 0 0 empty empty Barulho_Vote
 6 40 0 20 -262144 -1 -1 0 256;
 #X obj -345 391 s barulho_vote;
 #X obj -463 507 speedlim 200;
-#X text -254 558 Ver 24 Fev 2014;
+#X text -254 558 Ver 3 Mar 2014;
 #X connect 0 0 15 0;
 #X connect 0 1 15 0;
 #X connect 2 0 39 0;
