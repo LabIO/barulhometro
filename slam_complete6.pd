@@ -1,7 +1,7 @@
-#N canvas 332 146 848 393 10;
+#N canvas 328 148 848 393 10;
 #X declare -lib iemnet -lib mrpeach;
 #X obj 29 4 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4248 1;
+-1 -1 4947 1;
 #X obj 369 -67 loadbang;
 #X obj 49 -23 -;
 #X obj 53 3 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
@@ -482,7 +482,7 @@
 #X connect 24 0 9 0;
 #X connect 25 0 1 0;
 #X restore 158 66 pd LOGO;
-#N canvas 324 156 503 604 BARULHOMETRO 0;
+#N canvas 322 157 503 604 BARULHOMETRO 0;
 #X obj 130 426 text2d;
 #X obj 130 192 translateXYZ;
 #X floatatom 153 104 5 0 0 0 - - -;
@@ -509,7 +509,7 @@
 #X msg 367 21 \; Barulho-size 25 \; Barulho-Pos-X -4 \; Barulho-Pos-Y
 2 \;;
 #X msg 206 7 \; Barulho-size 50 \; Barulho-Pos-X 0 \; Barulho-Pos-Y
--0.74 \;;
+-1 \;;
 #X connect 1 0 0 0;
 #X connect 2 0 1 1;
 #X connect 3 0 1 2;
@@ -705,12 +705,12 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X restore 284 216 pd video;
 #X obj 244 217 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
 -262144 -1 -1 0;
-#N canvas -354 171 1265 586 JURI 1;
+#N canvas 0 136 1265 586 JURI 0;
 #X obj 176 197 text2d;
 #X floatatom 193 68 5 0 0 0 - - -;
 #X floatatom 230 69 5 0 0 0 - - -;
 #X floatatom 269 71 5 0 0 0 - - -;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 143 35 gemhead;
 #X obj 430 -23 inlet;
@@ -893,7 +893,7 @@ font MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text - \;;
 0 \; ctrl 0 \; MostraTexto 0 \; MostraBarra 0 \;;
 #X obj 183 119 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 156 283 Ver 3 Mar 2014;
+#X text 158 283 Versione 10 Mar 2014;
 #X connect 0 0 2 0;
 #X connect 1 0 49 0;
 #X connect 2 0 3 0;
