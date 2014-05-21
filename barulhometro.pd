@@ -1,4 +1,4 @@
-#N canvas 71 92 698 641 10;
+#N canvas 67 94 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
 #X obj -713 176 adc~;
 #X obj -248 -52 table barulho;
@@ -53,7 +53,7 @@ the "10 value" and output (right) the vote;
 #X connect 23 1 7 1;
 #X restore -432 296 pd calc_barulho;
 #X obj -248 -6 import mrpeach iemnet;
-#X obj -755 30 tgl 30 0 empty empty connect_OSC -5 -7 0 10 -257985
+#X obj -755 30 tgl 30 1 empty empty connect_OSC -5 -7 0 10 -257985
 -1 -1 1 1;
 #X obj -755 69 s conn1;
 #N canvas 95 437 450 300 barulho_array 0;
@@ -205,7 +205,7 @@ becomes red too early;
 #X obj -345 207 f;
 #X obj -390 471 r barulho_vote;
 #X obj -210 481 r timer_ctrl;
-#N canvas 249 238 722 530 interface 1;
+#N canvas 245 240 722 530 interface 1;
 #N canvas 19 79 1202 720 INTERFACE-GOP 0;
 #X obj 115 323 bng 100 250 50 0 empty empty barulhometro_ctrl 17 7
 0 10 -4034 -1 -1;
@@ -252,7 +252,7 @@ becomes red too early;
 -1 -1;
 #X obj 251 322 r timer_ctrl;
 #X obj 403 137 vradio 55 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 0;
 #X obj 393 379 s Mode;
 #X text 463 155 Geral;
 #X text 465 214 Timer;
@@ -338,7 +338,7 @@ becomes red too early;
 #X obj -432 321 max 0;
 #X obj -707 534 s Noiselvl;
 #X obj -432 241 r Noiselvl;
-#N canvas 775 525 197 274 CONTROL 1;
+#N canvas 773 525 197 274 CONTROL 0;
 #X msg -78 210 \; ctrl 0 \;;
 #X obj -78 53 sel 1 0;
 #X msg -51 148 \; ctrl 1 \;;
