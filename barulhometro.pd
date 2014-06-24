@@ -1,4 +1,4 @@
-#N canvas 169 77 698 641 10;
+#N canvas 43 75 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
 #X obj -707 211 adc~;
 #X obj -248 -52 table barulho;
@@ -79,7 +79,7 @@ the "10 value" and output (right) the vote;
 #X connect 10 0 0 0;
 #X connect 11 0 9 0;
 #X restore -249 -30 pd barulho_array;
-#N canvas 215 205 575 594 sendOSC 0;
+#N canvas 313 205 575 594 sendOSC 0;
 #X obj 206 47 inlet;
 #X obj 46 49 r conn1;
 #X obj 33 125 t f b;
@@ -115,6 +115,8 @@ the "10 value" and output (right) the vote;
 #X obj 52 489 prepend send;
 #X msg 408 209 send /zera_votos bang;
 #X obj 413 177 r zera_votos;
+#X obj 189 456 r pubYA;
+#X msg 181 487 send /pubYA \$1;
 #X connect 0 0 14 0;
 #X connect 0 0 20 0;
 #X connect 1 0 4 0;
@@ -150,6 +152,8 @@ the "10 value" and output (right) the vote;
 #X connect 30 0 13 0;
 #X connect 31 0 13 0;
 #X connect 32 0 31 0;
+#X connect 33 0 34 0;
+#X connect 34 0 13 0;
 #X restore -364 537 pd sendOSC;
 #X floatatom -345 241 12 0 0 1 maximum_barulho_(10) - -;
 #X obj -345 54 bng 50 250 50 0 empty empty set_value_10 55 25 0 14
@@ -159,7 +163,7 @@ the "10 value" and output (right) the vote;
 #X obj -389 268 r ctrl;
 #X obj -258 480 r ctrl;
 #X obj -469 35 tgl 50 0 empty ctrl-r control 55 25 0 14 -159808 -1
--1 0 1;
+-1 1 1;
 #X obj -706 241 hip~ 100;
 #X obj -684 296 s dbs;
 #X obj -340 -83 loadbang;
@@ -176,14 +180,14 @@ becomes red too early;
 #X obj -707 373 spigot;
 #X obj -674 320 r ctrl;
 #X obj -674 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #N canvas 372 462 289 267 barulho_table 0;
 #X obj -174 15 inlet~;
 #X obj -166 184 spigot~;
 #X obj -133 133 r ctrl;
 #X obj -85 238 tabwrite~ barulho;
 #X obj -133 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj -71 42 r ctrl;
 #X obj -71 68 sel 0 1;
 #X msg -82 91 stop;
@@ -201,8 +205,8 @@ becomes red too early;
 #X obj -345 207 f;
 #X obj -390 471 r barulho_vote;
 #X obj -210 481 r timer_ctrl;
-#N canvas 1 77 722 530 interface 1;
-#N canvas 15 77 1202 688 INTERFACE-GOP 0;
+#N canvas -12 148 707 505 interface 0;
+#N canvas 5 82 1202 688 INTERFACE-GOP 0;
 #X obj 115 367 bng 20 250 50 0 empty empty barulhometro_ctrl 17 7 0
 10 -4034 -1 -1;
 #X obj 125 177 bng 100 250 50 0 empty empty timer_on 17 45 0 13 -4160
@@ -243,12 +247,12 @@ becomes red too early;
 #X connect 6 3 13 0;
 #X connect 6 4 3 0;
 #X connect 6 4 14 0;
-#X restore 303 530 pd OSCandroid;
+#X restore 229 559 pd OSCandroid;
 #X obj 251 360 bng 30 250 50 0 empty empty zera_voto 35 7 0 10 -191407
 -1 -1;
 #X obj 251 322 r timer_ctrl;
 #X obj 403 137 vradio 55 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 3;
 #X obj 393 379 s Mode;
 #X text 463 155 Geral;
 #X text 465 214 Timer;
@@ -260,16 +264,16 @@ becomes red too early;
 1;
 #X text 178 507 Mostra barra timer;
 #X obj 116 556 s RecoverTimer;
-#X obj 610 144 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
--8 0 26 -262144 -1 -1 0 256;
+#X obj 611 142 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
+-8 0 26 -262144 -1 -1 10 256;
 #X obj 610 186 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 3 256;
 #X obj 610 228 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 4 256;
 #X obj 610 270 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 5 256;
 #X obj 610 312 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 1 256;
 #X obj 687 229 s juri;
 #X obj 694 285 s juri;
 #X obj 687 340 s juri;
@@ -279,21 +283,24 @@ becomes red too early;
 #X msg 611 337 /juri/4 \$1;
 #X msg 617 358 /juri/5 \$1;
 #X obj 677 171 s juri;
-#X msg 610 170 /juri/1 \$1;
-#X obj 583 426 bng 50 250 50 0 empty empty empty 17 7 0 10 -257985
+#X msg 609 171 /juri/1 \$1;
+#X obj 406 508 bng 50 250 50 0 empty empty empty 17 7 0 10 -257985
 -1 -1;
-#X msg 581 483 /juri/calc bang;
-#X obj 582 515 s juri;
+#X msg 404 565 /juri/calc bang;
+#X obj 405 597 s juri;
 #X text 554 153 JURI 1;
 #X text 556 196 JURI 2;
 #X text 556 322 JURI 5;
 #X text 556 280 JURI 4;
 #X text 556 238 JURI 3;
-#X text 637 437 Calcula VOTOS;
+#X text 460 519 Calcula VOTOS;
 #X msg 251 402 \; zera_votos bang;
-#X obj 471 382 - 100;
-#X obj 472 408 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 471 356 r dbs;
+#X obj 603 440 - 100;
+#X obj 646 415 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 603 414 r dbs;
+#X obj 404 425 tgl 50 0 empty empty Média_COM_Público 57 25 0 10
+-191407 -1 -1 1 1;
+#X obj 404 482 s pubYA;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 5 0;
@@ -317,6 +324,7 @@ becomes red too early;
 #X connect 36 0 37 0;
 #X connect 45 0 46 0;
 #X connect 47 0 45 0;
+#X connect 48 0 49 0;
 #X coords 0 -1 1 1 700 500 1 100 100;
 #X restore -1923 -35 pd INTERFACE-GOP;
 #X restore -247 17 pd interface;
@@ -340,7 +348,7 @@ becomes red too early;
 #X connect 8 0 0 0;
 #X restore -671 84 pd noise_level;
 #X obj -672 106 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 0 256;
+20 -262144 -1 -1 55.9105 256;
 #X obj -432 321 max 0;
 #X obj -707 494 s Noiselvl;
 #X obj -432 241 r Noiselvl;
@@ -360,22 +368,22 @@ becomes red too early;
 #X connect 6 0 1 0;
 #X restore -469 95 pd CONTROL;
 #X obj -330 167 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 0 256;
+20 -262144 -1 -1 1363.44 256;
 #X obj -432 349 s NoiseSum;
 #X obj -330 143 r NoiseSum;
 #X obj -345 328 nbx 5 28 -1e+37 1e+37 0 0 empty empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 0 256;
+6 40 0 20 -262144 -1 -1 0.847314 256;
 #X obj -345 391 s barulho_vote;
 #X obj -686 418 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
--8 0 15 -262144 -1 -1 0 256;
+-8 0 15 -262144 -1 -1 50 256;
 #X obj -340 -59 delay 2000;
 #X msg -340 -35 \; pd dsp 1 \; ctrl 1 \; conn1 1 \;;
-#X text -254 558 Ver 23 Jun 2014;
 #X obj -534 530 timer;
 #X obj -529 502 t b b;
 #X floatatom -533 565 10 0 0 0 - - -;
 #X obj -463 479 average 18;
 #X obj -463 507 speedlim 192;
+#X text -254 558 Ver 24 Jun 2014;
 #X connect 0 0 15 0;
 #X connect 0 1 15 0;
 #X connect 2 0 33 0;
@@ -385,7 +393,7 @@ becomes red too early;
 #X connect 9 0 27 0;
 #X connect 10 0 23 0;
 #X connect 10 0 16 0;
-#X connect 11 0 49 0;
+#X connect 11 0 48 0;
 #X connect 12 0 2 1;
 #X connect 13 0 7 2;
 #X connect 14 0 36 0;
@@ -407,8 +415,8 @@ becomes red too early;
 #X connect 40 0 41 0;
 #X connect 42 0 22 1;
 #X connect 43 0 44 0;
-#X connect 46 0 48 0;
-#X connect 47 0 46 0;
-#X connect 47 1 46 1;
-#X connect 49 0 50 0;
-#X connect 50 0 7 0;
+#X connect 45 0 47 0;
+#X connect 46 0 45 0;
+#X connect 46 1 45 1;
+#X connect 48 0 49 0;
+#X connect 49 0 7 0;

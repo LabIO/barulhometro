@@ -1,11 +1,11 @@
-#N canvas 32 361 848 393 10;
+#N canvas 469 132 848 393 10;
 #X declare -lib iemnet -lib mrpeach;
 #X obj 29 4 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 6136 1;
+-1 -1 5171 1;
 #X obj 369 -67 loadbang;
 #X obj 49 -23 -;
 #X obj 53 3 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 136 1;
+-1 -1 0 1;
 #X obj 64 -45 r db_thresh;
 #X obj 53 144 s dbT;
 #X msg 687 210 1;
@@ -209,10 +209,10 @@
 #X text 154 24 LOGO;
 #X text 156 -45 COLUMN;
 #X text 243 -45 VOTE;
-#N canvas 444 77 757 688 COLUMN 1;
+#N canvas 440 79 757 688 COLUMN 0;
 #X obj 181 230 hsv2rgb;
 #X obj 184 126 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 12524 1;
+-258113 -260097 12700 1;
 #X msg 181 203 \$1 1 1;
 #X obj 181 59 expr 1 - $f1/$f2;
 #X obj 194 351 r size;
@@ -305,7 +305,7 @@
 #X connect 45 0 41 2;
 #X connect 46 0 17 0;
 #X restore 159 -6 pd COLUMN;
-#N canvas 20 77 646 688 VOTE 0;
+#N canvas 586 66 646 688 VOTE 0;
 #X obj 121 536 text2d;
 #X floatatom 154 511 5 0 0 0 - - -;
 #X floatatom 163 79 5 0 0 0 - - -;
@@ -314,7 +314,7 @@
 #X obj 154 482 r sizeVOTE;
 #X obj 121 315 r barulho_vote;
 #X obj -149 349 loadbang;
-#N canvas 745 412 450 300 ROUND 0;
+#N canvas 743 413 450 300 ROUND 0;
 #X obj 55 24 inlet;
 #X obj 85 129 + 0.5;
 #X obj 85 159 int;
@@ -330,11 +330,11 @@
 #X obj 121 366 min 10;
 #X obj 121 390 max 0;
 #X obj 66 44 spigot;
-#X obj 99 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 99 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 135 -22 0;
 #X msg 190 -24 1;
-#X obj 42 -64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 42 -64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 40 -87 inlet;
 #X obj 33 -39 gemhead;
@@ -364,7 +364,7 @@
 #X msg -154 373 font FONTS/MAKISUPA.TTF \, text - \, alias 1;
 #X obj 121 417 t f f;
 #X text 114 291 Pega a pontuação do barulho e arredonda;
-#N canvas 573 226 462 407 PRINTA 0;
+#N canvas 571 227 462 407 PRINTA 0;
 #X obj 120 44 inlet;
 #X obj 79 334 print VOTO PÚBLICO:;
 #X msg 197 91 bang;
@@ -395,6 +395,7 @@
 #X connect 14 1 9 3;
 #X connect 15 0 1 0;
 #X restore 148 447 pd PRINTA;
+#X msg -133 505 font vera.ttf \, text - \, alias 1;
 #X connect 1 0 0 1;
 #X connect 2 0 39 3;
 #X connect 3 0 39 1;
@@ -445,8 +446,9 @@
 #X connect 41 0 0 0;
 #X connect 42 0 0 0;
 #X connect 42 1 44 0;
+#X connect 45 0 0 0;
 #X restore 243 -8 pd VOTE;
-#N canvas 34 163 397 504 LOGO 0;
+#N canvas 633 193 397 504 LOGO 0;
 #X obj 215 36 r ctrl;
 #X obj 87 132 spigot;
 #X obj 140 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
@@ -458,9 +460,8 @@
 #X obj 110 193 f;
 #X obj 140 192 + 1;
 #X obj 110 429 text3d;
-#X obj 229 362 loadbang;
+#X obj 284 349 loadbang;
 #X msg 250 322 font FONTS/MAKISUPA.TTF;
-#X msg 222 387 text Lab.I.O;
 #X obj 56 3 gemhead;
 #X obj 17 -20 inlet;
 #X obj 30 2 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
@@ -471,57 +472,58 @@
 #X obj 191 258 loadbang;
 #X msg 189 279 1;
 #X obj 54 60 ortho;
-#X msg 244 411 7;
+#X msg 244 422 7;
 #X obj 54 84 translateXYZ -2.2 3.21 0;
 #X obj 4 30 r Mode;
 #X obj 7 57 != 0;
 #X floatatom 2 92 5 0 0 0 - - -;
 #X obj 72 336 colourRGB 1 0.9 0.2 1;
-#X obj 119 161 metro 11;
+#X msg 289 410 text Lab.I.O;
+#X msg 222 387 text PortugalSLAM;
+#X obj 119 161 metro 35;
 #X connect 0 0 3 0;
 #X connect 1 0 6 0;
 #X connect 2 0 1 1;
-#X connect 2 0 28 0;
+#X connect 2 0 29 0;
 #X connect 3 0 4 0;
 #X connect 3 1 5 0;
 #X connect 4 0 2 0;
 #X connect 5 0 2 0;
-#X connect 6 0 27 0;
+#X connect 6 0 26 0;
 #X connect 7 0 8 0;
 #X connect 7 0 6 2;
 #X connect 8 0 7 1;
-#X connect 10 0 22 0;
+#X connect 10 0 21 0;
 #X connect 10 0 11 0;
-#X connect 10 0 12 0;
+#X connect 10 0 28 0;
 #X connect 11 0 9 0;
-#X connect 12 0 9 0;
-#X connect 13 0 16 0;
-#X connect 14 0 15 0;
-#X connect 15 0 13 0;
-#X connect 16 0 21 0;
-#X connect 17 0 27 4;
-#X connect 18 0 17 0;
-#X connect 19 0 20 0;
-#X connect 20 0 17 0;
-#X connect 21 0 23 0;
-#X connect 22 0 9 1;
-#X connect 23 0 1 0;
-#X connect 24 0 25 0;
-#X connect 24 0 26 0;
-#X connect 25 0 15 0;
-#X connect 27 0 9 0;
-#X connect 28 0 7 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
+#X connect 15 0 20 0;
+#X connect 16 0 26 4;
+#X connect 17 0 16 0;
+#X connect 18 0 19 0;
+#X connect 19 0 16 0;
+#X connect 20 0 22 0;
+#X connect 21 0 9 1;
+#X connect 22 0 1 0;
+#X connect 23 0 24 0;
+#X connect 23 0 25 0;
+#X connect 24 0 14 0;
+#X connect 26 0 9 0;
+#X connect 28 0 9 0;
+#X connect 29 0 7 0;
 #X restore 158 66 pd LOGO;
-#N canvas 312 152 503 604 BARULHOMETRO 0;
+#N canvas 308 154 503 604 BARULHOMETRO 0;
 #X obj 130 426 text2d;
 #X obj 130 192 translateXYZ;
 #X floatatom 153 104 5 0 0 0 - - -;
 #X floatatom 180 165 5 0 0 0 - - -;
 #X floatatom 219 167 5 0 0 0 - - -;
 #X msg 150 295 font FONTS/MAKISUPA.TTF;
-#X msg 160 324 text BARULHÓMETRO;
 #X obj 167 236 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -536,35 +538,38 @@
 #X obj 153 75 r Barulho-Pos-X;
 #X floatatom 163 406 5 0 0 0 - - -;
 #X obj 175 130 r Barulho-Pos-Y;
-#X msg 367 21 \; Barulho-size 25 \; Barulho-Pos-X -4 \; Barulho-Pos-Y
-2 \;;
 #X msg 206 7 \; Barulho-size 50 \; Barulho-Pos-X 0 \; Barulho-Pos-Y
 -1 \;;
+#X msg 284 324 text BARULHÓMETRO;
+#X msg 160 324 text PÚBLICO;
+#X msg 342 7 \; Barulho-size 25 \; Barulho-Pos-X -4.3 \; Barulho-Pos-Y
+2 \;;
 #X connect 1 0 0 0;
 #X connect 2 0 1 1;
 #X connect 3 0 1 2;
 #X connect 4 0 1 3;
 #X connect 5 0 0 0;
-#X connect 6 0 0 0;
-#X connect 7 0 6 0;
-#X connect 7 0 5 0;
-#X connect 8 0 9 0;
-#X connect 9 0 17 0;
-#X connect 10 0 8 0;
+#X connect 6 0 23 0;
+#X connect 6 0 5 0;
+#X connect 6 0 22 0;
+#X connect 7 0 8 0;
+#X connect 8 0 16 0;
+#X connect 9 0 7 0;
+#X connect 10 0 11 0;
 #X connect 11 0 12 0;
-#X connect 12 0 13 0;
-#X connect 12 1 13 0;
-#X connect 12 2 14 0;
-#X connect 13 0 8 0;
-#X connect 14 0 8 0;
-#X connect 15 0 16 0;
-#X connect 16 0 23 0;
-#X connect 16 1 22 0;
-#X connect 17 0 1 0;
-#X connect 18 0 20 0;
-#X connect 19 0 2 0;
-#X connect 20 0 0 1;
-#X connect 21 0 3 0;
+#X connect 11 1 12 0;
+#X connect 11 2 13 0;
+#X connect 12 0 7 0;
+#X connect 13 0 7 0;
+#X connect 14 0 15 0;
+#X connect 15 0 21 0;
+#X connect 15 1 24 0;
+#X connect 16 0 1 0;
+#X connect 17 0 19 0;
+#X connect 18 0 2 0;
+#X connect 19 0 0 1;
+#X connect 20 0 3 0;
+#X connect 23 0 0 0;
 #X restore 244 92 pd BARULHOMETRO;
 #X obj 481 -74 cnv 15 300 100 empty empty empty 20 12 0 14 -191407
 -66577 0;
@@ -585,7 +590,7 @@
 #X obj 159 106 r T_X;
 #X obj 200 100 r T_Y;
 #X obj 241 101 r T_Z;
-#X obj 118 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 118 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 118 15 inlet;
 #X obj 118 69 gemhead 51;
@@ -609,28 +614,28 @@
 #X connect 15 0 11 0;
 #X connect 16 0 0 0;
 #X restore 245 45 pd TIMER;
-#X obj 244 71 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 244 71 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 245 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 243 -28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 243 -28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 159 -27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 158 45 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 158 45 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 486 -61 reset \, dimen 1024 768 \, offset 1440 0 \, border 1
 \, create \, 1;
 #X obj 159 150 juri_count;
-#N canvas 216 77 636 637 OSC-in 0;
+#N canvas 210 86 536 631 OSC-in 0;
 #X obj 211 -71 import iemnet mrpeach;
 #X obj 27 -48 unpackOSC;
-#X obj 40 475 line;
-#X obj 111 392 s ctrl;
-#X obj 75 420 s barulho_vote;
-#X obj 166 346 s StopTimer;
-#X obj 147 368 s GOtimer;
-#X obj 147 321 sel 1 0;
+#X obj 40 496 line;
+#X obj 104 413 s ctrl;
+#X obj 72 441 s barulho_vote;
+#X obj 155 367 s StopTimer;
+#X obj 136 389 s GOtimer;
+#X obj 136 342 sel 1 0;
 #N canvas 1 80 450 300 get.info 0;
 #X text 29 31 NOTE outlet #2 is for compatibility with mrpeach's net
 objects. you can get all info (and more) via outlet #3 as well.;
@@ -657,25 +662,26 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 10 0 11 0;
 #X restore 114 -48 pd get.info;
 #X obj 27 -77 udpreceive 3322;
-#X obj 182 282 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 168 303 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 40 499 outlet;
-#X obj 218 252 s Mode;
-#X obj 254 224 s MostraBarra;
-#X obj 289 49 routeOSC /1 /2 /3 /4 /5 /calc;
-#X obj 289 194 s JuriVote-1-set;
-#X obj 431 73 s calc_juri;
-#X obj 317 169 s JuriVote-2-set;
-#X obj 346 145 s JuriVote-3-set;
-#X obj 374 123 s JuriVote-4-set;
-#X obj 403 98 s JuriVote-5-set;
+#X obj 40 520 outlet;
+#X obj 200 273 s Mode;
+#X obj 232 245 s MostraBarra;
+#X obj 264 70 routeOSC /1 /2 /3 /4 /5 /calc;
+#X obj 264 215 s JuriVote-1-set;
+#X obj 406 94 s calc_juri;
+#X obj 292 190 s JuriVote-2-set;
+#X obj 321 166 s JuriVote-3-set;
+#X obj 349 144 s JuriVote-4-set;
+#X obj 378 119 s JuriVote-5-set;
+#X obj 296 43 s zera_votos;
+#X msg 40 468 \$1 400;
+#X text 82 519 Input de som am DBs;
+#X text 164 439 Voto do público;
 #X obj 40 -16 routeOSC /dbs /barulho_vote /ctrl /timer_ctrl /desliga
-/Mode /RecoverTimer /juri /zera_votos;
-#X obj 325 22 s zera_votos;
-#X msg 40 447 \$1 400;
-#X text 82 498 Input de som am DBs;
-#X text 164 418 Voto do público;
-#X connect 1 0 21 0;
+/Mode /RecoverTimer /juri /zera_votos /pubYA;
+#X obj 413 38 s pubYA;
+#X connect 1 0 25 0;
 #X connect 2 0 11 0;
 #X connect 7 0 6 0;
 #X connect 7 1 5 0;
@@ -687,16 +693,17 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 14 3 19 0;
 #X connect 14 4 20 0;
 #X connect 14 5 16 0;
-#X connect 21 0 23 0;
-#X connect 21 1 4 0;
-#X connect 21 2 3 0;
-#X connect 21 3 7 0;
-#X connect 21 4 10 0;
-#X connect 21 5 12 0;
-#X connect 21 6 13 0;
-#X connect 21 7 14 0;
-#X connect 21 8 22 0;
-#X connect 23 0 2 0;
+#X connect 22 0 2 0;
+#X connect 25 0 22 0;
+#X connect 25 1 4 0;
+#X connect 25 2 3 0;
+#X connect 25 3 7 0;
+#X connect 25 4 10 0;
+#X connect 25 5 12 0;
+#X connect 25 6 13 0;
+#X connect 25 7 14 0;
+#X connect 25 8 21 0;
+#X connect 25 9 26 0;
 #X restore 29 -67 pd OSC-in;
 #N canvas 551 183 614 581 video 0;
 #X obj 406 274 text3d;
@@ -726,12 +733,12 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X restore 284 216 pd video;
 #X obj 244 217 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
 -262144 -1 -1 0;
-#N canvas 1 130 1265 586 JURI 0;
+#N canvas -587 244 1226 720 JURI 1;
 #X obj 176 197 text2d;
 #X floatatom 193 68 5 0 0 0 - - -;
 #X floatatom 230 69 5 0 0 0 - - -;
 #X floatatom 269 71 5 0 0 0 - - -;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 143 35 gemhead;
 #X obj 430 -23 inlet;
@@ -811,14 +818,14 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X obj 935 377 r JuriSet-N;
 #X obj 256 5 == 3;
 #X obj 726 217 loadbang;
-#X obj 913 225 translateXYZ -4.21 1.31 0;
 #X obj 1113 169 r zera_votos;
 #X msg 1112 205 \; JuriSet-N text -;
-#X obj 909 339 translateXYZ 2.4 -0.01 0;
 #X obj 551 115 translateXYZ -1.83 0.4 0;
 #X msg 1015 66 \; JuriSize 25 \; JuriSet font FONTS/MAKISUPA.TTF \;
 JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 - \;;
+#X obj 913 225 translateXYZ -4.07 1.31 0;
+#X obj 909 339 translateXYZ 2.25 -0.01 0;
 #X connect 0 0 14 0;
 #X connect 1 0 61 1;
 #X connect 2 0 61 2;
@@ -829,7 +836,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 5 0 61 0;
 #X connect 6 0 4 0;
 #X connect 7 0 81 0;
-#X connect 8 0 88 0;
+#X connect 8 0 86 0;
 #X connect 9 0 0 1;
 #X connect 10 0 0 0;
 #X connect 11 0 18 0;
@@ -853,10 +860,10 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 26 0 24 0;
 #X connect 27 0 24 0;
 #X connect 28 0 34 0;
-#X connect 29 0 87 1;
-#X connect 30 0 87 2;
-#X connect 31 0 87 3;
-#X connect 32 0 87 0;
+#X connect 29 0 85 1;
+#X connect 30 0 85 2;
+#X connect 31 0 85 3;
+#X connect 32 0 85 0;
 #X connect 33 0 36 0;
 #X connect 34 0 33 0;
 #X connect 35 0 38 0;
@@ -869,14 +876,14 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 43 0 35 1;
 #X connect 44 0 37 1;
 #X connect 45 0 39 1;
-#X connect 46 0 86 0;
+#X connect 46 0 88 0;
 #X connect 47 0 46 0;
 #X connect 49 0 48 1;
-#X connect 50 0 83 0;
-#X connect 51 0 83 1;
-#X connect 52 0 83 2;
-#X connect 53 0 86 1;
-#X connect 54 0 86 2;
+#X connect 50 0 87 0;
+#X connect 51 0 87 1;
+#X connect 52 0 87 2;
+#X connect 53 0 88 1;
+#X connect 54 0 88 2;
 #X connect 55 0 46 1;
 #X connect 56 0 11 0;
 #X connect 57 0 15 0;
@@ -905,15 +912,15 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 80 0 48 0;
 #X connect 81 0 4 0;
 #X connect 82 0 74 0;
-#X connect 83 0 46 0;
-#X connect 84 0 85 0;
-#X connect 86 0 48 0;
-#X connect 87 0 28 0;
+#X connect 83 0 84 0;
+#X connect 85 0 28 0;
+#X connect 87 0 46 0;
+#X connect 88 0 48 0;
 #X restore 160 121 pd JURI;
 #X msg 369 -29 \; Mode 0 \; db_thresh 60 \; db_dCOR 30 \; shiftH 0.04
 \; size 15 \; sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z
 0 \; ctrl 0 \; MostraTexto 0 \; MostraBarra 0 \;;
-#X obj 160 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 160 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 255 135 geral;
 #X msg 501 -41 0 \, destroy;
