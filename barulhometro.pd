@@ -1,6 +1,6 @@
-#N canvas 67 94 698 641 10;
+#N canvas 63 92 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
-#X obj -713 176 adc~;
+#X obj -707 211 adc~;
 #X obj -248 -52 table barulho;
 #N canvas 564 161 533 588 calc_barulho 0;
 #X obj 41 -34 inlet;
@@ -161,25 +161,22 @@ the "10 value" and output (right) the vote;
 #X obj -258 480 r ctrl;
 #X obj -469 35 tgl 50 0 empty ctrl-r control 55 25 0 14 -159808 -1
 -1 1 1;
-#X obj -705 221 hip~ 100;
+#X obj -706 241 hip~ 100;
 #X obj -684 296 s dbs;
-#X obj -340 -53 loadbang;
-#X msg -340 -29 \; pd dsp 1 \; ctrl 1 \;;
+#X obj -340 -83 loadbang;
 #X text -752 -57 1) check the silence barulho (ambient noise) & set
 silence barulho 3) run the barulhometro the first time for maximum
 noise (vote 10) on 5 seconds 4) set the value 10 OBS: \$1 argument
 out of range (in the [pd barulho_array]? why? - the color of the column
 becomes red too early;
 #X obj -672 27 tgl 50 0 empty empty check_silence 55 25 0 14 -204786
--1 -1 0 1;
+-1 -1 1 1;
 #X text -334 115 3) write this value in the box below;
-#X text -678 171 cut low f;
-#X floatatom -749 467 5 0 0 0 - - -;
-#X obj -707 510 - 60;
-#X obj -749 419 print;
-#X obj -707 364 spigot;
-#X obj -657 320 r ctrl;
-#X obj -657 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X text -649 239 cut low f;
+#X obj -707 470 - 60;
+#X obj -707 373 spigot;
+#X obj -674 320 r ctrl;
+#X obj -674 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
 #N canvas 374 435 289 267 barulho_table 0;
 #X obj -174 15 inlet~;
@@ -205,10 +202,10 @@ becomes red too early;
 #X obj -345 207 f;
 #X obj -390 471 r barulho_vote;
 #X obj -210 481 r timer_ctrl;
-#N canvas 245 240 722 530 interface 1;
-#N canvas 19 79 1202 720 INTERFACE-GOP 0;
-#X obj 115 323 bng 100 250 50 0 empty empty barulhometro_ctrl 17 7
-0 10 -4034 -1 -1;
+#N canvas 1 143 722 530 interface 1;
+#N canvas 17 77 1202 688 INTERFACE-GOP 0;
+#X obj 115 367 bng 20 250 50 0 empty empty barulhometro_ctrl 17 7 0
+10 -4034 -1 -1;
 #X obj 125 177 bng 100 250 50 0 empty empty timer_on 17 45 0 13 -4160
 -1 -262144;
 #X obj 238 177 bng 100 250 50 0 empty empty timer_off 20 50 0 10 -159808
@@ -252,7 +249,7 @@ becomes red too early;
 -1 -1;
 #X obj 251 322 r timer_ctrl;
 #X obj 403 137 vradio 55 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 2;
 #X obj 393 379 s Mode;
 #X text 463 155 Geral;
 #X text 465 214 Timer;
@@ -265,15 +262,15 @@ becomes red too early;
 #X text 178 507 Mostra barra timer;
 #X obj 116 556 s RecoverTimer;
 #X obj 610 144 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
--8 0 26 -262144 -1 -1 0 256;
+-8 0 26 -262144 -1 -1 10 256;
 #X obj 610 186 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 3 256;
 #X obj 610 228 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 6 256;
 #X obj 610 270 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 2 256;
 #X obj 610 312 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 0 256;
+-262144 -1 -1 5 256;
 #X obj 687 229 s juri;
 #X obj 694 285 s juri;
 #X obj 687 340 s juri;
@@ -319,7 +316,7 @@ becomes red too early;
 #X coords 0 -1 1 1 700 500 1 100 100;
 #X restore -1923 -35 pd INTERFACE-GOP;
 #X restore -247 17 pd interface;
-#N canvas 653 287 228 198 noise_level 0;
+#N canvas 651 314 228 198 noise_level 0;
 #X obj 70 125 outlet;
 #X obj 2 -36 adc~;
 #X obj 29 54 spigot~;
@@ -334,9 +331,9 @@ becomes red too early;
 #X connect 5 0 0 0;
 #X restore -671 84 pd noise_level;
 #X obj -672 106 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 0 256;
+20 -262144 -1 -1 48.3916 256;
 #X obj -432 321 max 0;
-#X obj -707 534 s Noiselvl;
+#X obj -707 494 s Noiselvl;
 #X obj -432 241 r Noiselvl;
 #N canvas 773 525 197 274 CONTROL 0;
 #X msg -78 210 \; ctrl 0 \;;
@@ -354,46 +351,53 @@ becomes red too early;
 #X connect 6 0 1 0;
 #X restore -469 95 pd CONTROL;
 #X obj -330 167 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 0 256;
+20 -262144 -1 -1 334.586 256;
 #X obj -432 349 s NoiseSum;
 #X obj -330 143 r NoiseSum;
 #X obj -345 328 nbx 5 28 -1e+37 1e+37 0 0 empty empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 0 256;
+6 40 0 20 -262144 -1 -1 0.969951 256;
 #X obj -345 391 s barulho_vote;
 #X obj -463 507 speedlim 200;
-#X text -254 558 Ver 3 Mar 2014;
-#X obj -164 191 print;
-#X obj -686 458 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
--8 0 15 -262144 -1 -1 0 256;
+#X obj -686 418 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
+-8 0 15 -262144 -1 -1 48 256;
+#X obj -340 -59 delay 2000;
+#X msg -340 -35 \; pd dsp 1 \; ctrl 1 \; conn1 1 \;;
+#X text -254 558 Ver 23 Jun 2014;
+#X obj -534 530 timer;
+#X obj -529 502 t b b;
+#X floatatom -533 565 10 0 0 0 - - -;
 #X connect 0 0 15 0;
 #X connect 0 1 15 0;
-#X connect 2 0 36 0;
-#X connect 2 1 43 0;
+#X connect 2 0 33 0;
+#X connect 2 1 40 0;
 #X connect 4 0 5 0;
 #X connect 8 0 2 2;
-#X connect 9 0 30 0;
-#X connect 10 0 26 0;
+#X connect 9 0 27 0;
+#X connect 10 0 23 0;
 #X connect 10 0 16 0;
-#X connect 11 0 45 0;
+#X connect 11 0 42 0;
 #X connect 12 0 2 1;
 #X connect 13 0 7 2;
-#X connect 14 0 39 0;
+#X connect 14 0 36 0;
 #X connect 15 0 10 0;
-#X connect 17 0 18 0;
-#X connect 20 0 34 0;
-#X connect 23 0 24 0;
-#X connect 24 0 37 0;
-#X connect 26 0 24 0;
-#X connect 27 0 28 0;
-#X connect 28 0 26 1;
-#X connect 30 0 8 0;
-#X connect 31 0 7 1;
-#X connect 32 0 7 3;
-#X connect 34 0 35 0;
-#X connect 36 0 41 0;
-#X connect 38 0 2 0;
-#X connect 40 0 30 1;
-#X connect 42 0 40 0;
-#X connect 43 0 44 0;
-#X connect 45 0 7 0;
-#X connect 48 0 24 1;
+#X connect 17 0 44 0;
+#X connect 19 0 31 0;
+#X connect 22 0 34 0;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 1;
+#X connect 27 0 8 0;
+#X connect 28 0 7 1;
+#X connect 29 0 7 3;
+#X connect 31 0 32 0;
+#X connect 33 0 38 0;
+#X connect 35 0 2 0;
+#X connect 37 0 27 1;
+#X connect 39 0 37 0;
+#X connect 40 0 41 0;
+#X connect 42 0 7 0;
+#X connect 43 0 22 1;
+#X connect 44 0 45 0;
+#X connect 47 0 49 0;
+#X connect 48 0 47 0;
+#X connect 48 1 47 1;
