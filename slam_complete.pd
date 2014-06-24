@@ -1,11 +1,11 @@
-#N canvas 137 312 848 393 10;
+#N canvas 32 361 848 393 10;
 #X declare -lib iemnet -lib mrpeach;
 #X obj 29 4 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 4658 1;
+-1 -1 6136 1;
 #X obj 369 -67 loadbang;
 #X obj 49 -23 -;
 #X obj 53 3 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 0 1;
+-1 -1 136 1;
 #X obj 64 -45 r db_thresh;
 #X obj 53 144 s dbT;
 #X msg 687 210 1;
@@ -209,34 +209,32 @@
 #X text 154 24 LOGO;
 #X text 156 -45 COLUMN;
 #X text 243 -45 VOTE;
-#N canvas 446 77 757 688 COLUMN 0;
+#N canvas 444 77 757 688 COLUMN 1;
 #X obj 181 230 hsv2rgb;
 #X obj 184 126 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 12700 1;
+-258113 -260097 12524 1;
 #X msg 181 203 \$1 1 1;
 #X obj 181 59 expr 1 - $f1/$f2;
-#X obj 296 344 r size;
+#X obj 194 351 r size;
 #X floatatom 220 177 5 0 0 1 shift_value - -;
 #X obj 181 176 -;
 #X obj 220 153 r shiftH;
 #X obj 181 83 pow 0.3;
 #X obj 274 30 r db_dCOR;
 #X obj 181 31 r dbT;
-#X obj 246 342 r dbT;
+#X obj 144 349 r dbT;
 #X obj 174 -58 r ctrl;
-#X floatatom 143 478 5 0 0 0 - - -;
 #X obj 112 42 gemhead;
 #X obj 112 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 112 -65 inlet;
 #X obj 39 -95 loadbang;
-#X msg 39 -64 0;
+#X msg 45 -25 0;
 #X obj 442 -38 r estado;
 #X obj 448 -8 == 1;
-#X floatatom 311 400 5 0 0 0 - - -;
+#X floatatom 209 407 5 0 0 0 - - -;
 #X obj 112 256 color 1 1 1;
-#X obj 265 426 pow 2;
-#X floatatom 220 402 5 0 0 0 - - -;
+#X obj 163 433 pow 2;
 #X obj 131 602 triangle;
 #X obj 193 602 r sizestar;
 #X obj 133 709 triangle;
@@ -256,58 +254,56 @@
 #X obj 143 763 rotateXYZ 0 0 -291;
 #X obj 149 864 rotateXYZ 0 0 -672;
 #X obj 112 510 scaleXYZ 1 1 1;
-#X floatatom 314 484 5 0 0 0 - - -;
-#X floatatom 365 454 5 0 0 0 - - -;
-#X obj 260 378 / 30;
+#X floatatom 192 465 5 0 0 0 - - -;
+#X obj 158 385 / 30;
 #X obj 146 553 translateXYZ 0 0 -0.1;
-#X obj 283 497 * 3;
-#X connect 0 0 22 1;
+#X obj 161 478 * 3;
+#X obj 33 -63 delay 500;
+#X connect 0 0 21 1;
 #X connect 1 0 6 0;
 #X connect 2 0 0 0;
 #X connect 3 0 8 0;
-#X connect 4 0 46 1;
+#X connect 4 0 43 1;
 #X connect 5 0 6 1;
 #X connect 6 0 2 0;
 #X connect 7 0 5 0;
 #X connect 8 0 1 0;
 #X connect 9 0 3 1;
 #X connect 10 0 3 0;
-#X connect 11 0 24 0;
-#X connect 11 0 46 0;
-#X connect 12 0 15 0;
-#X connect 13 0 43 1;
-#X connect 13 0 43 2;
-#X connect 14 0 22 0;
+#X connect 11 0 43 0;
+#X connect 12 0 14 0;
+#X connect 13 0 21 0;
+#X connect 14 0 13 0;
 #X connect 15 0 14 0;
-#X connect 16 0 15 0;
-#X connect 17 0 18 0;
-#X connect 18 0 15 0;
-#X connect 21 0 23 1;
-#X connect 22 0 43 0;
-#X connect 23 0 45 0;
-#X connect 23 0 48 0;
+#X connect 16 0 46 0;
+#X connect 17 0 14 0;
+#X connect 20 0 22 1;
+#X connect 21 0 41 0;
+#X connect 22 0 45 0;
+#X connect 23 0 37 0;
+#X connect 24 0 23 1;
 #X connect 25 0 39 0;
 #X connect 26 0 25 1;
-#X connect 27 0 41 0;
-#X connect 28 0 27 1;
-#X connect 29 0 40 3;
-#X connect 30 0 40 2;
-#X connect 31 0 42 0;
-#X connect 32 0 31 1;
-#X connect 33 0 41 3;
-#X connect 34 0 41 2;
-#X connect 36 0 35 1;
-#X connect 37 0 42 3;
-#X connect 38 0 42 2;
-#X connect 39 0 40 0;
-#X connect 40 0 27 0;
-#X connect 41 0 31 0;
-#X connect 42 0 35 0;
-#X connect 43 0 47 0;
-#X connect 44 0 48 1;
-#X connect 46 0 23 0;
-#X connect 47 0 25 0;
-#X connect 48 0 13 0;
+#X connect 27 0 38 3;
+#X connect 28 0 38 2;
+#X connect 29 0 40 0;
+#X connect 30 0 29 1;
+#X connect 31 0 39 3;
+#X connect 32 0 39 2;
+#X connect 34 0 33 1;
+#X connect 35 0 40 3;
+#X connect 36 0 40 2;
+#X connect 37 0 38 0;
+#X connect 38 0 25 0;
+#X connect 39 0 29 0;
+#X connect 40 0 33 0;
+#X connect 41 0 44 0;
+#X connect 42 0 45 1;
+#X connect 43 0 22 0;
+#X connect 44 0 23 0;
+#X connect 45 0 41 1;
+#X connect 45 0 41 2;
+#X connect 46 0 17 0;
 #X restore 159 -6 pd COLUMN;
 #N canvas 20 77 646 688 VOTE 0;
 #X obj 121 536 text2d;
@@ -334,11 +330,11 @@
 #X obj 121 366 min 10;
 #X obj 121 390 max 0;
 #X obj 66 44 spigot;
-#X obj 99 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 99 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 135 -22 0;
 #X msg 190 -24 1;
-#X obj 42 -64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 42 -64 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 40 -87 inlet;
 #X obj 33 -39 gemhead;
@@ -516,7 +512,7 @@
 #X connect 27 0 9 0;
 #X connect 28 0 7 0;
 #X restore 158 66 pd LOGO;
-#N canvas 314 153 503 604 BARULHOMETRO 0;
+#N canvas 312 152 503 604 BARULHOMETRO 0;
 #X obj 130 426 text2d;
 #X obj 130 192 translateXYZ;
 #X floatatom 153 104 5 0 0 0 - - -;
@@ -525,7 +521,7 @@
 #X msg 150 295 font FONTS/MAKISUPA.TTF;
 #X msg 160 324 text BARULHÓMETRO;
 #X obj 167 236 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -589,7 +585,7 @@
 #X obj 159 106 r T_X;
 #X obj 200 100 r T_Y;
 #X obj 241 101 r T_Z;
-#X obj 118 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 118 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 118 15 inlet;
 #X obj 118 69 gemhead 51;
@@ -626,14 +622,14 @@
 #X msg 486 -61 reset \, dimen 1024 768 \, offset 1440 0 \, border 1
 \, create \, 1;
 #X obj 159 150 juri_count;
-#N canvas 220 77 636 637 OSC-in 0;
+#N canvas 216 77 636 637 OSC-in 0;
 #X obj 211 -71 import iemnet mrpeach;
 #X obj 27 -48 unpackOSC;
 #X obj 40 475 line;
 #X obj 111 392 s ctrl;
 #X obj 75 420 s barulho_vote;
 #X obj 166 346 s StopTimer;
-#X obj 147 366 s GOtimer;
+#X obj 147 368 s GOtimer;
 #X obj 147 321 sel 1 0;
 #N canvas 1 80 450 300 get.info 0;
 #X text 29 31 NOTE outlet #2 is for compatibility with mrpeach's net
@@ -677,6 +673,8 @@ objects. you can get all info (and more) via outlet #3 as well.;
 /Mode /RecoverTimer /juri /zera_votos;
 #X obj 325 22 s zera_votos;
 #X msg 40 447 \$1 400;
+#X text 82 498 Input de som am DBs;
+#X text 164 418 Voto do público;
 #X connect 1 0 21 0;
 #X connect 2 0 11 0;
 #X connect 7 0 6 0;
@@ -733,7 +731,7 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X floatatom 193 68 5 0 0 0 - - -;
 #X floatatom 230 69 5 0 0 0 - - -;
 #X floatatom 269 71 5 0 0 0 - - -;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 143 35 gemhead;
 #X obj 430 -23 inlet;
@@ -925,9 +923,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X text 158 283 Versione 23 Jun 2014;
 #X obj 82 127 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 93 78 - 100;
-#X floatatom 12 177 5 0 0 0 - - -;
 #X connect 0 0 2 0;
-#X connect 0 0 57 0;
 #X connect 1 0 48 0;
 #X connect 2 0 3 0;
 #X connect 3 0 5 0;
