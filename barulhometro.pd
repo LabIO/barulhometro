@@ -1,4 +1,4 @@
-#N canvas 43 75 698 641 10;
+#N canvas 17 122 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
 #X obj -707 211 adc~;
 #X obj -248 -52 table barulho;
@@ -79,7 +79,7 @@ the "10 value" and output (right) the vote;
 #X connect 10 0 0 0;
 #X connect 11 0 9 0;
 #X restore -249 -30 pd barulho_array;
-#N canvas 313 205 575 594 sendOSC 0;
+#N canvas 309 205 575 594 sendOSC 0;
 #X obj 206 47 inlet;
 #X obj 46 49 r conn1;
 #X obj 33 125 t f b;
@@ -115,8 +115,8 @@ the "10 value" and output (right) the vote;
 #X obj 52 489 prepend send;
 #X msg 408 209 send /zera_votos bang;
 #X obj 413 177 r zera_votos;
-#X obj 189 456 r pubYA;
-#X msg 181 487 send /pubYA \$1;
+#X obj 260 460 r pubYA;
+#X msg 252 491 send /pubYA \$1;
 #X connect 0 0 14 0;
 #X connect 0 0 20 0;
 #X connect 1 0 4 0;
@@ -154,14 +154,14 @@ the "10 value" and output (right) the vote;
 #X connect 32 0 31 0;
 #X connect 33 0 34 0;
 #X connect 34 0 13 0;
-#X restore -364 537 pd sendOSC;
+#X restore -371 502 pd sendOSC;
 #X floatatom -345 241 12 0 0 1 maximum_barulho_(10) - -;
 #X obj -345 54 bng 50 250 50 0 empty empty set_value_10 55 25 0 14
 -4034 -1 -1;
 #X obj -707 268 env~;
-#X obj -463 456 r dbs;
+#X obj -470 421 r dbs;
 #X obj -389 268 r ctrl;
-#X obj -258 480 r ctrl;
+#X obj -265 445 r ctrl;
 #X obj -469 35 tgl 50 0 empty ctrl-r control 55 25 0 14 -159808 -1
 -1 1 1;
 #X obj -706 241 hip~ 100;
@@ -203,9 +203,9 @@ becomes red too early;
 #X connect 8 0 3 0;
 #X restore -245 41 pd barulho_table;
 #X obj -345 207 f;
-#X obj -390 471 r barulho_vote;
-#X obj -210 481 r timer_ctrl;
-#N canvas -12 148 707 505 interface 0;
+#X obj -397 436 r barulho_vote;
+#X obj -217 446 r timer_ctrl;
+#N canvas 64 134 707 505 interface 1;
 #N canvas 5 82 1202 688 INTERFACE-GOP 0;
 #X obj 115 367 bng 20 250 50 0 empty empty barulhometro_ctrl 17 7 0
 10 -4034 -1 -1;
@@ -252,7 +252,7 @@ becomes red too early;
 -1 -1;
 #X obj 251 322 r timer_ctrl;
 #X obj 403 137 vradio 55 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 3;
+-1 -1 2;
 #X obj 393 379 s Mode;
 #X text 463 155 Geral;
 #X text 465 214 Timer;
@@ -265,15 +265,15 @@ becomes red too early;
 #X text 178 507 Mostra barra timer;
 #X obj 116 556 s RecoverTimer;
 #X obj 611 142 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
--8 0 26 -262144 -1 -1 10 256;
+-8 0 26 -262144 -1 -1 0 256;
 #X obj 610 186 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 3 256;
+-262144 -1 -1 0 256;
 #X obj 610 228 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 4 256;
+-262144 -1 -1 0 256;
 #X obj 610 270 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 5 256;
+-262144 -1 -1 0 256;
 #X obj 610 312 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 1 256;
+-262144 -1 -1 0 256;
 #X obj 687 229 s juri;
 #X obj 694 285 s juri;
 #X obj 687 340 s juri;
@@ -299,7 +299,7 @@ becomes red too early;
 #X obj 646 415 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 603 414 r dbs;
 #X obj 404 425 tgl 50 0 empty empty Média_COM_Público 57 25 0 10
--191407 -1 -1 1 1;
+-191407 -1 -1 0 1;
 #X obj 404 482 s pubYA;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
@@ -348,11 +348,11 @@ becomes red too early;
 #X connect 8 0 0 0;
 #X restore -671 84 pd noise_level;
 #X obj -672 106 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 55.9105 256;
+20 -262144 -1 -1 0 256;
 #X obj -432 321 max 0;
 #X obj -707 494 s Noiselvl;
 #X obj -432 241 r Noiselvl;
-#N canvas 771 491 197 274 CONTROL 0;
+#N canvas 769 520 197 274 CONTROL 0;
 #X msg -78 210 \; ctrl 0 \;;
 #X obj -78 53 sel 1 0;
 #X msg -51 148 \; ctrl 1 \;;
@@ -367,23 +367,28 @@ becomes red too early;
 #X connect 4 1 2 0;
 #X connect 6 0 1 0;
 #X restore -469 95 pd CONTROL;
-#X obj -330 167 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 1363.44 256;
+#X obj -330 167 nbx 7 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+20 -262144 -1 -1 10000 256;
 #X obj -432 349 s NoiseSum;
 #X obj -330 143 r NoiseSum;
 #X obj -345 328 nbx 5 28 -1e+37 1e+37 0 0 empty empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 0.847314 256;
+6 40 0 20 -262144 -1 -1 0 256;
 #X obj -345 391 s barulho_vote;
 #X obj -686 418 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
--8 0 15 -262144 -1 -1 50 256;
+-8 0 15 -262144 -1 -1 0 256;
 #X obj -340 -59 delay 2000;
 #X msg -340 -35 \; pd dsp 1 \; ctrl 1 \; conn1 1 \;;
-#X obj -534 530 timer;
-#X obj -529 502 t b b;
-#X floatatom -533 565 10 0 0 0 - - -;
-#X obj -463 479 average 18;
-#X obj -463 507 speedlim 192;
-#X text -254 558 Ver 24 Jun 2014;
+#X obj -470 444 average 18;
+#X obj -470 472 speedlim 192;
+#N canvas 368 499 450 300 bugs 0;
+#X text 24 17 quando liga a estrela do barulhometro aparece também
+no timer;
+#X text 26 57 a primeira vez que calcula o barulho nao da um valor
+;
+#X text 30 92 o [pd control] serve a lançar os 5 segundos \, e a zerar
+o voto _acho que se pode abdicar dele;
+#X restore -247 -79 pd bugs;
+#X text -261 523 Ver 25 Jun 2014;
 #X connect 0 0 15 0;
 #X connect 0 1 15 0;
 #X connect 2 0 33 0;
@@ -393,7 +398,7 @@ becomes red too early;
 #X connect 9 0 27 0;
 #X connect 10 0 23 0;
 #X connect 10 0 16 0;
-#X connect 11 0 48 0;
+#X connect 11 0 45 0;
 #X connect 12 0 2 1;
 #X connect 13 0 7 2;
 #X connect 14 0 36 0;
@@ -415,8 +420,5 @@ becomes red too early;
 #X connect 40 0 41 0;
 #X connect 42 0 22 1;
 #X connect 43 0 44 0;
-#X connect 45 0 47 0;
-#X connect 46 0 45 0;
-#X connect 46 1 45 1;
-#X connect 48 0 49 0;
-#X connect 49 0 7 0;
+#X connect 45 0 46 0;
+#X connect 46 0 7 0;

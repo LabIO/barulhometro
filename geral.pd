@@ -1,10 +1,10 @@
-#N canvas 138 133 708 503 10;
-#X obj 179 68 gemhead;
-#X obj 179 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 1 197 708 503 10;
+#X obj 119 52 gemhead;
+#X obj 119 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 130 137 pix_image;
-#X obj 153 332 pix_texture;
-#X obj 243 177 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
+#X obj 75 99 pix_image;
+#X obj 75 266 pix_texture;
+#X obj 165 111 hradio 15 1 1 3 empty empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #N canvas 722 463 450 300 META 0;
 #X obj 69 22 inlet;
@@ -23,7 +23,7 @@
 #X connect 5 0 3 0;
 #X connect 6 0 7 0;
 #X connect 7 0 4 0;
-#X restore 178 277 pd META;
+#X restore 100 211 pd META;
 #N canvas 351 194 849 439 PUZZLE 0;
 #X obj 116 243 pix_puzzle;
 #X msg 413 32 size \$1 \$2;
@@ -113,25 +113,24 @@
 #X connect 37 1 36 0;
 #X connect 38 0 36 0;
 #X connect 39 0 32 0;
-#X restore 239 296 pd PUZZLE;
-#X obj 153 223 demux 0 1 2 3;
-#X obj 449 -53 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X restore 161 230 pd PUZZLE;
+#X obj 75 157 demux 0 1 2 3;
+#X obj 389 -53 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 284 247 demux 0 1 2 3;
-#X obj 451 -17 t f f f;
-#X obj 526 -103 r Mode;
-#X obj 525 -71 == 0;
-#X floatatom 590 -67 5 0 0 0 - - -;
-#X obj 110 -97 loadbang;
-#X msg 179 -3 0;
-#X floatatom 272 398 5 0 0 0 - - -;
-#X floatatom 318 399 5 0 0 0 - - -;
-#X obj 153 365 translateXYZ 0 0 0;
-#X obj 153 425 rectangle 5.33 3.8;
-#X obj 179 -30 delay 5000;
-#X text 444 298 Ecran Gera;
-#X text 378 329 Usado quando se está a espera do proximo slammer;
-#N canvas -27 104 496 484 text_move 1;
+#X obj 206 181 demux 0 1 2 3;
+#X obj 391 -17 t f f f;
+#X obj 466 -103 r Mode;
+#X obj 465 -71 == 0;
+#X floatatom 530 -67 5 0 0 0 - - -;
+#X obj 50 -97 loadbang;
+#X msg 119 -3 0;
+#X floatatom 123 336 5 0 0 0 - - -;
+#X floatatom 176 338 5 0 0 0 - - -;
+#X obj 75 299 translateXYZ 0 0 0;
+#X obj 71 362 rectangle 5.33 3.8;
+#X obj 119 -30 delay 5000;
+#X text 143 -81 Usado quando se está a espera do proximo slammer;
+#N canvas 0 104 496 484 text_move 0;
 #X obj 133 10 gemhead;
 #X msg 39 215 text ArtCasa;
 #X floatatom 194 216 5 0 0 0 - - -;
@@ -161,7 +160,7 @@
 #X msg 102 351 text LabIO;
 #X obj 265 253 gemhead;
 #X text 213 446 crasha;
-#X obj 267 32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 267 32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 254 5 inlet;
 #X obj 336 35 loadbang;
@@ -202,14 +201,40 @@
 #X connect 30 0 27 0;
 #X connect 31 0 21 0;
 #X connect 32 0 3 0;
-#X restore 6 157 pd text_move;
-#X obj 243 200 t f f;
-#X msg -4 -18 open IMAGENS/slam-small.jpg;
+#X restore -54 157 pd text_move;
+#X obj 165 134 t f f;
+#X msg -64 -18 open IMAGENS/slam-small.jpg;
+#X text 212 -102 Ecran Geral;
+#N canvas 68 209 458 407 logos 0;
+#X obj 37 353 outlet;
+#X msg 37 23 open IMAGENS/logos_org/logo_slam_sul.jpg;
+#X msg 77 53 open IMAGENS/logos_org/logo_slam_sines.jpg;
+#X msg 160 138 open IMAGENS/logos_org/logo_slam_coimbra.jpg;
+#X msg 175 165 open IMAGENS/logos_org/logo_slam_braga.jpg;
+#X msg 179 219 open IMAGENS/logos_org/logo_slam_amadora.jpg;
+#X msg 181 247 open IMAGENS/logos_org/logo_slam_LX.jpg;
+#X msg 179 277 open IMAGENS/logos_org/logo_slamT.jpg;
+#X msg 125 81 open IMAGENS/logos_org/logo_slam_ponta_delgada.png;
+#X msg 152 109 open IMAGENS/logos_org/logo_slam_matosinhos.png;
+#X msg 177 192 open IMAGENS/logos_org/logo_slam_aveiro.png;
+#X msg 175 304 open IMAGENS/logos_org/LabIOSlam_logo.jpg;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 0 0;
+#X restore -47 66 pd logos;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 7 0;
 #X connect 3 0 18 0;
-#X connect 4 0 24 0;
+#X connect 4 0 23 0;
 #X connect 5 0 3 0;
 #X connect 6 0 3 0;
 #X connect 7 0 3 0;
@@ -222,13 +247,14 @@
 #X connect 11 0 12 0;
 #X connect 11 0 13 0;
 #X connect 12 0 8 0;
-#X connect 14 0 25 0;
+#X connect 14 0 24 0;
 #X connect 14 0 20 0;
 #X connect 15 0 1 0;
 #X connect 16 0 19 1;
 #X connect 17 0 19 2;
 #X connect 18 0 19 0;
 #X connect 20 0 15 0;
-#X connect 24 0 7 1;
-#X connect 24 1 9 1;
-#X connect 25 0 2 0;
+#X connect 23 0 7 1;
+#X connect 23 1 9 1;
+#X connect 24 0 2 0;
+#X connect 26 0 2 0;
