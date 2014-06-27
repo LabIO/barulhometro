@@ -1,4 +1,4 @@
-#N canvas 15 121 698 641 10;
+#N canvas 13 120 698 641 10;
 #X declare -lib mrpeach -lib iemnet;
 #X obj -707 211 adc~;
 #X obj -248 -52 table barulho;
@@ -79,7 +79,7 @@ the "10 value" and output (right) the vote;
 #X connect 10 0 0 0;
 #X connect 11 0 9 0;
 #X restore -249 -30 pd barulho_array;
-#N canvas 307 171 575 594 sendOSC 0;
+#N canvas 305 170 575 594 sendOSC 0;
 #X obj 206 47 inlet;
 #X obj 46 49 r conn1;
 #X obj 33 125 t f b;
@@ -117,6 +117,8 @@ the "10 value" and output (right) the vote;
 #X obj 413 177 r zera_votos;
 #X obj 260 460 r pubYA;
 #X msg 252 491 send /pubYA \$1;
+#X obj 377 519 r Logo-Sel;
+#X msg 370 572 send /LogoSel \$1;
 #X connect 0 0 14 0;
 #X connect 0 0 20 0;
 #X connect 1 0 4 0;
@@ -154,6 +156,8 @@ the "10 value" and output (right) the vote;
 #X connect 32 0 31 0;
 #X connect 33 0 34 0;
 #X connect 34 0 13 0;
+#X connect 35 0 36 0;
+#X connect 36 0 13 0;
 #X restore -371 502 pd sendOSC;
 #X floatatom -345 241 12 0 0 1 maximum_barulho_(10) - -;
 #X obj -345 54 bng 50 250 50 0 empty empty set_value_10 55 25 0 14
@@ -172,7 +176,7 @@ noise (vote 10) on 5 seconds 4) set the value 10 OBS: \$1 argument
 out of range (in the [pd barulho_array]? why? - the color of the column
 becomes red too early;
 #X obj -672 27 tgl 50 0 empty empty check_silence 55 25 0 14 -204786
--1 -1 1 1;
+-1 -1 0 1;
 #X text -334 115 3) write this value in the box below;
 #X text -649 239 cut low f;
 #X obj -707 400 - 60;
@@ -200,8 +204,8 @@ becomes red too early;
 #X obj -345 207 f;
 #X obj -397 436 r barulho_vote;
 #X obj -217 446 r timer_ctrl;
-#N canvas 540 77 707 505 interface 1;
-#N canvas 1 77 1202 688 INTERFACE-GOP 0;
+#N canvas -38 147 707 505 interface 1;
+#N canvas 327 115 651 611 INTERFACE-GOP 0;
 #X obj 115 347 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
 #X obj 125 177 bng 100 250 50 0 empty empty timer_on 17 45 0 13 -4160
@@ -247,7 +251,7 @@ becomes red too early;
 -1 -1;
 #X obj 251 322 r timer_ctrl;
 #X obj 403 137 vradio 55 1 0 4 empty empty empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 0;
 #X obj 393 379 s Mode;
 #X text 463 155 Geral;
 #X text 465 214 Timer;
@@ -262,13 +266,13 @@ becomes red too early;
 #X obj 611 142 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 empty empty 0
 -8 0 26 -262144 -1 -1 0 256;
 #X obj 610 186 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 10 256;
+-262144 -1 -1 0 256;
 #X obj 610 228 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 5 256;
+-262144 -1 -1 0 256;
 #X obj 610 270 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 5 256;
+-262144 -1 -1 0 256;
 #X obj 610 312 nbx 4 32 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 26
--262144 -1 -1 10 256;
+-262144 -1 -1 0 256;
 #X obj 687 229 s juri;
 #X obj 694 285 s juri;
 #X obj 687 340 s juri;
@@ -279,23 +283,37 @@ becomes red too early;
 #X msg 617 358 /juri/5 \$1;
 #X obj 677 171 s juri;
 #X msg 609 171 /juri/1 \$1;
-#X obj 407 423 bng 50 250 50 0 empty empty empty 17 7 0 10 -257985
+#X obj 357 423 bng 50 250 50 0 empty empty empty 17 7 0 10 -257985
 -1 -1;
-#X msg 405 480 /juri/calc bang;
-#X obj 406 512 s juri;
+#X msg 355 480 /juri/calc bang;
+#X obj 356 512 s juri;
 #X text 554 153 JURI 1;
 #X text 556 196 JURI 2;
 #X text 556 322 JURI 5;
 #X text 556 280 JURI 4;
 #X text 556 238 JURI 3;
-#X text 461 434 Calcula VOTOS;
+#X text 411 434 Calcula VOTOS;
 #X msg 251 402 \; zera_votos bang;
-#X obj 605 416 - 100;
-#X obj 646 415 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 675 416 - 100;
+#X obj 716 415 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 126 423 tgl 50 0 empty empty Média_COM_Público 57 25 0 10
--191407 -1 -1 1 1;
+-191407 -1 -1 0 1;
 #X obj 126 480 s pubYA;
-#X obj 606 390 r dbs;
+#X obj 676 390 r dbs;
+#X obj 523 397 vradio 16 1 0 12 Logo-Sel empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 541 395 Portugal Slam;
+#X text 541 411 Sul;
+#X text 540 427 Sines;
+#X text 540 441 Ponta Delgada;
+#X text 540 472 Coimbra;
+#X text 540 490 Braga;
+#X text 540 507 Aveiro;
+#X text 540 523 Amadora;
+#X text 540 539 Lx;
+#X text 541 555 SlamT;
+#X text 541 572 Labio;
+#X text 541 457 Matosinhos;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 5 0;
@@ -343,7 +361,7 @@ becomes red too early;
 #X connect 8 0 0 0;
 #X restore -671 84 pd noise_level;
 #X obj -672 106 nbx 5 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 62.6904 256;
+20 -262144 -1 -1 0 256;
 #X obj -432 321 max 0;
 #X obj -707 424 s Noiselvl;
 #X obj -432 187 r Noiselvl;
@@ -363,11 +381,11 @@ becomes red too early;
 #X connect 6 0 1 0;
 #X restore -469 95 pd CONTROL;
 #X obj -330 167 nbx 7 28 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-20 -262144 -1 -1 6983.51 256;
+20 -262144 -1 -1 0 256;
 #X obj -432 349 s NoiseSum;
 #X obj -330 143 r NoiseSum;
 #X obj -345 328 nbx 5 28 -1e+37 1e+37 0 0 empty empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 39.6186 256;
+6 40 0 20 -262144 -1 -1 0 256;
 #X obj -345 391 s barulho_vote;
 #X obj -686 348 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
 -8 0 15 -262144 -1 -1 0 256;
