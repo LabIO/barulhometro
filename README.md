@@ -8,9 +8,9 @@ Portuguese version!
 ##INSTALLATION
 
 * Linux
-  * [Donwload and install Pure Data] (puredata.info/docs/faq/debian).
+  * [DowNload and install Pure Data] (puredata.info/docs/faq/debian)
   * Install Git, run this in your terminal:
-    `sudo apt-get install git` (works only on Debian based, like Ubuntu).
+    `sudo apt-get install git` (works only on Debian based, like Ubuntu)
   * Get Barulhometro, run this in your terminal: 
     `git clone https://github.com/LabIO/barulhometro`
     or click the download button down on the right
@@ -29,10 +29,10 @@ Portuguese version!
 * Check noise level of Silence (click on the button "Check Silence")
 * Set it in the number box below (if different than 60Db...)
 * Create the GEM window in the slamcomplete.pd patch (choose the dimension you prefer)
-* ### CALIBRATION
-
-* Check the maximum noise level (corresponding to the value 10)
-* 
+* CALIBRATION (set the maximum noise level corresponding to the value 10)
+  * In the interface window click on Barulho   
+  * Make noise for 5 seconds!!!
+  * In the barulhometro window click on the green button "set_value_10"
 
 TECHNICAL REQUIREMENTS
 
