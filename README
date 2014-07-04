@@ -1,7 +1,7 @@
 BARULHOMETRO 04-07-2014
 
 
-Barulhometro is application an written in [puredata] (www.puredata.info) 
+Barulhometro is application an written in [puredata] www.puredata.info
 PD patches to calculate the noise after a slam and show it
 
 Also show the timer 3min
