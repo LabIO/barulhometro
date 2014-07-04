@@ -1,14 +1,14 @@
 #BARULHOMETRO
 
 
-Barulhometro is an application written in [Pure Data] (www.puredata.info) used at Poetry Slam events to calculate the level of noise after each poem and display its value. It also calculates the average of the human juri, and displays a timer.
+Barulhometro is an application written in [Pure Data] (http://www.puredata.info) used at Poetry Slam events to calculate the level of noise after each poem and display its value. It also calculates the average of the human juri, and displays a timer.
 
 Portuguese version!
 
 ##INSTALLATION
 
 * Linux
-  * [Download and install Pure Data] (www.puredata.info/docs/faq/debian)
+  * [Download and install Pure Data] (http://www.puredata.info/docs/faq/debian)
   * Install Git, run this in your terminal:
     `sudo apt-get install git` (works only on Debian based, like Ubuntu)
   * Get Barulhometro, run this in your terminal: 
