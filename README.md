@@ -9,15 +9,10 @@ Portuguese version!
 
 * Linux
   * [Download and install Pure Data] (http://www.puredata.info/docs/faq/debian)
-  * Install Git, run this in your terminal:
-    `sudo apt-get install git` (works only on Debian based, like Ubuntu)
-  * Get Barulhometro, run this in your terminal: 
-    `git clone https://github.com/LabIO/barulhometro`
+  * Install Git. Writing in your terminal `sudo apt-get install git` works on Debian based, like Ubuntu.
+  * Get the Barulhometro. Writing this in your terminal `git clone https://github.com/LabIO/barulhometro`
     or click the download button down on the right
-  * Enter the directory "barulhometro"
-    `cd barulhometro/`
-    run the script "slam_setup.sh"
-    `./slam_setup.sh`
+  * Enter the directory "barulhometro" `cd barulhometro/` and run the script "slam_setup.sh" `./slam_setup.sh`
      
     
 * Windows
@@ -33,6 +28,7 @@ Portuguese version!
   * In the interface window click on Barulho   
   * Make noise for 5 seconds!!!
   * In the barulhometro window click on the green button "set_value_10"
+  * Use the radio button to control the Timer, Barulhometro and Juri Count
 
 TECHNICAL REQUIREMENTS
 
