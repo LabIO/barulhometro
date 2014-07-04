@@ -8,7 +8,7 @@ Portuguese version!
 ##INSTALLATION
 
 * Linux
-  * [DowNload and install Pure Data] (puredata.info/docs/faq/debian)
+  * [Download and install Pure Data] (www.puredata.info/docs/faq/debian)
   * Install Git, run this in your terminal:
     `sudo apt-get install git` (works only on Debian based, like Ubuntu)
   * Get Barulhometro, run this in your terminal: 
