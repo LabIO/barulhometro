@@ -1,12 +1,12 @@
-#N canvas 285 119 868 411 10;
+#N canvas 300 371 832 338 10;
 #X declare -lib iemnet -lib mrpeach;
-#X obj 369 -67 loadbang;
-#X msg 687 210 1;
-#X obj 714 234 s ctrl;
-#X msg 684 233 0;
-#X obj 562 238 s barulho_vote;
-#X floatatom 499 235 5 0 0 0 - - -;
-#X obj 487 58 cnv 15 300 130 empty empty empty 20 12 0 14 -204800 -66577
+#X obj 312 -63 loadbang;
+#X msg 435 214 1;
+#X obj 502 217 s ctrl;
+#X msg 467 215 0;
+#X obj 312 213 s barulho_vote;
+#X floatatom 312 189 5 0 0 0 - - -;
+#X obj 433 68 cnv 15 300 130 empty empty empty 20 12 0 14 -204800 -66577
 0;
 #N canvas 92 100 642 642 GO 0;
 #X obj 200 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -41,7 +41,7 @@
 #X connect 11 0 9 0;
 #X connect 12 0 5 0;
 #X connect 13 0 14 0;
-#X restore 700 86 pd GO;
+#X restore 646 96 pd GO;
 #N canvas 510 95 450 300 EXTRATIME 0;
 #X obj 203 4 r extraTime;
 #X msg 47 79 \; barraCor 1 1 1 \;;
@@ -78,10 +78,10 @@
 #X connect 14 0 15 0;
 #X connect 15 0 5 0;
 #X connect 16 0 15 0;
-#X restore 696 109 pd EXTRATIME;
-#X obj 504 97 bng 60 250 50 0 empty empty empty 17 7 0 10 -258113 -1
--1;
-#X obj 504 170 s Stop;
+#X restore 642 119 pd EXTRATIME;
+#X obj 450 107 bng 60 250 50 0 empty empty empty 17 7 0 10 -258113
+-1 -1;
+#X obj 450 180 s Stop;
 #N canvas 45 295 310 330 TEXTO 0;
 #X obj 50 2 gemhead;
 #X obj 50 241 text2d 0;
@@ -121,7 +121,7 @@
 #X connect 16 0 15 1;
 #X connect 16 1 17 0;
 #X connect 17 1 4 0;
-#X restore 696 133 pd TEXTO;
+#X restore 642 143 pd TEXTO;
 #N canvas 508 232 581 450 BARRA 0;
 #X obj 49 73 gemhead;
 #X obj 49 261 rectangle 0.96 3.96;
@@ -191,16 +191,16 @@
 #X connect 32 0 31 1;
 #X connect 32 1 33 0;
 #X connect 33 1 6 0;
-#X restore 695 161 pd BARRA;
-#X obj 603 97 bng 60 250 50 0 empty empty empty 17 7 0 10 -4034 -1
+#X restore 641 171 pd BARRA;
+#X obj 549 107 bng 60 250 50 0 empty empty empty 17 7 0 10 -4034 -1
 -1;
-#X obj 603 165 s GO;
-#X obj 603 66 r GOtimer;
-#X obj 503 70 r StopTimer;
-#X obj 152 -53 cnv 15 200 300 empty empty empty 20 12 0 14 -261234
--66577 0;
-#X text 154 24 LOGO;
-#X text 243 -45 VOTE;
+#X obj 549 175 s GO;
+#X obj 549 76 r GOtimer;
+#X obj 449 80 r StopTimer;
+#X obj 89 -66 cnv 15 200 300 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 91 11 LOGO;
+#X text 180 -58 VOTE;
 #N canvas 413 79 646 688 VOTE 0;
 #X obj 121 536 text2d;
 #X floatatom 154 511 5 0 0 0 - - -;
@@ -226,7 +226,7 @@
 #X obj 121 366 min 10;
 #X obj 121 390 max 0;
 #X obj 66 44 spigot;
-#X obj 99 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 99 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 135 -22 0;
 #X msg 190 -24 1;
@@ -351,11 +351,11 @@
 #X connect 46 1 48 0;
 #X connect 47 0 1 0;
 #X connect 48 0 47 0;
-#X restore 243 -8 pd VOTE;
+#X restore 180 -21 pd VOTE;
 #N canvas 631 192 397 504 LOGO 0;
 #X obj 215 36 r ctrl;
 #X obj 87 132 spigot;
-#X obj 140 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 140 134 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 215 64 sel 0 1;
 #X msg 211 93 1;
@@ -368,7 +368,7 @@
 #X msg 250 322 font FONTS/MAKISUPA.TTF;
 #X obj 56 3 gemhead;
 #X obj 17 -20 inlet;
-#X obj 30 2 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 30 2 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 54 35 alpha;
 #X obj 171 312 line;
@@ -376,19 +376,19 @@
 #X obj 191 258 loadbang;
 #X msg 189 279 1;
 #X obj 54 60 ortho;
-#X msg 244 422 7;
+#X msg 245 428 7;
 #X obj 54 84 translateXYZ -2.2 3.21 0;
 #X obj 4 30 r Mode;
 #X obj 7 57 != 0;
 #X floatatom 2 92 5 0 0 0 - - -;
 #X obj 72 336 colourRGB 1 0.9 0.2 1;
-#X msg 289 410 text Lab.I.O;
-#X msg 222 387 text PortugalSLAM;
+#X msg 221 379 text PortugalSLAM;
 #X obj 119 161 metro 35;
+#X msg 276 403 text LabIO SLAM;
 #X connect 0 0 3 0;
 #X connect 1 0 6 0;
 #X connect 2 0 1 1;
-#X connect 2 0 29 0;
+#X connect 2 0 28 0;
 #X connect 3 0 4 0;
 #X connect 3 1 5 0;
 #X connect 4 0 2 0;
@@ -399,7 +399,8 @@
 #X connect 8 0 7 1;
 #X connect 10 0 21 0;
 #X connect 10 0 11 0;
-#X connect 10 0 28 0;
+#X connect 10 0 27 0;
+#X connect 10 0 29 0;
 #X connect 11 0 9 0;
 #X connect 12 0 15 0;
 #X connect 13 0 14 0;
@@ -416,9 +417,9 @@
 #X connect 23 0 25 0;
 #X connect 24 0 14 0;
 #X connect 26 0 9 0;
-#X connect 28 0 9 0;
-#X connect 29 0 7 0;
-#X restore 158 66 pd LOGO;
+#X connect 28 0 7 0;
+#X connect 29 0 9 0;
+#X restore 95 53 pd LOGO;
 #N canvas 1 195 503 604 BARULHOMETRO 0;
 #X obj 87 435 text2d;
 #X obj 87 201 translateXYZ;
@@ -427,7 +428,7 @@
 #X floatatom 176 176 5 0 0 0 - - -;
 #X msg 107 304 font FONTS/MAKISUPA.TTF;
 #X obj 124 245 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -474,12 +475,12 @@
 #X connect 19 0 0 1;
 #X connect 20 0 3 0;
 #X connect 22 0 0 0;
-#X restore 244 92 pd BARULHOMETRO;
-#X obj 481 -74 cnv 15 300 100 empty empty empty 20 12 0 14 -191407
+#X restore 181 79 pd BARULHOMETRO;
+#X obj 434 -64 cnv 15 300 100 empty empty empty 20 12 0 14 -191407
 -66577 0;
-#X obj 487 -7 gemwin;
-#X msg 559 -2 destroy \, border 0 \, create \, 1;
-#X msg 557 18 reset \, dimen 400 300 \, create \, 1;
+#X obj 440 3 gemwin;
+#X msg 512 8 destroy \, border 0 \, create \, 1;
+#X msg 510 28 reset \, dimen 400 300 \, create \, 1;
 #N canvas 151 268 498 353 TIMER 0;
 #X obj 118 253 text2d;
 #X floatatom 151 212 5 0 0 0 - - -;
@@ -515,29 +516,29 @@
 #X connect 14 0 15 0;
 #X connect 15 0 11 0;
 #X connect 16 0 0 0;
-#X restore 245 45 pd TIMER;
-#X obj 244 71 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 182 32 pd TIMER;
+#X obj 181 58 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 245 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 182 12 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 243 -28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 180 -41 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 159 -27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 96 -40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 158 45 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 490 -57 reset \, dimen 1024 768 \, offset 1440 0 \, border 1
+#X obj 95 32 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 443 -47 reset \, dimen 1024 768 \, offset 1440 0 \, border 1
 \, create \, 1;
-#X obj 159 150 juri_count;
-#N canvas 198 82 561 681 OSC-in 0;
+#X obj 96 137 juri_count;
+#N canvas 630 32 481 677 OSC-in 0;
 #X obj 211 -71 import iemnet mrpeach;
 #X obj 27 -48 unpackOSC;
 #X obj 40 506 line;
-#X obj 99 423 s ctrl;
+#X obj 98 423 s ctrl;
 #X obj 69 451 s barulho_vote;
-#X obj 148 377 s StopTimer;
-#X obj 129 399 s GOtimer;
-#X obj 129 352 sel 1 0;
+#X obj 146 377 s StopTimer;
+#X obj 127 399 s GOtimer;
+#X obj 127 352 sel 1 0;
 #N canvas 1 80 450 300 get.info 0;
 #X text 29 31 NOTE outlet #2 is for compatibility with mrpeach's net
 objects. you can get all info (and more) via outlet #3 as well.;
@@ -564,11 +565,11 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 10 0 11 0;
 #X restore 114 -48 pd get.info;
 #X obj 27 -77 udpreceive 3322;
-#X obj 157 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 156 331 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 67 575 outlet;
-#X obj 188 314 s Mode;
-#X obj 218 285 s MostraBarra;
+#X obj 185 314 s Mode;
+#X obj 215 285 s MostraBarra;
 #X obj 243 110 routeOSC /1 /2 /3 /4 /5 /calc;
 #X obj 243 255 s JuriVote-1-set;
 #X obj 385 134 s calc_juri;
@@ -576,7 +577,7 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X obj 300 206 s JuriVote-3-set;
 #X obj 328 184 s JuriVote-4-set;
 #X obj 357 159 s JuriVote-5-set;
-#X obj 265 84 s zera_votos;
+#X obj 273 84 s zera_votos;
 #X msg 40 478 \$1 400;
 #X text 109 574 Input de som am DBs;
 #X text 161 449 Voto do público;
@@ -614,7 +615,7 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 30 8 21 0;
 #X connect 30 9 25 0;
 #X connect 30 10 29 0;
-#X restore 29 -67 pd OSC-in;
+#X restore 17 -68 pd OSC-in;
 #N canvas 551 183 614 581 video 0;
 #X obj 406 274 text3d;
 #X obj 230 -175 gemhead;
@@ -640,8 +641,8 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 9 0 1 0;
 #X connect 10 0 11 0;
 #X connect 11 0 9 0;
-#X restore 284 216 pd video;
-#X obj 244 217 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
+#X restore 221 203 pd video;
+#X obj 181 204 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
 -262144 -1 -1 0;
 #N canvas 45 77 1226 688 JURI 0;
 #X obj 176 197 text2d;
@@ -950,25 +951,24 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 87 0 46 0;
 #X connect 88 0 48 0;
 #X connect 89 0 90 0;
-#X restore 160 121 pd JURI;
-#X obj 160 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 250 123 geral;
-#X msg 484 -79 0 \, destroy;
-#X msg 503 -36 reset \, dimen 1024 768 \, offset 1280 0 \, border 0
+#X restore 97 108 pd JURI;
+#X obj 97 86 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 187 110 geral;
+#X msg 437 -69 0 \, destroy;
+#X msg 456 -26 reset \, dimen 1024 768 \, offset 1280 0 \, border 0
 \, create \, 1;
-#X obj 30 -37 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#N canvas 599 11 615 688 ShowBar 0;
+#X obj 18 -38 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#N canvas 146 39 615 688 ShowBar 0;
 #X obj 181 230 hsv2rgb;
 #X obj 184 126 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 12700 1;
+-258113 -260097 12423 1;
 #X obj 181 59 expr 1 - $f1/$f2;
 #X obj 109 294 r size;
 #X floatatom 220 177 5 0 0 1 shift_value - -;
 #X obj 181 176 -;
 #X obj 220 153 r shiftH;
 #X obj 181 83 pow 0.3;
-#X obj 274 30 r db_dCOR;
 #X obj 181 31 r dbT;
 #X obj 66 288 r dbT;
 #X obj 212 -71 r ctrl;
@@ -1005,105 +1005,109 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 34 483 translateXYZ 0 0 -0.1;
 #X obj 83 417 * 3;
 #X obj 33 -63 delay 500;
-#X obj 361 419 r dbT;
-#X obj 401 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 362 377 r dbT;
+#X obj 401 30 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X floatatom 323 503 5 0 0 0 - - -;
-#X obj 360 459 expr ($f1/30)*6;
-#X obj 375 322 r dbT;
-#X obj 373 348 expr -3 + ($f1/30)*6/2;
 #X obj 227 -8 demux . .;
 #X obj 278 -38 tgl 15 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
 1;
 #X obj 279 -72 inlet;
 #X text 301 -41 0 star \, 1 column;
-#X obj 294 385 translateXYZ 0 -4 0;
-#X obj 299 533 rectangle 3 0;
+#X obj 300 491 rectangle 3 0;
 #X obj 428 -85 loadbang;
 #X msg 434 -15 0;
 #X obj 422 -53 delay 600;
 #X obj 54 114 alpha;
 #X obj 398 103 alpha;
-#X obj 401 50 gemhead;
-#X floatatom 431 379 5 0 0 0 - - -;
 #X msg 181 202 \$1 1 1;
 #X obj 400 264 color 1 1 1;
-#X connect 0 0 18 1;
-#X connect 0 0 64 1;
+#X floatatom 299 91 5 0 0 0 - - -;
+#X obj 274 30 r db_range;
+#X obj 453 380 r db_range;
+#X floatatom 426 483 5 0 0 0 - - -;
+#X obj 401 50 gemhead;
+#X obj 295 343 translateXYZ 0 -4 -0.1;
+#X msg 484 412 40;
+#X obj 361 416 expr ($f1/$f2)*3.5;
+#X obj 450 343 expr $f1/2 - 2;
+#X connect 0 0 17 1;
+#X connect 0 0 56 1;
 #X connect 1 0 5 0;
 #X connect 2 0 7 0;
-#X connect 3 0 40 1;
+#X connect 3 0 39 1;
 #X connect 4 0 5 1;
-#X connect 5 0 63 0;
+#X connect 5 0 55 0;
 #X connect 6 0 4 0;
 #X connect 7 0 1 0;
-#X connect 8 0 2 1;
-#X connect 9 0 2 0;
-#X connect 10 0 40 0;
-#X connect 11 0 50 0;
-#X connect 12 0 59 0;
-#X connect 13 0 12 0;
-#X connect 14 0 50 0;
-#X connect 15 0 43 0;
-#X connect 16 0 13 0;
-#X connect 17 0 19 1;
-#X connect 18 0 38 0;
-#X connect 19 0 42 0;
-#X connect 20 0 34 0;
-#X connect 21 0 20 1;
-#X connect 22 0 36 0;
-#X connect 23 0 22 1;
-#X connect 24 0 35 3;
-#X connect 25 0 35 2;
-#X connect 26 0 37 0;
-#X connect 27 0 26 1;
-#X connect 28 0 36 3;
-#X connect 29 0 36 2;
-#X connect 31 0 30 1;
-#X connect 32 0 37 3;
-#X connect 33 0 37 2;
-#X connect 34 0 35 0;
-#X connect 35 0 22 0;
-#X connect 36 0 26 0;
-#X connect 37 0 30 0;
-#X connect 38 0 41 0;
-#X connect 39 0 42 1;
+#X connect 7 0 57 0;
+#X connect 8 0 2 0;
+#X connect 9 0 39 0;
+#X connect 10 0 45 0;
+#X connect 11 0 53 0;
+#X connect 12 0 11 0;
+#X connect 13 0 45 0;
+#X connect 14 0 42 0;
+#X connect 15 0 12 0;
+#X connect 16 0 18 1;
+#X connect 17 0 37 0;
+#X connect 18 0 41 0;
+#X connect 19 0 33 0;
+#X connect 20 0 19 1;
+#X connect 21 0 35 0;
+#X connect 22 0 21 1;
+#X connect 23 0 34 3;
+#X connect 24 0 34 2;
+#X connect 25 0 36 0;
+#X connect 26 0 25 1;
+#X connect 27 0 35 3;
+#X connect 28 0 35 2;
+#X connect 30 0 29 1;
+#X connect 31 0 36 3;
+#X connect 32 0 36 2;
+#X connect 33 0 34 0;
+#X connect 34 0 21 0;
+#X connect 35 0 25 0;
+#X connect 36 0 29 0;
+#X connect 37 0 40 0;
+#X connect 38 0 41 1;
+#X connect 39 0 18 0;
 #X connect 40 0 19 0;
-#X connect 41 0 20 0;
-#X connect 42 0 38 1;
-#X connect 42 0 38 2;
-#X connect 43 0 16 0;
-#X connect 44 0 47 0;
-#X connect 45 0 61 0;
-#X connect 46 0 55 1;
-#X connect 47 0 55 2;
-#X connect 48 0 49 0;
-#X connect 49 0 54 2;
-#X connect 50 0 13 0;
-#X connect 50 1 45 0;
-#X connect 51 0 50 1;
+#X connect 41 0 37 1;
+#X connect 41 0 37 2;
+#X connect 42 0 15 0;
+#X connect 43 0 64 0;
+#X connect 44 0 61 0;
+#X connect 45 0 12 0;
+#X connect 45 1 44 0;
+#X connect 46 0 45 1;
+#X connect 47 0 46 0;
+#X connect 50 0 52 0;
+#X connect 51 0 44 0;
 #X connect 52 0 51 0;
-#X connect 54 0 55 0;
-#X connect 56 0 58 0;
-#X connect 57 0 45 0;
-#X connect 58 0 57 0;
-#X connect 59 0 18 0;
-#X connect 60 0 64 0;
-#X connect 61 0 60 0;
-#X connect 62 0 54 3;
-#X connect 63 0 0 0;
-#X connect 64 0 54 0;
-#X restore 159 -6 pd ShowBar;
-#X obj 213 -28 tgl 15 0 colORstar colORstar-r empty 17 7 0 10 -257985
+#X connect 53 0 17 0;
+#X connect 54 0 56 0;
+#X connect 55 0 0 0;
+#X connect 56 0 62 0;
+#X connect 58 0 2 1;
+#X connect 59 0 64 1;
+#X connect 60 0 49 2;
+#X connect 61 0 54 0;
+#X connect 62 0 49 0;
+#X connect 63 0 64 1;
+#X connect 64 0 49 2;
+#X connect 64 0 65 0;
+#X connect 65 0 62 2;
+#X restore 96 -19 pd ShowBar;
+#X obj 150 -41 tgl 15 0 colORstar colORstar-r empty 17 7 0 10 -257985
 -1 -1 1 1;
-#X text 156 -45 SHOW BARULHO;
-#X msg 519 -20 reset \, dimen 1024 768 \, border 1 \, create \, 1;
-#X msg 369 -29 \; Mode 0 \; db_dCOR 30 \; shiftH 0.04 \; size 15 \;
+#X text 93 -58 SHOW BARULHO;
+#X msg 472 -10 reset \, dimen 1024 768 \, border 1 \, create \, 1;
+#X msg 506 50 reset \, dimen 800 600 \, lighting 0 \, create \, 1;
+#X text 12 218 8 out 2014;
+#X msg 312 -39 \; Mode 0 \; db_range 40 \; shiftH 0.04 \; size 15 \;
 sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 \; MostraTexto 0 \; MostraBarra 0 \; colORstar-r 1 \;;
-#X text 158 283 Versione 26 Jun 2014;
-#X msg 560 40 reset \, dimen 800 600 \, lighting 0 \, create \, 1;
-#X connect 0 0 48 0;
+#X connect 0 0 50 0;
 #X connect 1 0 2 0;
 #X connect 3 0 2 0;
 #X connect 5 0 4 0;
@@ -1125,4 +1129,4 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 42 0 24 0;
 #X connect 45 0 44 1;
 #X connect 47 0 24 0;
-#X connect 50 0 24 0;
+#X connect 48 0 24 0;
