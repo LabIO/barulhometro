@@ -1,0 +1,9 @@
+#N canvas 536 79 450 300 10;
+#X obj 97 119 list split 1;
+#X obj 120 148 l;
+#X obj 95 87 inlet list;
+#X obj 90 171 outlet drippedList;
+#X connect 0 0 3 0;
+#X connect 0 1 1 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
