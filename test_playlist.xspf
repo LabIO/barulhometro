@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Playlist</title>
+	<trackList>
+		<track>
+			<location>file:///home/mick/Music/Blue%20in%20Green%20by.%20Miles%20Davis.mp3</location>
+			<title>Blue in Green by. Miles Davis</title>
+			<duration>337658</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Jazz%20Spastiks%20-%20Friend%20or%20Foe.mp3</location>
+			<title>Jazz Spastiks - Friend or Foe</title>
+			<duration>186435</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Jazz%20Spastiks%20-%20Mic%20Checka.mp3</location>
+			<title>Jazz Spastiks - Mic Checka</title>
+			<duration>182857</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Jazz%20Spastiks%20-%20Progression.mp3</location>
+			<title>Jazz Spastiks - Progression</title>
+			<duration>267102</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Jazz%20Spastiks%20-%20This%20Like%20That.mp3</location>
+			<title>Jazz Spastiks - This Like That</title>
+			<duration>189570</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Jazz%20Spatiks%20-%20Unkut%20Dope.mp3</location>
+			<title>Jazz Spatiks - Unkut Dope</title>
+			<duration>138083</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Manu%20Chao%20-%20La%20Vida%20Tombola.mp3</location>
+			<title>Manu Chao - La Vida Tombola</title>
+			<duration>196127</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>file:///home/mick/Music/Randy%20Crawford%20-%20Give%20Me%20The%20Night.mp3</location>
+			<title>Randy Crawford - Give Me The Night</title>
+			<duration>289880</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+				<vlc:option>file-caching=300</vlc:option>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+			<vlc:item tid="0"/>
+			<vlc:item tid="1"/>
+			<vlc:item tid="2"/>
+			<vlc:item tid="3"/>
+			<vlc:item tid="4"/>
+			<vlc:item tid="5"/>
+			<vlc:item tid="6"/>
+			<vlc:item tid="7"/>
+	</extension>
+</playlist>

@@ -1,21 +1,19 @@
-#N canvas 106 84 652 384 10;
-#X obj 0 0 cnv 10 250 150 empty ViewPort Geral 20 12 0 14 -128992 -262144
+#N canvas 510 152 649 350 10;
+#X obj 1 0 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992 -262144
 0;
-#X obj 0 160 cnv 10 250 150 empty empty empty 20 12 0 14 -45076 -262144
+#X obj 1 160 cnv 10 250 150 empty empty empty 20 12 0 14 -45076 -262144
 0;
-#X obj 219 1 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
+#X obj 220 1 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 76 38 vsl 25 100 0 1 0 0 palcoH empty H 0 -9 0 10 -262144 -1
+#X obj 97 43 vsl 25 100 0 1 0 0 palcoH empty H 0 -9 0 10 -262144 -1
 -1 0 0;
-#X obj 105 38 vsl 25 100 0 1 0 0 palcoS empty S 0 -9 0 10 -262144 -1
+#X obj 126 43 vsl 25 100 0 1 0 0 palcoS empty S 0 -9 0 10 -262144 -1
 -1 0 1;
-#X obj 11 69 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 0
+#X obj 3 69 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 10 107 tgl 30 0 logoON empty logoON 0 7 0 10 -262144 -1 -1 0
+#X obj 4 110 tgl 30 0 logoON empty logoON 0 7 0 10 -262144 -1 -1 0
 1;
-#X obj 263 1 cnv 20 215 20 empty empty timer 20 12 0 14 -233017 -66577
-0;
-#N canvas 556 149 739 353 viewport 0;
+#N canvas 511 311 739 353 viewport 0;
 #X obj 290 302 s ViewPort;
 #X msg 290 271 pos \$1 \$2;
 #X obj 290 135 t f f;
@@ -23,7 +21,7 @@
 #X obj 328 180 * 160;
 #X obj 290 201 pack f f;
 #X obj 184 38 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 2;
+-1 0;
 #X obj 184 18 r \$0-numview;
 #N canvas 1 83 450 300 line2 0;
 #X obj 145 38 inlet time;
@@ -58,7 +56,7 @@
 #X restore 290 228 pd line2;
 #X obj 290 158 mod 2;
 #X obj 328 157 div 2;
-#X obj 459 242 s \$0-numview;
+#X obj 479 312 s \$0-numview;
 #X obj 184 80 sel 4;
 #X msg 162 156 250 150;
 #N canvas 1 82 450 300 line2 0;
@@ -117,18 +115,22 @@
 #X obj 20 48 metro 1400;
 #X obj 20 125 + 550;
 #X obj 57 144 + 360;
-#X obj 462 31 r \$0-mode1;
-#X obj 499 53 r \$0-mode2;
-#X msg 460 53 0;
-#X msg 496 75 1;
-#X msg 544 104 2;
-#X msg 583 143 3;
-#X msg 600 179 4;
-#X obj 535 79 r \$0-mode3;
-#X obj 581 120 r \$0-mode4;
-#X obj 566 239 s mode;
-#X obj 605 90 r timerStop;
-#X text 600 60 end of poem \; triggers barulhometro;
+#X obj 490 99 r \$0-mode1;
+#X obj 519 123 r \$0-mode2;
+#X msg 480 123 0;
+#X msg 516 145 1;
+#X msg 564 174 2;
+#X msg 630 241 3;
+#X msg 448 118 4;
+#X obj 555 149 r \$0-mode3;
+#X obj 628 218 r \$0-mode4;
+#X obj 586 309 s mode;
+#X text 620 130 end of poem \; triggers barulhometro;
+#X obj 599 171 r timerStart;
+#X obj 473 22 loadbang;
+#X obj 473 46 t b b;
+#X obj 473 72 delay 3000;
+#X msg 599 193 2;
 #X connect 1 0 0 0;
 #X connect 2 0 9 0;
 #X connect 2 1 10 0;
@@ -189,14 +191,18 @@
 #X connect 43 0 11 0;
 #X connect 43 0 49 0;
 #X connect 44 0 11 0;
-#X connect 44 0 49 0;
 #X connect 45 0 11 0;
 #X connect 45 0 49 0;
 #X connect 46 0 11 0;
 #X connect 47 0 44 0;
 #X connect 48 0 45 0;
-#X connect 50 0 44 0;
-#X restore 546 34 pd viewport;
+#X connect 51 0 55 0;
+#X connect 52 0 53 0;
+#X connect 53 0 54 0;
+#X connect 53 1 46 0;
+#X connect 54 0 42 0;
+#X connect 55 0 11 0;
+#X restore 547 34 pd viewport;
 #N canvas 86 105 450 341 label 0;
 #X obj 39 23 r \$0-l1-snd;
 #X floatatom 39 46 5 0 0 0 - - -, f 5;
@@ -233,8 +239,8 @@
 #X connect 14 0 16 0;
 #X connect 15 0 14 0;
 #X connect 16 0 12 0;
-#X restore 545 54 pd label;
-#X obj 0 161 cnv 20 215 20 empty empty barulhometro 20 12 0 14 -261682
+#X restore 546 54 pd label;
+#X obj 1 161 cnv 20 215 20 empty empty barulhometro 20 12 0 14 -261682
 -66577 0;
 #N canvas 94 399 506 291 color 0;
 #X obj 27 9 r \$0-ct1-snd;
@@ -335,10 +341,10 @@
 #X connect 23 0 16 0;
 #X connect 24 0 22 0;
 #X connect 25 0 20 0;
-#X restore 545 74 pd color;
-#X obj 261 161 cnv 20 215 20 empty empty juri 20 12 0 14 -233017 -66577
+#X restore 546 74 pd color;
+#X obj 262 161 cnv 20 215 20 empty empty juri 20 12 0 14 -233017 -66577
 0;
-#N canvas 829 215 450 300 position 0;
+#N canvas 827 216 450 300 position 0;
 #X obj 89 83 loadbang;
 #X msg 251 227 0 \, 1 \, 2 \, 3 \, 4 \, 5 \, 6 \, 7 \, 8 \, 9;
 #X obj 254 256 sel 0;
@@ -359,36 +365,34 @@
 #X connect 0 0 6 0;
 #X connect 5 0 6 0;
 #X connect 6 0 4 0;
-#X restore 545 94 pd position;
-#X obj 1 312 cnv 15 510 30 empty empty SLAM_TIME! 200 16 0 20 -233017
+#X restore 546 94 pd position;
+#X obj 2 312 cnv 15 510 30 empty empty SLAM_TIME! 200 16 0 20 -233017
 -66577 0;
-#N canvas 417 104 914 632 communica 0;
+#N canvas 138 96 1227 671 communica 0;
 #X obj 33 553 netsend;
 #X msg 29 38 connect 192.168.1.165 9000;
 #X obj 32 588 s connect;
 #X obj 29 16 r bang_con;
 #X obj 711 28 netreceive 9001;
-#X msg 357 153 send timerStart \$1;
-#X obj 357 129 r timerStart;
-#X obj 363 179 r timerStop;
-#X msg 363 202 send timerStop \$1;
-#X obj 371 226 r dispTimer;
-#X msg 371 249 send dispTimer \$1;
-#X obj 515 231 r barulhoGO;
-#X msg 515 255 send barulhoGO \$1;
+#X msg 625 181 send timerStart \$1;
+#X obj 625 157 r timerStart;
+#X obj 627 205 r timerStop;
+#X msg 627 228 send timerStop \$1;
+#X obj 635 252 r dispTimer;
+#X msg 635 275 send dispTimer \$1;
+#X obj 796 204 r barulhoGO;
 #X obj 140 103 r soundCheck;
 #X msg 140 125 send soundCheck \$1;
-#X obj 540 327 r set10;
-#X msg 540 350 send set10 \$1;
-#X obj 750 471 r calcula;
-#X msg 751 501 send calcula \$1;
-#X obj 742 525 r withBarulho;
-#X msg 739 552 send withBarulho \$1;
-#X obj 709 86 s soundIN-r;
+#X obj 821 300 r set10;
+#X msg 821 323 send set10 \$1;
+#X obj 1019 502 r calcula;
+#X msg 1020 532 send calcula \$1;
+#X obj 1011 556 r withBarulho;
+#X msg 1008 583 send withBarulho \$1;
 #X obj 39 65 r bang_discon;
 #X msg 39 87 disconnect;
-#X obj 527 280 r bangSilence;
-#X msg 527 302 send bangSilence \$1;
+#X obj 808 253 r bangSilence;
+#X msg 808 275 send bangSilence \$1;
 #X obj 134 574 r mode;
 #X msg 133 597 send mode \$1;
 #X obj 152 149 r logoON;
@@ -399,37 +403,60 @@
 #X msg 187 267 send palcoS \$1;
 #X obj 211 290 r palcoV;
 #X msg 210 314 send palcoV \$1;
-#X obj 711 58 route soundIN;
-#X obj 587 406 r juri1;
-#X obj 642 406 r juri2;
-#X obj 699 409 r juri3;
-#X obj 749 411 r juri4;
-#X obj 799 411 r juri5;
-#X msg 438 439 send juri1 \$1;
-#X msg 529 438 send juri2 \$1;
-#X msg 620 437 send juri3 \$1;
-#X msg 710 438 send juri4 \$1;
-#X msg 801 436 send juri5 \$1;
+#X obj 856 437 r juri1;
+#X obj 911 437 r juri2;
+#X obj 968 440 r juri3;
+#X obj 1018 442 r juri4;
+#X obj 1068 442 r juri5;
+#X msg 707 470 send juri1 \$1;
+#X msg 798 469 send juri2 \$1;
+#X msg 889 468 send juri3 \$1;
+#X msg 979 469 send juri4 \$1;
+#X msg 1070 467 send juri5 \$1;
+#X obj 711 62 route dbs;
+#X obj 711 96 s soundIN-r;
+#X obj 798 60 > 0;
+#X obj 798 95 s connInput;
+#X msg 796 228 send barulhoGO \$1 \, send mode 2;
+#X obj 906 347 r timerPause;
+#X msg 906 369 send timerPause \$1;
+#X obj 282 14 r v;
+#X msg 282 39 send /v \$1;
+#X obj 280 62 r \$0-mode4;
+#X msg 280 92 send /goJuriMusic bang;
+#X obj 443 21 r vid1;
+#X obj 454 72 r vid2;
+#X obj 464 116 r vid3;
+#X obj 468 161 r vid4;
+#X msg 443 45 send vid1 bang;
+#X msg 454 96 send vid2 bang;
+#X msg 464 140 send vid3 bang;
+#X msg 468 185 send vid4 bang;
+#X msg 468 235 send pause bang;
+#X obj 468 210 r pause_vid;
+#X obj 480 271 r killvid;
+#X msg 480 296 send killvid bang;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 3 0 1 0;
-#X connect 4 0 36 0;
+#X connect 4 0 44 0;
 #X connect 5 0 0 0;
 #X connect 6 0 5 0;
 #X connect 7 0 8 0;
 #X connect 8 0 0 0;
 #X connect 9 0 10 0;
 #X connect 10 0 0 0;
-#X connect 11 0 12 0;
-#X connect 12 0 0 0;
-#X connect 13 0 14 0;
-#X connect 14 0 0 0;
-#X connect 15 0 16 0;
-#X connect 16 0 0 0;
-#X connect 17 0 18 0;
-#X connect 18 0 0 0;
-#X connect 19 0 20 0;
-#X connect 20 0 0 0;
+#X connect 11 0 48 0;
+#X connect 12 0 13 0;
+#X connect 13 0 0 0;
+#X connect 14 0 15 0;
+#X connect 15 0 0 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 0;
+#X connect 18 0 19 0;
+#X connect 19 0 0 0;
+#X connect 20 0 21 0;
+#X connect 21 0 0 0;
 #X connect 22 0 23 0;
 #X connect 23 0 0 0;
 #X connect 24 0 25 0;
@@ -442,21 +469,39 @@
 #X connect 31 0 0 0;
 #X connect 32 0 33 0;
 #X connect 33 0 0 0;
-#X connect 34 0 35 0;
-#X connect 35 0 0 0;
-#X connect 36 0 21 0;
+#X connect 34 0 39 0;
+#X connect 35 0 40 0;
+#X connect 36 0 41 0;
 #X connect 37 0 42 0;
 #X connect 38 0 43 0;
-#X connect 39 0 44 0;
-#X connect 40 0 45 0;
-#X connect 41 0 46 0;
+#X connect 39 0 0 0;
+#X connect 40 0 0 0;
+#X connect 41 0 0 0;
 #X connect 42 0 0 0;
 #X connect 43 0 0 0;
-#X connect 44 0 0 0;
-#X connect 45 0 0 0;
-#X connect 46 0 0 0;
-#X restore 545 12 pd communica;
-#X obj 12 32 bng 30 250 50 0 bang_con empty conn 0 7 0 10 -262144 -1
+#X connect 44 0 45 0;
+#X connect 46 0 47 0;
+#X connect 48 0 0 0;
+#X connect 49 0 50 0;
+#X connect 50 0 0 0;
+#X connect 51 0 52 0;
+#X connect 52 0 0 0;
+#X connect 53 0 54 0;
+#X connect 54 0 0 0;
+#X connect 55 0 59 0;
+#X connect 56 0 60 0;
+#X connect 57 0 61 0;
+#X connect 58 0 62 0;
+#X connect 59 0 0 0;
+#X connect 60 0 0 0;
+#X connect 61 0 0 0;
+#X connect 62 0 0 0;
+#X connect 63 0 0 0;
+#X connect 64 0 63 0;
+#X connect 65 0 66 0;
+#X connect 66 0 0 0;
+#X restore 546 12 pd communica;
+#X obj 4 32 bng 30 250 50 0 bang_con empty conn 0 7 0 10 -262144 -1
 -1;
 #N canvas 1 85 450 300 ideas 0;
 #X text 10 156 keep the option of sending 4 to \$0-num-view: because
@@ -466,63 +511,83 @@ or when closing?;
 duma bola/farol no display \; toggles para accionar formas tipo bola/farol
 \; 2 timer: 3 barulhometro: 4 juri: number boxes for 5 juri \, maybe
 calculate directly in the android pathc (barulhometroCTRL);
-#X restore 544 137 pd ideas;
-#X obj 134 38 vsl 25 100 0 1 0 0 palcoV empty V 0 -9 0 10 -262144 -1
+#X restore 546 116 pd ideas;
+#X obj 155 43 vsl 25 100 0 1 0 0 palcoV empty V 0 -9 0 10 -262144 -1
 -1 0 1;
-#X obj 277 43 bng 70 250 50 0 timerStart empty Start 17 7 0 10 -4034
+#X obj 278 43 bng 70 250 50 0 timerStart empty Start 17 7 0 10 -4034
 -1 -1;
-#X obj 387 120 tgl 30 0 dispTimer empty displ 0 7 0 10 -262144 -1 -1
+#X obj 389 102 tgl 30 0 dispTimer empty displ 0 7 0 10 -262144 -1 -1
 0 1;
-#X obj 368 43 bng 70 250 50 0 timerStop empty Stop 17 7 0 10 -258113
--1 -1;
-#X obj 23 207 bng 70 250 50 0 barulhoGO empty BARULHO 7 35 0 14 -257985
+#X obj 22 202 bng 90 250 50 0 barulhoGO empty BARULHO! 7 45 0 16 -257985
 -258113 -258113;
-#X obj 170 40 tgl 30 0 soundCheck empty snd_in 0 7 0 10 -262144 -1
+#X obj 184 29 tgl 30 0 soundCheck empty snd_in 0 7 0 10 -262144 -1
 -1 0 1;
-#X obj 143 187 bng 50 250 50 0 set10 empty set10 8 25 0 10 -262144
+#X obj 144 187 bng 50 250 50 0 set10 empty set10 8 25 0 10 -262144
 -1 -1;
-#X obj 269 201 bng 30 250 50 0 calcula empty calcula 17 7 0 10 -262144
+#X obj 270 201 bng 50 250 50 0 calcula empty calcula 0 7 0 10 -262144
 -1 -1;
-#X obj 269 249 tgl 30 0 withBarulho empty withBarulho 17 7 0 10 -262144
+#X obj 269 266 tgl 30 0 withBarulho empty withBarulho -5 7 0 10 -262144
 -1 -1 0 1;
-#X obj 338 187 numberbox 80 22 foobar juri1 0 99999 500;
-#X obj 337 214 numberbox 80 22 foobar juri2 0 99999 500;
-#X obj 337 241 numberbox 80 22 foobar juri3 0 99999 500;
-#X obj 335 267 numberbox 80 22 foobar juri4 0 99999 500;
-#X obj 335 291 numberbox 80 22 foobar juri5 0 99999 500;
-#X obj 172 88 vsl 25 50 0 1 0 0 empty soundIN-r IN 0 -9 0 10 -262144
+#X obj 186 77 vsl 25 50 0 100 0 0 empty soundIN-r IN 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 37 69 bng 20 250 50 0 bang_discon empty disc 0 7 0 10 -262144
+#X obj 26 69 bng 20 250 50 0 bang_discon empty disc 0 7 0 10 -262144
 -1 -1;
-#X obj 219 34 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
+#X obj 220 34 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
 -1 -1;
-#X obj 219 67 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
+#X obj 220 67 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
 -1 -1;
-#X obj 219 100 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
+#X obj 220 100 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
 -1 -1;
-#X obj 480 2 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
+#X obj 481 2 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 480 35 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
+#X obj 481 35 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
 -1 -1;
-#X obj 480 68 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
+#X obj 481 68 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
 -1 -1;
-#X obj 480 101 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
+#X obj 481 101 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
 -1 -1;
-#X obj 143 251 bng 50 250 50 0 bangSilence empty bangSIL 4 25 0 10
+#X obj 144 251 bng 50 250 50 0 bangSilence empty bangSIL 4 25 0 10
 -262144 -1 -1;
-#X obj 218 162 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
+#X obj 219 162 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 218 195 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
+#X obj 219 195 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
 -1 -1;
-#X obj 218 228 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
+#X obj 219 228 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
 -1 -1;
-#X obj 218 261 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
+#X obj 219 261 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
 -1 -1;
-#X obj 479 161 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
+#X obj 480 161 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 479 194 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
+#X obj 480 194 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
 -1 -1;
-#X obj 479 227 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
+#X obj 480 227 bng 30 250 50 0 \$0-mode3 empty BARUL 0 15 0 10 -262144
 -1 -1;
-#X obj 479 260 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
+#X obj 480 260 bng 30 250 50 0 \$0-mode4 empty juri 4 15 0 10 -262144
 -1 -1;
+#X obj 330 188 numberbox 80 22 foobar juri1 0 99999 0;
+#X obj 330 212 numberbox 80 22 foobar juri2 0 99999 0;
+#X obj 330 237 numberbox 80 22 foobar juri3 0 99999 0;
+#X obj 330 262 numberbox 80 22 foobar juri4 0 99999 0;
+#X obj 330 286 numberbox 80 22 foobar juri5 0 99999 0;
+#X obj 378 41 tgl 50 0 timerPause empty || 10 20 0 20 -204800 -1 -1
+0 1;
+#X obj 2 1 cnv 20 215 20 empty empty geral 20 12 0 14 -233017 -66577
+0;
+#X obj 264 1 cnv 20 215 20 empty empty timer 20 12 0 14 -233017 -66577
+0;
+#X obj 83 5 tgl 10 0 empty connInput connInput 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 446 167 vsl 25 140 0 1 0 0 v empty Vol 4 50 0 10 -262144 -1
+-1 0 1;
+#X obj 64 32 bng 25 250 50 0 vid1 empty vid1 0 12 0 10 -262144 -1 -1
+;
+#X obj 64 60 bng 25 250 50 0 vid2 empty vid2 0 12 0 10 -262144 -1 -1
+;
+#X obj 64 88 bng 25 250 50 0 vid3 empty vid3 0 12 0 10 -262144 -1 -1
+;
+#X obj 64 116 bng 25 250 50 0 vid4 empty vid4 0 12 0 10 -262144 -1
+-1;
+#X obj 42 95 bng 15 250 50 0 pause_vid empty pVid -6 7 0 10 -262144
+-1 -1;
+#X obj 42 119 bng 15 250 50 0 killvid empty K 5 8 0 10 -262144 -1 -1
+;

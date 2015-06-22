@@ -1,4 +1,4 @@
-#N canvas 177 97 659 336 10;
+#N canvas 92 116 659 336 10;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
 #X obj 335 219 bng 60 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -12,7 +12,7 @@
 #X obj 89 14 cnv 15 200 300 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X text 91 91 LOGO;
-#N canvas 457 127 524 561 LOGO 0;
+#N canvas 1 120 600 647 LOGO 0;
 #X obj 280 136 r ctrl;
 #X obj 14 223 spigot;
 #X obj 67 225 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -65,6 +65,8 @@
 #X floatatom 314 311 5 0 0 0 - - -, f 5;
 #X obj 229 336 expr $f1*$f2 + (1-$f2);
 #X msg 356 309 0.5;
+#X msg 400 539 text T.I.I. de la Marne;
+#X floatatom 176 123 5 0 0 0 - - -, f 5;
 #X connect 0 0 3 0;
 #X connect 1 0 6 0;
 #X connect 2 0 1 1;
@@ -122,11 +124,13 @@
 #X connect 46 0 47 1;
 #X connect 47 0 30 0;
 #X connect 48 0 47 1;
+#X connect 49 0 9 0;
+#X connect 50 0 42 1;
 #X restore 95 133 pd LOGO;
 #X obj 95 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 18 42 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#N canvas 238 332 259 250 init 0;
+#N canvas 236 361 259 250 init 0;
 #X obj 38 12 loadbang;
 #X msg 38 35 \; Mode 0 \; db_range 55 \; shiftH 0.04 \; size 15 \;
 sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
@@ -136,7 +140,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X restore 15 197 pd init;
 #X obj 310 14 cnv 15 340 150 empty empty empty 20 12 0 14 -262130 -66577
 0;
-#N canvas 1 83 450 300 screen_set 0;
+#N canvas 1 84 450 300 screen_set 0;
 #X obj 51 174 gemwin;
 #X msg 54 227 destroy \, border 0 \, create \, 1;
 #X msg 52 247 reset \, dimen 400 300 \, create \, 1;
@@ -178,9 +182,9 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 17 0 16 0;
 #X restore 323 140 pd screen_set;
 #X obj 320 41 nbx 5 30 -1e+37 1e+37 0 1 width empty Set_Widtht 0 -14
-0 18 -262144 -1 -1 366 256;
+0 18 -262144 -1 -1 509 256;
 #X obj 441 41 nbx 5 30 -1e+37 1e+37 0 1 heigth empty Set_Height 0 -14
-0 18 -262144 -1 -1 249 256;
+0 18 -262144 -1 -1 500 256;
 #X obj 584 39 tgl 30 1 border empty Border -5 -12 0 18 -262144 -1 -1
 1 1;
 #X obj 323 104 tgl 30 0 empty empty Create_Window -5 -12 0 18 -262144
@@ -267,7 +271,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 16 1 17 0;
 #X connect 17 1 4 0;
 #X restore 527 255 pd TEXTO;
-#N canvas 732 106 581 450 BARRA 0;
+#N canvas 184 186 581 450 BARRA 0;
 #X obj 49 223 gemhead;
 #X obj 49 411 rectangle 0.96 3.96;
 #X obj 49 381 translateXYZ 0 0 0;
@@ -283,8 +287,8 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 49 321 colour;
 #X obj 82 291 r barraCor;
 #X obj 285 208 r barraMove;
-#X obj 216 271 r Stop;
-#X msg 219 294 stop;
+#X obj 202 252 r Stop;
+#X msg 232 314 stop;
 #X obj 49 249 translateXYZ 5.5 0 0;
 #X obj 251 140 gemhead;
 #X obj 317 149 colourRGB 1 0 0;
@@ -294,10 +298,10 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 310 126 translateXYZ 5.58 3.96 0;
 #X floatatom 182 343 5 0 0 0 - - -, f 5;
 #X obj 242 347 loadbang;
-#X obj 194 177 loadbang;
+#X obj 305 73 loadbang;
 #X obj 54 17 r MostraBarra;
 #X msg 239 374 -2.5;
-#X msg 228 204 3;
+#X msg 339 100 3;
 #X obj 101 49 r Mode;
 #X obj 101 71 == 1;
 #X obj 58 121 spigot;
@@ -307,6 +311,9 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 446 261 delay 10;
 #X obj 474 290 l;
 #X obj 456 239 t l l;
+#X obj 210 62 r timerPause;
+#X obj 211 85 sel 1 0;
+#X text 223 23 implementar a pausa do Timer;
 #X connect 0 0 16 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -343,8 +350,10 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 35 0 36 0;
 #X connect 37 0 35 0;
 #X connect 37 1 35 1;
+#X connect 38 0 39 0;
+#X connect 39 0 15 0;
 #X restore 527 278 pd BARRA;
-#N canvas 86 113 459 632 GO 0;
+#N canvas 300 109 459 632 GO 0;
 #X obj 120 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 137 39 GO!;
@@ -353,7 +362,6 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 135 459 s toText;
 #X msg 135 436 symbol SLAM;
 #X obj 120 14 r GO;
-#X msg 168 258 \; toText 2 \; LOGO-Alpha 0 1000 \;;
 #X msg 183 105 \; resetCounter bang \; textCor 1 1 1 \; barraCor 1
 1 1 \; barraReset bang \; MostraTexto 1 \; MostraBarra 0 \; toText
 3 \;;
@@ -362,21 +370,22 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 151 331 delay 1600;
 #X obj 135 411 delay 2400;
 #X obj 120 490 delay 3000;
+#X msg 168 258 \; toText 2 \;;
 #X msg 120 521 \; MostraTexto 0 \; MostraBarra 1 \; barraMove 0 180000
-\; LOGO-Alpha 1 2000 \;;
+\;;
 #X connect 0 0 3 0;
-#X connect 3 0 13 0;
-#X connect 3 1 12 0;
-#X connect 3 2 11 0;
-#X connect 3 3 10 0;
-#X connect 3 4 8 0;
+#X connect 3 0 12 0;
+#X connect 3 1 11 0;
+#X connect 3 2 10 0;
+#X connect 3 3 9 0;
+#X connect 3 4 7 0;
 #X connect 5 0 4 0;
 #X connect 6 0 0 0;
-#X connect 9 0 2 0;
-#X connect 10 0 7 0;
-#X connect 11 0 9 0;
-#X connect 12 0 5 0;
-#X connect 13 0 14 0;
+#X connect 8 0 2 0;
+#X connect 9 0 13 0;
+#X connect 10 0 8 0;
+#X connect 11 0 5 0;
+#X connect 12 0 14 0;
 #X restore 527 208 pd GO;
 #X text 180 22 VOTE;
 #N canvas 86 145 503 604 BARULHOMETRO 0;
@@ -435,7 +444,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 20 0 3 0;
 #X connect 22 0 0 0;
 #X restore 181 159 pd BARULHOMETRO;
-#N canvas 147 270 498 353 TIMER 0;
+#N canvas 143 272 498 353 TIMER 0;
 #X obj 118 270 text2d;
 #X floatatom 151 229 5 0 0 0 - - -, f 5;
 #X floatatom 159 146 5 0 0 0 - - -, f 5;
@@ -444,7 +453,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 151 207 r sizeBARU;
 #X obj 41 -49 loadbang;
 #X obj 118 179 translateXYZ 3.5 -3 0;
-#X obj 159 123 r T_X;
+#X obj 159 116 r T_X;
 #X obj 200 117 r T_Y;
 #X obj 241 118 r T_Z;
 #X obj 118 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -478,7 +487,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 96 217 juri_count;
 #X obj 181 284 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
 -262144 -1 -1 0;
-#N canvas 102 79 1226 688 JURI 0;
+#N canvas 0 54 1226 688 JURI 0;
 #X obj 176 197 text2d;
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
@@ -573,7 +582,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 909 339 translateXYZ 2.25 -0.01 0;
 #X floatatom 365 537 5 0 0 0 - - -, f 5;
 #X obj 365 568 s JuriSize;
-#N canvas 749 79 514 565 ANIMATION 0;
+#N canvas 747 80 514 565 ANIMATION 0;
 #X obj 52 69 gemhead;
 #X obj 101 516 text2d;
 #X obj 48 466 translateXYZ;
@@ -693,6 +702,8 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 48 0 1 0;
 #X connect 48 1 17 0;
 #X restore 385 87 pd ANIMATION;
+#X msg 112 34 0;
+#X msg 474 59 0;
 #X connect 0 0 14 0;
 #X connect 1 0 61 1;
 #X connect 2 0 61 2;
@@ -785,6 +796,8 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 87 0 46 0;
 #X connect 88 0 48 0;
 #X connect 89 0 90 0;
+#X connect 92 0 5 0;
+#X connect 93 0 32 0;
 #X restore 97 188 pd JURI;
 #X obj 97 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -795,7 +808,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #N canvas 47 107 771 588 ShowBar 0;
 #X obj 181 350 hsv2rgb;
 #X obj 184 246 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 12700 1;
+-258113 -260097 0 1;
 #X obj 181 179 expr 1 - $f1/$f2;
 #X floatatom 220 297 5 0 0 1 shift_value - -, f 5;
 #X obj 181 296 -;
@@ -1171,7 +1184,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 297 20 Jan 2015;
-#N canvas 234 79 1050 688 conn-in 0;
+#N canvas 56 76 1116 691 conn-in 0;
 #X obj 211 -11 import iemnet mrpeach;
 #X obj 27 12 unpackOSC;
 #X obj 65 566 line;
@@ -1256,29 +1269,31 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X msg 549 567 \$1 400;
 #X text 618 663 Input de som am DBs;
 #X text 670 538 Voto do público;
-#X obj 797 146 s pubYA;
+#X obj 773 149 s pubYA;
 #X obj 528 651 s dbT;
 #X obj 576 640 - 100;
 #X obj 549 618 t f f;
-#X obj 802 127 s Logo-Sel;
+#X obj 775 125 s Logo-Sel;
 #X floatatom 489 175 5 0 0 0 - - -, f 5;
 #X obj 489 147 spigot;
 #X obj 489 122 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 676 26 print netr;
 #X obj 878 164 s logoON;
-#X obj 965 331 s palcoH;
-#X obj 962 166 s palcoS;
-#X obj 980 193 s palcoV;
-#X floatatom 951 112 5 0 0 0 - - -, f 5;
+#X obj 992 138 s palcoH;
+#X obj 990 158 s palcoS;
+#X obj 988 178 s palcoV;
 #X obj 531 74 routeOSC /dbs /barulho_vote /ctrl /timer_ctrl /desliga
 /Mode /RecoverTimer /juri /zera_votos /pubYA /LogoSel /logoON /palcoH
-/palcoS /palcoV;
+/palcoS /palcoV /timerPause;
+#X obj 1000 112 s timerPause;
+#X obj 680 33 print netr;
+#X obj 205 19 print oscr;
 #X connect 1 0 30 0;
 #X connect 2 0 28 0;
 #X connect 7 0 6 0;
 #X connect 7 1 5 0;
 #X connect 9 0 1 0;
+#X connect 9 0 71 0;
 #X connect 9 2 8 0;
 #X connect 14 0 15 0;
 #X connect 14 1 17 0;
@@ -1304,7 +1319,7 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 30 10 29 0;
 #X connect 32 0 31 0;
 #X connect 33 0 32 1;
-#X connect 34 0 70 0;
+#X connect 34 0 68 0;
 #X connect 35 0 59 0;
 #X connect 40 0 39 0;
 #X connect 40 1 38 0;
@@ -1320,23 +1335,23 @@ objects. you can get all info (and more) via outlet #3 as well.;
 #X connect 59 1 58 0;
 #X connect 62 0 61 0;
 #X connect 63 0 62 1;
-#X connect 70 0 53 0;
-#X connect 70 0 62 0;
-#X connect 70 1 37 0;
-#X connect 70 2 36 0;
-#X connect 70 3 40 0;
-#X connect 70 4 41 0;
-#X connect 70 5 43 0;
-#X connect 70 6 44 0;
-#X connect 70 7 45 0;
-#X connect 70 8 52 0;
-#X connect 70 9 56 0;
-#X connect 70 10 60 0;
-#X connect 70 11 65 0;
-#X connect 70 12 66 0;
-#X connect 70 12 69 0;
-#X connect 70 13 67 0;
-#X connect 70 14 68 0;
+#X connect 68 0 53 0;
+#X connect 68 0 62 0;
+#X connect 68 1 37 0;
+#X connect 68 2 36 0;
+#X connect 68 3 40 0;
+#X connect 68 4 41 0;
+#X connect 68 5 43 0;
+#X connect 68 6 44 0;
+#X connect 68 7 45 0;
+#X connect 68 8 52 0;
+#X connect 68 9 56 0;
+#X connect 68 10 60 0;
+#X connect 68 11 64 0;
+#X connect 68 12 65 0;
+#X connect 68 13 66 0;
+#X connect 68 14 67 0;
+#X connect 68 15 69 0;
 #X restore 17 12 pd conn-in;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;

@@ -1,0 +1,3 @@
+./musicas/Work_Song.mp3;
+./musicas/slotmachine.mp3;
+./musicas/enganei-me.mp3;

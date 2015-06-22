@@ -1,0 +1,1 @@
+mplayer -slave -input file=/tmp/labio MVI_9003.MOV
