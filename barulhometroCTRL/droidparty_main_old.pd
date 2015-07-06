@@ -1,13 +1,13 @@
-#N canvas 508 153 649 350 10;
-#X obj 0 0 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992 -262144
+#N canvas 510 152 649 350 10;
+#X obj 1 0 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992 -262144
 0;
 #X obj 1 160 cnv 10 250 150 empty empty empty 20 12 0 14 -45076 -262144
 0;
 #X obj 220 1 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 117 39 vsl 20 100 0 1 0 0 palcoH empty H 0 -9 0 10 -262144 -1
+#X obj 97 43 vsl 25 100 0 1 0 0 palcoH empty H 0 -9 0 10 -262144 -1
 -1 0 0;
-#X obj 141 39 vsl 20 100 0 1 0 0 palcoS empty S 0 -9 0 10 -262144 -1
+#X obj 126 43 vsl 25 100 0 1 0 0 palcoS empty S 0 -9 0 10 -262144 -1
 -1 0 1;
 #X obj 3 69 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -512,7 +512,7 @@ duma bola/farol no display \; toggles para accionar formas tipo bola/farol
 \; 2 timer: 3 barulhometro: 4 juri: number boxes for 5 juri \, maybe
 calculate directly in the android pathc (barulhometroCTRL);
 #X restore 546 116 pd ideas;
-#X obj 165 39 vsl 20 100 0 1 0 0 palcoV empty V 0 -9 0 10 -262144 -1
+#X obj 155 43 vsl 25 100 0 1 0 0 palcoV empty V 0 -9 0 10 -262144 -1
 -1 0 1;
 #X obj 278 43 bng 70 250 50 0 timerStart empty Start 17 7 0 10 -4034
 -1 -1;
@@ -520,15 +520,15 @@ calculate directly in the android pathc (barulhometroCTRL);
 0 1;
 #X obj 22 202 bng 90 250 50 0 barulhoGO empty BARULHO! 7 45 0 16 -257985
 -258113 -258113;
-#X obj 94 121 tgl 20 0 soundCheck empty Vin 0 7 0 10 -262144 -1 -1
-0 1;
+#X obj 184 29 tgl 30 0 soundCheck empty snd_in 0 7 0 10 -262144 -1
+-1 0 1;
 #X obj 144 187 bng 50 250 50 0 set10 empty set10 8 25 0 10 -262144
 -1 -1;
 #X obj 270 201 bng 50 250 50 0 calcula empty calcula 0 7 0 10 -262144
 -1 -1;
 #X obj 269 266 tgl 30 0 withBarulho empty withBarulho -5 7 0 10 -262144
 -1 -1 0 1;
-#X obj 95 83 vsl 10 30 0 100 0 0 empty soundIN-r IN 0 -9 0 10 -262144
+#X obj 186 77 vsl 25 50 0 100 0 0 empty soundIN-r IN 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 26 69 bng 20 250 50 0 bang_discon empty disc 0 7 0 10 -262144
 -1 -1;
@@ -587,9 +587,7 @@ calculate directly in the android pathc (barulhometroCTRL);
 ;
 #X obj 64 116 bng 25 250 50 0 vid4 empty vid4 0 12 0 10 -262144 -1
 -1;
-#X obj 39 94 bng 20 250 50 0 pause_vid empty pVid -6 7 0 10 -262144
+#X obj 42 95 bng 15 250 50 0 pause_vid empty pVid -6 7 0 10 -262144
 -1 -1;
-#X obj 39 120 bng 20 250 50 0 killvid empty K 5 8 0 10 -262144 -1 -1
+#X obj 42 119 bng 15 250 50 0 killvid empty K 5 8 0 10 -262144 -1 -1
 ;
-#X obj 190 8 vsl 25 140 0 1 0 0 v empty Vol 4 50 0 10 -262144 -1 -1
-0 1;

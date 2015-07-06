@@ -1,4 +1,4 @@
-#N canvas 506 146 643 558 10;
+#N canvas 494 152 643 558 10;
 #N canvas 216 225 524 424 calc_barulho 0;
 #X obj 65 148 +;
 #X msg 109 182 0;
@@ -53,7 +53,7 @@
 #X obj 395 287 f;
 #X obj 363 465 r barulho_vote;
 #X obj 457 488 r timer_ctrl;
-#N canvas 89 181 635 536 interface 1;
+#N canvas 81 185 635 536 interface 1;
 #N canvas 1 79 892 688 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
@@ -104,7 +104,7 @@
 -1 -1;
 #X obj 486 613 r timer_ctrl;
 #X obj 109 114 vradio 120 1 0 4 empty state-r empty 0 -8 0 10 -262144
--1 -1 3;
+-1 -1 0;
 #X obj 43 204 s Mode;
 #X text 113 115 Geral;
 #X text 114 237 Timer;
@@ -116,9 +116,9 @@
 -1 -1 0 1;
 #X obj 589 637 s RecoverTimer;
 #X obj 245 392 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 juri1-r empty
-0 -8 0 26 -262144 -1 -1 8.3 256;
+0 -8 0 26 -262144 -1 -1 0 256;
 #X obj 245 435 nbx 4 32 -1e+37 1e+37 0 0 empty juri2-r empty 0 -8 0
-26 -262144 -1 -1 5.4 256;
+26 -262144 -1 -1 0 256;
 #X obj 245 477 nbx 4 32 -1e+37 1e+37 0 0 empty juri3-r empty 0 -8 0
 26 -262144 -1 -1 0 256;
 #X obj 245 519 nbx 4 32 -1e+37 1e+37 0 0 empty juri4-r empty 0 -8 0
@@ -150,7 +150,7 @@
 -10 0 10 -191407 -1 -1 0 1;
 #X obj 23 494 s pubYA;
 #X obj 538 382 vradio 16 1 0 13 Logo-Sel empty empty 0 -8 0 10 -262144
--1 -1 12;
+-1 -1 0;
 #X text 557 383 Portugal Slam;
 #X text 557 399 Sul;
 #X text 556 415 Sines;
@@ -176,7 +176,7 @@
 #X obj 589 135 nbx 7 24 -1e+37 1e+37 0 0 NoiseSum-interface empty SumCalib
 -60 15 0 12 -262144 -1 -1 0 256;
 #X obj 523 229 nbx 5 28 -1e+37 1e+37 0 0 empty BarulhoVote-s Barulho_Vote
-6 40 0 20 -262144 -1 -1 71807.2 256;
+6 40 0 20 -262144 -1 -1 6.17766e+06 256;
 #N canvas 767 137 453 451 INSTRUCTIONS 0;
 #X text 32 307 'barulhometro_ctrl' is to also to bang/start the barulhometro
 \; 'resume time' is the show again the timer bar (in case of misunderstanding
@@ -202,7 +202,7 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 737 62 spigot;
 #X obj 788 63 r chkSoundIN;
 #X obj 601 114 nbx 7 14 -1e+37 1e+37 0 0 empty NoiseSum CheckSum -50
-8 0 10 -262144 -1 -1 7180.72 256;
+8 0 10 -262144 -1 -1 617766 256;
 #X obj 245 181 tgl 30 1 connNET empty connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 741 107 line;
@@ -263,19 +263,20 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X connect 6 0 1 0;
 #X restore 129 141 pd CONTROL;
 #X obj 410 247 nbx 7 28 -1e+37 1e+37 0 0 NoiseSum-r empty empty 0 -8
-0 20 -262144 -1 -1 7180.72 256;
+0 20 -262144 -1 -1 617766 256;
 #X obj 259 360 s NoiseSum;
 #X obj 415 368 nbx 5 28 -1e+37 1e+37 0 0 BarulhoVote-s empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 71807.2 256;
+6 40 0 20 -262144 -1 -1 6.17766e+06 256;
 #X obj 415 431 s barulho_vote;
 #X obj 396 35 delay 2000;
-#N canvas 348 396 448 185 bugs 0;
-#X text 24 17 quando liga a estrela do barulhometro aparece também
-no timer;
-#X text 26 57 a primeira vez que calcula o barulho nao da um valor
-;
-#X text 30 92 o [pd control] serve a lançar os 5 segundos \, e a zerar
+#N canvas 344 398 448 185 bugs 0;
+#X text 29 51 o [pd control] serve a lançar os 5 segundos \, e a zerar
 o voto _acho que se pode abdicar dele;
+#X text 29 14 quando liga o desenho do barulhometro aparece também
+no timer;
+#X text 30 93 precisa fazer o interface para a final;
+#X text 31 117 por os nomes dos participantes \, esconder os votos
+do juri;
 #X restore 577 106 pd bugs;
 #X obj 259 275 spigot;
 #X obj 292 249 t f f;
@@ -540,15 +541,15 @@ vid3 vid4 pause killvid, f 95;
 #X connect 47 27 48 0;
 #X restore 481 13 pd connections;
 #X text 484 524 Jan 2015;
-#N canvas 1 55 304 473 musicas 1;
+#N canvas 1 55 457 476 musicas 0;
 #X obj 35 443 dac~;
 #X msg 68 245 play;
 #X msg 163 264 pause;
-#X msg 160 224 stop;
-#X obj 179 306 r v;
+#X msg 172 241 stop;
+#X obj 111 327 r v;
 #X obj 32 95 textfile;
 #X msg 74 66 bang;
-#X obj 38 305 readanysf~ 2 32 256;
+#X obj 38 294 readanysf~ 2 32 256;
 #X msg 18 34 read playlista.txt \, rewind;
 #X obj 90 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -560,10 +561,21 @@ vid3 vid4 pause killvid, f 95;
 #X obj 69 223 delay 100;
 #X obj 35 408 *~;
 #X obj 77 408 *~;
-#X obj 130 391 *~;
-#X obj 131 364 lop~ 0.9;
+#X obj 106 377 *~;
+#X obj 107 350 lop~ 0.9;
 #X obj 177 89 r goJuriMusic;
 #X obj 27 9 loadbang;
+#X obj 170 296 route ready bang;
+#X obj 169 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 244 336 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 207 359 s next_song;
+#X obj 178 118 r next_song;
+#X msg 214 204 open ./musicas/FRAMESmastered2.mp3 \;;
+#X obj 286 109 bng 50 250 50 0 empty empty empty 17 7 0 10 -260097
+-1 -1;
+#X obj 226 173 t b b;
 #X connect 1 0 7 0;
 #X connect 2 0 7 0;
 #X connect 3 0 7 0;
@@ -575,6 +587,7 @@ vid3 vid4 pause killvid, f 95;
 #X connect 6 0 5 0;
 #X connect 7 0 15 0;
 #X connect 7 1 16 0;
+#X connect 7 2 21 0;
 #X connect 8 0 5 0;
 #X connect 9 0 8 0;
 #X connect 11 0 7 0;
@@ -591,35 +604,43 @@ vid3 vid4 pause killvid, f 95;
 #X connect 18 0 17 1;
 #X connect 19 0 12 0;
 #X connect 20 0 8 0;
+#X connect 21 0 22 0;
+#X connect 21 1 23 0;
+#X connect 21 1 24 0;
+#X connect 25 0 12 0;
+#X connect 26 0 7 0;
+#X connect 27 0 28 0;
+#X connect 28 0 14 0;
+#X connect 28 1 26 0;
 #X restore 493 102 pd musicas;
-#N canvas 21 314 500 394 video_ext 0;
+#N canvas 102 298 500 394 video_ext 1;
 #X obj 282 316 shell;
 #X obj 281 352 print;
 #X obj 87 354 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X msg 99 246 connect localhost 3003;
+#X msg 107 252 connect localhost 3003;
 #X obj 83 317 netsend -u;
 #X obj 131 359 print;
 #X msg 112 277 disconnect;
-#X obj 60 137 prepend send;
-#X msg 275 195 ./pause.sh;
-#X msg 351 252 killall mplayer;
-#X msg 25 36 mplayer -ao jack -slave -input file=/tmp/labio MVI_9003.MOV
-;
-#X obj 97 184 loadbang;
-#X obj 106 214 delay 500;
-#X msg 51 59 mplayer -ao jack -slave -input file=/tmp/labio MVI_9083.MOV
-;
-#X msg 63 82 mplayer -ao jack -slave -input file=/tmp/labio MVI_9049.MOV
-;
-#X msg 89 105 mplayer -ao jack -slave -input file=/tmp/labio MVI_9042.MOV
-;
+#X obj 15 201 prepend send;
+#X msg 283 234 ./pause.sh;
+#X msg 338 284 killall mplayer;
+#X obj 107 200 loadbang;
+#X obj 107 224 delay 500;
 #X obj 28 8 r vid1;
 #X obj 76 11 r vid2;
 #X obj 129 9 r vid3;
 #X obj 177 12 r vid4;
-#X obj 275 167 r pause;
-#X obj 351 225 r killvid;
+#X obj 283 206 r pause;
+#X obj 338 257 r killvid;
+#X msg 124 158 mplayer -geometry 1366 -noborder -ao jack -slave -input
+file=/tmp/labio ./videos/Sérgio.mp4;
+#X msg 87 122 mplayer -geometry 1366 -noborder -ao jack -slave -input
+file=/tmp/labio ./videos/nuno.mp4;
+#X msg 66 77 mplayer -geometry 1366 -noborder -ao jack -slave -input
+file=/tmp/labio ./videos/Raquel.mp4;
+#X msg 25 36 mplayer -geometry 1366 -noborder -ao jack -slave -input
+file=/tmp/labio ./videos/alex.mp4;
 #X connect 0 0 1 0;
 #X connect 3 0 4 0;
 #X connect 4 0 2 0;
@@ -627,18 +648,18 @@ vid3 vid4 pause killvid, f 95;
 #X connect 7 0 4 0;
 #X connect 8 0 0 0;
 #X connect 9 0 0 0;
-#X connect 10 0 7 0;
-#X connect 11 0 12 0;
-#X connect 12 0 3 0;
-#X connect 13 0 7 0;
-#X connect 14 0 7 0;
-#X connect 15 0 7 0;
-#X connect 16 0 10 0;
-#X connect 17 0 13 0;
-#X connect 18 0 14 0;
-#X connect 19 0 15 0;
-#X connect 20 0 8 0;
-#X connect 21 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 3 0;
+#X connect 12 0 21 0;
+#X connect 13 0 20 0;
+#X connect 14 0 19 0;
+#X connect 15 0 18 0;
+#X connect 16 0 8 0;
+#X connect 17 0 9 0;
+#X connect 18 0 7 0;
+#X connect 19 0 7 0;
+#X connect 20 0 7 0;
+#X connect 21 0 7 0;
 #X restore 494 76 pd video_ext;
 #X connect 0 0 49 0;
 #X connect 0 1 15 0;
