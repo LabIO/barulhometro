@@ -1,7 +1,7 @@
 #BARULHOMETRO
 
 
-Barulhometro is an application written in [Pure Data] (http://www.puredata.info) used at Poetry Slam events to calculate the level of noise after each poem and display its value. It also calculates the average of the human juri, and displays a timer.
+Barulhometro is an application written in [Pure Data] (http://www.puredata.info) used at Poetry Slam events to calculate the level of noise after each poem and display its value. It also calculates the average of the human jury, and displays a timer.
 
 Portuguese version!
 
@@ -28,11 +28,13 @@ Portuguese version!
   * In the interface window click on Barulho   
   * Make noise for 5 seconds!!!
   * In the barulhometro window click on the green button "set_value_10"
-  * Use the radio button to control the Timer, Barulhometro and Juri Count
+  * Use the radio button to control the Timer, Barulhometro and Jury Count
 
 TECHNICAL REQUIREMENTS
+A computer with Pd, a microphone and a viedo beamer. 
 
 
+LICENSE
+This software follows the GNU General Public License v3.0.
 
-work in progress
 
