@@ -1,5 +1,5 @@
-#N canvas 577 243 659 362 10;
-#X declare iemnet cyclone;
+#N canvas 574 122 659 362 10;
+#X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
 #X obj 335 219 bng 60 250 50 0 empty empty empty 17 7 0 10 -258113
@@ -29,7 +29,7 @@
 #X msg 292 420 font FONTS/MAKISUPA.TTF;
 #X obj 121 103 gemhead;
 #X obj 114 37 inlet;
-#X obj 121 73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 121 73 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 122 129 alpha;
 #X obj 386 316 line;
@@ -141,10 +141,10 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X restore 15 197 pd init;
 #X obj 310 14 cnv 15 340 150 empty empty empty 20 12 0 14 -262130 -66577
 0;
-#N canvas 1 84 450 300 screen_set 0;
-#X obj 51 174 gemwin;
-#X msg 54 227 destroy \, border 0 \, create \, 1;
-#X msg 52 247 reset \, dimen 400 300 \, create \, 1;
+#N canvas 1 76 644 439 screen_set 0;
+#X obj 38 370 gemwin;
+#X msg 61 238 destroy \, border 0 \, create \, 1;
+#X msg 94 273 reset \, dimen 400 300 \, create \, 1;
 #X msg 38 131 0 \, destroy;
 #X msg 54 205 reset \, dimen 1024 768 \, offset 1280 0 \, border 0
 \, create \, 1;
@@ -158,10 +158,13 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 198 8 r width;
 #X obj 259 9 r heigth;
 #X obj 331 10 r border;
-#X text 250 237 other options;
+#X text 276 240 other options;
 #X obj 283 173 print;
 #X msg 136 133 reset \, dimen \$1 \$2 \, border \$3 \, FSAA 6 \, create
 \, 1;
+#X msg 121 322 dimen 1150 860 \, border 0 \, cursor 0 lighting 1 \,
+create :0.0 \, 1, f 62;
+#X text 421 300 -external gui display;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
@@ -179,8 +182,9 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 12 0 8 1;
 #X connect 13 0 9 1;
 #X connect 14 0 10 1;
-#X connect 17 0 0 0;
 #X connect 17 0 16 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;
 #X restore 323 140 pd screen_set;
 #X obj 320 41 nbx 5 30 -1e+37 1e+37 0 1 width empty Set_Widtht 0 -14
 0 18 -262144 -1 -1 509 256;
@@ -232,7 +236,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 17 0 16 1;
 #X connect 18 0 16 0;
 #X restore 527 231 pd EXTRATIME;
-#N canvas 45 295 310 330 TEXTO 0;
+#N canvas 43 293 310 330 TEXTO 0;
 #X obj 50 2 gemhead;
 #X obj 50 241 text2d 0;
 #X msg 73 163 text \$1;
@@ -272,49 +276,43 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 16 1 17 0;
 #X connect 17 1 4 0;
 #X restore 527 255 pd TEXTO;
-#N canvas 184 186 581 450 BARRA 0;
-#X obj 49 223 gemhead;
-#X obj 49 411 rectangle 0.96 3.96;
-#X obj 49 381 translateXYZ 0 0 0;
-#X obj 309 323 line;
-#X obj 309 350 s timer;
-#X obj 119 352 r timer;
-#X obj 58 168 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 130 89 1057 650 BARRA 0;
+#X obj 58 343 gemhead;
+#X obj 58 531 rectangle 0.96 3.96;
+#X obj 58 501 translateXYZ 0 0 0;
+#X obj 403 453 line;
+#X obj 403 480 s timer;
+#X obj 128 472 r timer;
+#X obj 58 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg 354 293 -8;
-#X obj 354 272 r barraReset;
-#X obj 279 380 sel 0;
-#X obj 279 403 s extraTime;
-#X obj 49 321 colour;
-#X obj 82 291 r barraCor;
-#X obj 285 208 r barraMove;
-#X obj 202 252 r Stop;
-#X msg 232 314 stop;
-#X obj 49 249 translateXYZ 5.5 0 0;
-#X obj 251 140 gemhead;
-#X obj 317 149 colourRGB 1 0 0;
-#X floatatom 374 202 5 0 0 0 - - -, f 5;
-#X floatatom 416 199 5 0 0 0 - - -, f 5;
-#X obj 301 175 rectangle 0.96 0.03;
-#X obj 310 126 translateXYZ 5.58 3.96 0;
-#X floatatom 182 343 5 0 0 0 - - -, f 5;
-#X obj 242 347 loadbang;
-#X obj 305 73 loadbang;
-#X obj 54 17 r MostraBarra;
-#X msg 239 374 -2.5;
-#X msg 339 100 3;
-#X obj 101 49 r Mode;
-#X obj 101 71 == 1;
-#X obj 58 121 spigot;
-#X obj 101 95 t f f;
-#X obj 112 134 sel 1;
-#X msg 377 58 \; barraMove 0 100;
-#X obj 446 261 delay 10;
-#X obj 474 290 l;
-#X obj 456 239 t l l;
-#X obj 210 62 r timerPause;
-#X obj 211 85 sel 1 0;
+#X msg 424 410 -8;
+#X obj 424 389 r barraReset;
+#X obj 373 510 sel 0;
+#X obj 373 533 s extraTime;
+#X obj 58 441 colour;
+#X obj 91 411 r barraCor;
+#X obj 403 361 r barraMove;
+#X obj 367 307 r Stop;
+#X msg 350 377 stop;
+#X obj 58 369 translateXYZ 5.5 0 0;
+#X obj 91 220 gemhead;
+#X obj 91 269 colourRGB 1 0 0;
+#X obj 91 295 rectangle 0.96 0.03;
+#X floatatom 191 463 5 0 0 0 - - -, f 5;
+#X obj 251 467 loadbang;
+#X obj 58 5 r MostraBarra;
+#X msg 248 494 -2.5;
+#X obj 97 37 r Mode;
+#X obj 97 59 == 1;
+#X obj 58 109 spigot;
+#X obj 97 83 t f f;
+#X obj 129 107 sel 1;
+#X msg 444 20 \; barraMove 0 100;
+#X obj 268 305 r timerPause;
+#X obj 268 328 sel 1 0;
 #X text 223 23 implementar a pausa do Timer;
+#X obj 91 246 translateXYZ 3 3.96 0;
+#X obj 612 395 print;
 #X connect 0 0 16 0;
 #X connect 2 0 1 0;
 #X connect 3 0 4 0;
@@ -331,28 +329,21 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X connect 14 0 15 0;
 #X connect 15 0 3 0;
 #X connect 16 0 11 0;
-#X connect 17 0 22 0;
-#X connect 18 0 21 0;
-#X connect 19 0 21 1;
-#X connect 20 0 21 2;
-#X connect 22 0 18 0;
-#X connect 23 0 2 2;
-#X connect 24 0 27 0;
-#X connect 25 0 28 0;
-#X connect 26 0 31 0;
-#X connect 27 0 2 1;
-#X connect 28 0 22 1;
-#X connect 29 0 30 0;
-#X connect 30 0 32 0;
-#X connect 31 0 6 0;
-#X connect 32 0 31 1;
-#X connect 32 1 33 0;
-#X connect 33 1 6 0;
-#X connect 35 0 36 0;
-#X connect 37 0 35 0;
-#X connect 37 1 35 1;
-#X connect 38 0 39 0;
-#X connect 39 0 15 0;
+#X connect 17 0 33 0;
+#X connect 18 0 19 0;
+#X connect 20 0 2 2;
+#X connect 21 0 23 0;
+#X connect 22 0 26 0;
+#X connect 23 0 2 1;
+#X connect 24 0 25 0;
+#X connect 25 0 27 0;
+#X connect 26 0 6 0;
+#X connect 27 0 26 1;
+#X connect 27 1 28 0;
+#X connect 28 1 6 0;
+#X connect 30 0 31 0;
+#X connect 31 0 15 0;
+#X connect 33 0 18 0;
 #X restore 527 278 pd BARRA;
 #N canvas 300 109 459 632 GO 0;
 #X obj 120 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -397,7 +388,7 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X floatatom 176 176 5 0 0 0 - - -, f 5;
 #X msg 107 304 font FONTS/MAKISUPA.TTF;
 #X obj 124 245 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -488,12 +479,12 @@ sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 #X obj 96 217 juri_count;
 #X obj 181 284 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
 -262144 -1 -1 0;
-#N canvas 1 55 1226 688 JURI 0;
+#N canvas 1 76 1226 663 JURI 0;
 #X obj 176 197 text2d;
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
 #X floatatom 269 71 5 0 0 0 - - -, f 5;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 143 35 gemhead;
 #X obj 430 -23 inlet;
@@ -603,7 +594,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X msg 123 248 0 2000;
 #X obj 123 223 delay 500;
 #X floatatom 161 519 5 0 0 0 - - -, f 5;
-#X obj 49 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 49 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 56 3 inlet;
 #X msg 150 346 1;
@@ -618,7 +609,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 251 40 f;
 #X obj 280 40 + 1;
 #X floatatom 232 86 5 0 0 0 - - -, f 5;
-#X obj 104 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 104 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 252 62 mod 5;
 #X obj 78 393 random 3;
@@ -809,7 +800,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #N canvas 47 107 771 588 ShowBar 0;
 #X obj 181 350 hsv2rgb;
 #X obj 184 246 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 0 1;
+-258113 -260097 11490 1;
 #X obj 181 179 expr 1 - $f1/$f2;
 #X floatatom 220 297 5 0 0 1 shift_value - -, f 5;
 #X obj 181 296 -;
@@ -1025,7 +1016,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 271 406 min 10;
 #X obj 271 430 max 0;
 #X obj 216 124 spigot;
-#X obj 249 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 249 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 285 58 0;
 #X msg 340 56 1;
@@ -1185,35 +1176,34 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 297 20 Jan 2015;
-#N canvas 48 76 1116 663 conn-in 1;
-#X obj 691 -13 netreceive 3000;
+#N canvas 40 76 1116 663 conn-in 0;
+#X obj 7 16 netreceive 3000;
 #X obj 8 550 line;
-#X obj 607 512 s ctrl;
+#X obj 136 462 s ctrl;
 #X obj 71 492 s barulho_vote;
-#X obj 655 466 s StopTimer;
-#X obj 636 488 s GOtimer;
-#X obj 636 441 sel 1 0;
-#X obj 665 420 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 220 438 s StopTimer;
+#X obj 201 460 s GOtimer;
+#X obj 201 413 sel 1 0;
+#X obj 266 413 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 35 619 outlet;
-#X obj 694 403 s Mode;
-#X obj 710 374 s MostraBarra;
-#X obj 738 199 routeOSC /1 /2 /3 /4 /5 /calc;
-#X obj 738 344 s JuriVote-1-set;
-#X obj 880 223 s calc_juri;
-#X obj 766 319 s JuriVote-2-set;
-#X obj 795 295 s JuriVote-3-set;
-#X obj 823 273 s JuriVote-4-set;
-#X obj 852 248 s JuriVote-5-set;
-#X obj 768 173 s zera_votos;
+#X obj 330 408 s Mode;
+#X obj 395 436 s MostraBarra;
+#X obj 1091 494 s JuriVote-1-set;
+#X obj 1367 229 s calc_juri;
+#X obj 1163 398 s JuriVote-2-set;
+#X obj 1188 353 s JuriVote-3-set;
+#X obj 1244 320 s JuriVote-4-set;
+#X obj 1292 277 s JuriVote-5-set;
+#X obj 525 442 s zera_votos;
 #X msg 8 522 \$1 400;
 #X text 90 618 Input de som am DBs;
 #X text 184 495 Voto do público;
-#X obj 773 149 s pubYA;
+#X obj 589 403 s pubYA;
 #X obj -13 606 s dbT;
 #X obj 35 595 - 100;
 #X obj 8 573 t f f;
-#X obj 775 125 s Logo-Sel;
+#X obj 654 403 s Logo-Sel;
 #X obj 878 164 s logoON;
 #X obj 992 138 s palcoH;
 #X obj 990 158 s palcoS;
@@ -1223,36 +1213,41 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 /RecoverTimer /juri /zera_votos /pubYA /LogoSel /logoON /palcoH /palcoS
 /palcoV /timerPause /juri/1 /juri/2 /juri/3 /juri/4 /juri/5 /juri/calc
 , f 204;
-#X connect 0 0 32 0;
-#X connect 1 0 25 0;
+#X obj 1384 135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 617 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 31 0;
+#X connect 1 0 24 0;
 #X connect 6 0 5 0;
 #X connect 6 1 4 0;
-#X connect 11 0 12 0;
-#X connect 11 1 14 0;
-#X connect 11 2 15 0;
-#X connect 11 3 16 0;
-#X connect 11 4 17 0;
-#X connect 11 5 13 0;
-#X connect 19 0 1 0;
-#X connect 24 0 8 0;
-#X connect 25 0 23 0;
-#X connect 25 1 24 0;
-#X connect 32 0 19 0;
-#X connect 32 1 3 0;
-#X connect 32 2 2 0;
-#X connect 32 3 6 0;
-#X connect 32 4 7 0;
-#X connect 32 5 9 0;
-#X connect 32 6 10 0;
-#X connect 32 7 11 0;
-#X connect 32 8 18 0;
-#X connect 32 9 22 0;
-#X connect 32 10 26 0;
-#X connect 32 11 27 0;
-#X connect 32 12 28 0;
-#X connect 32 13 29 0;
-#X connect 32 14 30 0;
-#X connect 32 15 31 0;
+#X connect 18 0 1 0;
+#X connect 23 0 8 0;
+#X connect 24 0 22 0;
+#X connect 24 1 23 0;
+#X connect 31 0 18 0;
+#X connect 31 1 3 0;
+#X connect 31 2 2 0;
+#X connect 31 3 6 0;
+#X connect 31 4 7 0;
+#X connect 31 5 9 0;
+#X connect 31 6 10 0;
+#X connect 31 8 17 0;
+#X connect 31 9 21 0;
+#X connect 31 9 33 0;
+#X connect 31 10 25 0;
+#X connect 31 11 26 0;
+#X connect 31 12 27 0;
+#X connect 31 13 28 0;
+#X connect 31 14 29 0;
+#X connect 31 15 30 0;
+#X connect 31 16 11 0;
+#X connect 31 17 13 0;
+#X connect 31 18 14 0;
+#X connect 31 19 15 0;
+#X connect 31 20 16 0;
+#X connect 31 21 12 0;
+#X connect 31 21 32 0;
 #X restore 17 12 pd conn-in;
 #N canvas 194 90 387 574 FINAL 0;
 #X obj 63 29 nbx 4 25 -1e+37 1e+37 0 0 barA empty barA 0 -12 0 20 -262144
@@ -1289,7 +1284,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 20 -262144 -1 -1 0 256;
 #X restore 99 247 pd FINAL;
 #X text 7 315 Maio 2016;
-#X obj 11 337 declare iemnet cyclone;
+#X obj 12 337 declare iemnet cyclone list-abs zexy;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;
 #X connect 5 0 3 0;
