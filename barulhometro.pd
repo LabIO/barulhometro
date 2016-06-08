@@ -1,4 +1,4 @@
-#N canvas 141 127 827 592 10;
+#N canvas 139 125 827 592 10;
 #X declare iemnet cyclone;
 #N canvas 216 225 524 424 calc_barulho 0;
 #X obj 65 148 +;
@@ -54,7 +54,7 @@
 #X obj 395 287 f;
 #X obj 363 465 r barulho_vote;
 #X obj 457 488 r timer_ctrl;
-#N canvas 553 115 635 536 interface 1;
+#N canvas 551 113 635 536 interface 1;
 #N canvas 1 76 892 663 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
@@ -80,13 +80,13 @@
 -1 -1 0 1;
 #X obj 589 637 s RecoverTimer;
 #X obj 245 392 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 juri1-r empty
-0 -8 0 26 -262144 -1 -1 5 256;
+0 -8 0 26 -262144 -1 -1 7 256;
 #X obj 245 435 nbx 4 32 -1e+37 1e+37 0 0 empty juri2-r empty 0 -8 0
-26 -262144 -1 -1 5 256;
+26 -262144 -1 -1 7 256;
 #X obj 245 477 nbx 4 32 -1e+37 1e+37 0 0 empty juri3-r empty 0 -8 0
-26 -262144 -1 -1 5 256;
+26 -262144 -1 -1 7 256;
 #X obj 245 519 nbx 4 32 -1e+37 1e+37 0 0 empty juri4-r empty 0 -8 0
-26 -262144 -1 -1 5 256;
+26 -262144 -1 -1 7 256;
 #X obj 245 561 nbx 4 32 -1e+37 1e+37 0 0 empty juri5-r empty 0 -8 0
 26 -262144 -1 -1 3 256;
 #X obj 88 635 s juri;
@@ -139,7 +139,7 @@
 #X obj 589 135 nbx 7 24 -1e+37 1e+37 0 0 NoiseSum-interface empty SumCalib
 -60 15 0 12 -262144 -1 -1 0 256;
 #X obj 523 229 nbx 5 28 -1e+37 1e+37 0 0 empty BarulhoVote-s Barulho_Vote
-6 40 0 20 -262144 -1 -1 1.83703e+06 256;
+6 40 0 20 -262144 -1 -1 58767.1 256;
 #N canvas 767 137 453 451 INSTRUCTIONS 0;
 #X text 32 307 'barulhometro_ctrl' is to also to bang/start the barulhometro
 \; 'resume time' is the show again the timer bar (in case of misunderstanding
@@ -165,7 +165,7 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 737 62 spigot;
 #X obj 788 63 r chkSoundIN;
 #X obj 601 114 nbx 7 14 -1e+37 1e+37 0 0 empty NoiseSum CheckSum -50
-8 0 10 -262144 -1 -1 183703 256;
+8 0 10 -262144 -1 -1 5876.71 256;
 #X obj 245 181 tgl 30 1 connNET empty connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 741 107 line;
@@ -225,10 +225,10 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X connect 6 0 1 0;
 #X restore 129 141 pd CONTROL;
 #X obj 410 247 nbx 7 28 -1e+37 1e+37 0 0 NoiseSum-r empty empty 0 -8
-0 20 -262144 -1 -1 183703 256;
+0 20 -262144 -1 -1 5876.71 256;
 #X obj 259 360 s NoiseSum;
 #X obj 415 368 nbx 5 28 -1e+37 1e+37 0 0 BarulhoVote-s empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 1.83703e+06 256;
+6 40 0 20 -262144 -1 -1 58767.1 256;
 #X obj 415 431 s barulho_vote;
 #X obj 486 35 delay 2000;
 #N canvas 342 396 448 185 bugs 0;
@@ -305,7 +305,7 @@ do juri;
 #X msg 443 568 send /LogoSel \$1;
 #X obj 171 535 append;
 #X obj 69 571 netsend;
-#X obj 69 593 tgl 30 0 empty empty empty 17 7 0 10 -257985 -1 -1 0
+#X obj 69 593 tgl 30 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
 1;
 #X obj 176 114 t f b;
 #X obj 217 115 t b f;
