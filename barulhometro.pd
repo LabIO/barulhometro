@@ -1,4 +1,4 @@
-#N canvas 25 110 827 592 10;
+#N canvas 23 108 827 592 10;
 #X declare iemnet cyclone;
 #N canvas 216 225 524 424 calc_barulho 0;
 #X obj 65 148 +;
@@ -54,7 +54,7 @@
 #X obj 395 287 f;
 #X obj 363 465 r barulho_vote;
 #X obj 457 488 r timer_ctrl;
-#N canvas 191 164 635 536 interface 0;
+#N canvas 683 96 635 536 interface 1;
 #N canvas 1 76 892 663 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
@@ -64,9 +64,8 @@
 10 -159808 -262144 -262144;
 #X msg 25 373 \; ctrl-r 1 \;;
 #X msg 10 13 \; timer_ctrl 1;
-#X obj 453 483 bng 30 250 50 0 empty empty zera_voto -7 -7 0 10 -191407
--1 -1;
-#X obj 486 613 r timer_ctrl;
+#X obj 464 390 bng 30 250 50 0 zera_votos r_timer_ctrl zera_voto -7
+-7 0 10 -191407 -1 -1;
 #X obj 109 114 vradio 120 1 0 4 empty state-r empty 0 -8 0 10 -262144
 -1 -1 2;
 #X obj 140 603 s Mode;
@@ -80,15 +79,15 @@
 -1 -1 0 1;
 #X obj 589 637 s RecoverTimer;
 #X obj 245 392 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 juri1-r empty
-0 -8 0 26 -262144 -1 -1 0 256;
+0 -8 0 26 -262144 -1 -1 4 256;
 #X obj 245 435 nbx 4 32 -1e+37 1e+37 0 0 empty juri2-r empty 0 -8 0
-26 -262144 -1 -1 0 256;
+26 -262144 -1 -1 5 256;
 #X obj 245 477 nbx 4 32 -1e+37 1e+37 0 0 empty juri3-r empty 0 -8 0
-26 -262144 -1 -1 0 256;
+26 -262144 -1 -1 5 256;
 #X obj 245 519 nbx 4 32 -1e+37 1e+37 0 0 empty juri4-r empty 0 -8 0
-26 -262144 -1 -1 0 256;
+26 -262144 -1 -1 6 256;
 #X obj 245 561 nbx 4 32 -1e+37 1e+37 0 0 empty juri5-r empty 0 -8 0
-26 -262144 -1 -1 0 256;
+26 -262144 -1 -1 10 256;
 #X obj 88 635 s juri;
 #X obj 108 658 s juri;
 #X obj 221 621 s juri;
@@ -99,18 +98,17 @@
 #X msg 148 643 /juri/5 \$1;
 #X obj 82 610 s juri;
 #X msg 14 610 /juri/1 \$1;
-#X obj 389 474 bng 50 250 50 0 empty calc-r empty 17 7 0 10 -257985
+#X obj 379 457 bng 50 250 50 0 empty calc-r empty 17 7 0 10 -257985
 -1 -1;
-#X msg 326 631 /juri/calc bang;
-#X obj 322 652 s juri;
+#X msg 321 612 /juri/calc bang;
+#X obj 404 669 s juri;
 #X text 311 396 JURI 1;
 #X text 310 439 JURI 2;
 #X text 309 562 JURI 5;
 #X text 309 522 JURI 4;
 #X text 309 481 JURI 3;
-#X text 374 450 Calcula VOTOS;
-#X msg 472 638 \; zera_votos bang;
-#X obj 387 392 tgl 50 0 pubYA withBarulho-r Média_COM_Público -5
+#X text 363 438 Calcula VOTOS;
+#X obj 383 381 tgl 49 0 pubYA withBarulho-r Média_COM_Público -5
 -10 0 10 -191407 -1 -1 0 1;
 #X obj 538 382 vradio 16 1 0 13 Logo-Sel empty empty 0 -8 0 10 -262144
 -1 -1 5;
@@ -125,7 +123,7 @@
 #X text 555 524 Lx;
 #X text 556 540 SlamT;
 #X text 556 575 Labio;
-#X obj 245 132 tgl 30 1 connOSC empty connOSC -5 -7 0 10 -257985 -1
+#X obj 245 124 tgl 30 1 connOSC empty connOSC -5 -7 0 10 -260097 -1
 -1 0 1;
 #X obj 292 129 tgl 50 0 chkSoundIN chkSoundIN-r check_soundIN 55 25
 0 14 -204786 -1 -1 0 1;
@@ -139,7 +137,7 @@
 #X obj 589 135 nbx 7 24 -1e+37 1e+37 0 0 NoiseSum-interface empty SumCalib
 -60 15 0 12 -262144 -1 -1 0 256;
 #X obj 523 229 nbx 5 28 -1e+37 1e+37 0 0 empty BarulhoVote-s Barulho_Vote
-6 40 0 20 -262144 -1 -1 5.04171 256;
+6 40 0 20 -262144 -1 -1 1.02198 256;
 #N canvas 767 137 453 451 INSTRUCTIONS 0;
 #X text 32 307 'barulhometro_ctrl' is to also to bang/start the barulhometro
 \; 'resume time' is the show again the timer bar (in case of misunderstanding
@@ -165,8 +163,8 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 737 62 spigot;
 #X obj 788 63 r chkSoundIN;
 #X obj 601 114 nbx 7 14 -1e+37 1e+37 0 0 empty NoiseSum CheckSum -50
-8 0 10 -262144 -1 -1 8420.7 256;
-#X obj 245 181 tgl 30 1 connNET empty connNET -5 -7 0 10 -260097 -1
+8 0 10 -262144 -1 -1 20454.3 256;
+#X obj 245 173 tgl 30 1 connNET empty connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 741 107 line;
 #X msg 740 85 \$1 500;
@@ -177,43 +175,57 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X msg 122 12 \; timer_ctrl 0 \; state-r 2 \; ctrl-r 1 \;;
 #X text 557 445 Cascais;
 #X obj 751 162 s noiseLevel2CTRL;
-#X obj 397 533 tgl 15 0 Mode empty empty 17 7 0 10 -262144 -1 -1 0
-4;
 #X obj 373 560 hradio 30 1 0 3 empty empty empty 0 -8 0 10 -262144
 -1 -1 1;
+#X obj 441 464 bng 25 250 50 0 gravaBarulhoFinal-A empty empty 17 7
+0 10 -262144 -1 -1;
+#X obj 441 500 bng 25 250 50 0 gravaBarulhoFinal-B empty empty 17 7
+0 10 -262144 -1 -1;
+#X text 471 462 Guarda;
+#X text 469 472 Final A;
+#X text 467 499 Guarda;
+#X text 467 513 Final B;
+#X msg 444 612 /juri/save/A bang;
+#X msg 456 639 /juri/save/B bang;
+#X obj 279 675 s Mode;
+#X obj 293 635 + 3;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
-#X connect 2 0 75 0;
-#X connect 5 0 41 0;
-#X connect 6 0 5 0;
-#X connect 7 0 8 0;
-#X connect 13 0 14 0;
-#X connect 14 0 0 0;
-#X connect 15 0 16 0;
-#X connect 17 0 31 0;
+#X connect 2 0 73 0;
+#X connect 6 0 7 0;
+#X connect 12 0 13 0;
+#X connect 13 0 0 0;
+#X connect 14 0 15 0;
+#X connect 16 0 30 0;
+#X connect 17 0 25 0;
 #X connect 18 0 26 0;
 #X connect 19 0 27 0;
 #X connect 20 0 28 0;
-#X connect 21 0 29 0;
+#X connect 25 0 21 0;
 #X connect 26 0 22 0;
 #X connect 27 0 23 0;
 #X connect 28 0 24 0;
-#X connect 29 0 25 0;
-#X connect 31 0 30 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
 #X connect 32 0 33 0;
-#X connect 33 0 34 0;
-#X connect 57 0 66 0;
-#X connect 66 0 71 0;
-#X connect 67 0 66 1;
-#X connect 67 0 73 0;
-#X connect 70 0 77 0;
-#X connect 71 0 70 0;
-#X connect 73 0 74 0;
-#X connect 74 0 70 0;
+#X connect 55 0 64 0;
+#X connect 64 0 69 0;
+#X connect 65 0 64 1;
+#X connect 65 0 71 0;
+#X connect 68 0 75 0;
+#X connect 69 0 68 0;
+#X connect 71 0 72 0;
+#X connect 72 0 68 0;
+#X connect 76 0 86 0;
+#X connect 77 0 83 0;
+#X connect 78 0 84 0;
+#X connect 83 0 33 0;
+#X connect 84 0 33 0;
+#X connect 86 0 85 0;
 #X coords 0 -1 1 1 600 500 1 100 100;
 #X restore 15 19 pd INTERFACE-GOP;
 #X restore 572 37 pd interface;
-#N canvas 609 465 197 274 CONTROL 0;
+#N canvas 607 465 197 274 CONTROL 0;
 #X msg 42 210 \; ctrl 0 \;;
 #X obj 42 53 sel 1 0;
 #X msg 69 148 \; ctrl 1 \;;
@@ -229,10 +241,10 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X connect 6 0 1 0;
 #X restore 129 141 pd CONTROL;
 #X obj 410 247 nbx 7 28 -1e+37 1e+37 0 0 NoiseSum-r empty empty 0 -8
-0 20 -262144 -1 -1 8420.7 256;
+0 20 -262144 -1 -1 20454.3 256;
 #X obj 259 360 s NoiseSum;
 #X obj 415 368 nbx 5 28 -1e+37 1e+37 0 0 BarulhoVote-s empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 5.04171 256;
+6 40 0 20 -262144 -1 -1 1.02198 256;
 #X obj 415 431 s barulho_vote;
 #X obj 486 35 delay 2000;
 #N canvas 342 396 448 185 bugs 0;
@@ -271,7 +283,7 @@ do juri;
 #X obj 263 84 tgl 30 1 empty connNET connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 263 129 s conn2;
-#N canvas 167 114 1166 595 com_send 0;
+#N canvas 165 112 1166 595 com_send 0;
 #X obj 31 4 r conn1;
 #X obj 18 80 t f b;
 #X obj 59 81 t b f;
@@ -282,7 +294,6 @@ do juri;
 #X msg 58 179 disconnect;
 #X obj 409 52 inlet;
 #X obj 460 56 inlet;
-#X floatatom 31 339 5 0 0 0 - - -, f 5;
 #X msg 917 258 send /dbs \$1;
 #X msg 344 222 send /barulho_vote \$1;
 #X msg 460 87 send /ctrl \$1;
@@ -300,16 +311,14 @@ do juri;
 #X msg 3 413 send /Mode \$1;
 #X obj 383 362 r RecoverTimer;
 #X msg 383 385 send /RecoverTimer \$1;
-#X obj 45 441 r juri;
 #X msg 534 212 send /zera_votos bang;
 #X obj 539 180 r zera_votos;
 #X obj 926 59 r pubYA;
 #X msg 926 83 send /pubYA \$1;
 #X obj 445 485 r Logo-Sel;
 #X msg 443 568 send /LogoSel \$1;
-#X obj 171 535 append;
 #X obj 69 571 netsend;
-#X obj 69 593 tgl 30 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
+#X obj 69 593 tgl 30 0 empty empty empty 17 7 0 10 -257985 -1 -1 0
 1;
 #X obj 176 114 t f b;
 #X obj 217 115 t b f;
@@ -329,8 +338,6 @@ do juri;
 #X msg 605 510 send /palcoV \$1;
 #X obj 605 486 r palcoV;
 #X obj 594 326 == 0;
-#X obj 68 321 list prepend;
-#X obj 45 466 cyclone/prepend send;
 #X obj -2 531 r sent_it;
 #X obj 926 109 s sent_it;
 #X obj 896 96 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -340,68 +347,71 @@ do juri;
 #X obj 894 220 line 0 40;
 #X obj 917 281 s sent_it;
 #X obj 460 110 s sent_it;
+#X obj 866 486 r juri;
+#X obj 866 511 cyclone/prepend send;
+#X obj 866 534 s sent_it;
 #X connect 0 0 3 0;
 #X connect 1 0 6 1;
 #X connect 1 1 7 0;
-#X connect 2 0 19 0;
+#X connect 2 0 18 0;
 #X connect 2 1 6 1;
 #X connect 3 0 5 0;
 #X connect 3 1 4 0;
 #X connect 4 0 2 0;
 #X connect 5 0 1 0;
 #X connect 7 0 6 0;
-#X connect 8 0 12 0;
-#X connect 9 0 13 0;
-#X connect 11 0 62 0;
-#X connect 12 0 34 0;
-#X connect 13 0 63 0;
-#X connect 14 0 15 0;
-#X connect 15 0 34 0;
-#X connect 17 0 16 0;
-#X connect 18 0 17 1;
-#X connect 19 0 6 0;
-#X connect 20 0 21 0;
-#X connect 21 0 34 0;
-#X connect 22 0 23 0;
-#X connect 23 0 34 0;
-#X connect 24 0 25 0;
-#X connect 25 0 34 0;
-#X connect 26 0 55 0;
-#X connect 27 0 34 0;
-#X connect 28 0 27 0;
+#X connect 8 0 11 0;
+#X connect 9 0 12 0;
+#X connect 10 0 57 0;
+#X connect 11 0 31 0;
+#X connect 12 0 58 0;
+#X connect 13 0 14 0;
+#X connect 14 0 31 0;
+#X connect 16 0 15 0;
+#X connect 17 0 16 1;
+#X connect 18 0 6 0;
+#X connect 19 0 20 0;
+#X connect 20 0 31 0;
+#X connect 21 0 22 0;
+#X connect 22 0 31 0;
+#X connect 23 0 24 0;
+#X connect 24 0 31 0;
+#X connect 25 0 31 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X connect 27 0 53 0;
+#X connect 28 0 52 0;
 #X connect 29 0 30 0;
-#X connect 29 0 58 0;
-#X connect 30 0 57 0;
+#X connect 30 0 31 0;
 #X connect 31 0 32 0;
-#X connect 32 0 34 0;
-#X connect 34 0 35 0;
-#X connect 36 0 43 1;
-#X connect 36 1 42 0;
-#X connect 37 0 41 0;
-#X connect 37 1 43 1;
+#X connect 33 0 40 1;
+#X connect 33 1 39 0;
+#X connect 34 0 38 0;
+#X connect 34 1 40 1;
+#X connect 35 0 37 0;
+#X connect 35 1 36 0;
+#X connect 36 0 34 0;
+#X connect 37 0 33 0;
 #X connect 38 0 40 0;
-#X connect 38 1 39 0;
-#X connect 39 0 37 0;
-#X connect 40 0 36 0;
-#X connect 41 0 43 0;
-#X connect 42 0 43 0;
-#X connect 43 0 34 0;
-#X connect 44 0 38 0;
-#X connect 45 0 53 0;
-#X connect 46 0 34 0;
-#X connect 47 0 48 0;
-#X connect 48 0 34 0;
-#X connect 49 0 50 0;
-#X connect 50 0 34 0;
-#X connect 51 0 34 0;
-#X connect 52 0 51 0;
-#X connect 53 0 46 0;
-#X connect 55 0 34 0;
-#X connect 56 0 34 0;
+#X connect 39 0 40 0;
+#X connect 40 0 31 0;
+#X connect 41 0 35 0;
+#X connect 42 0 50 0;
+#X connect 43 0 31 0;
+#X connect 44 0 45 0;
+#X connect 45 0 31 0;
+#X connect 46 0 47 0;
+#X connect 47 0 31 0;
+#X connect 48 0 31 0;
+#X connect 49 0 48 0;
+#X connect 50 0 43 0;
+#X connect 51 0 31 0;
+#X connect 54 0 55 0;
+#X connect 55 0 56 0;
+#X connect 56 0 10 0;
+#X connect 56 0 16 0;
 #X connect 59 0 60 0;
 #X connect 60 0 61 0;
-#X connect 61 0 11 0;
-#X connect 61 0 17 0;
 #X restore 366 530 pd com_send;
 #X text 12 16 1) check the silence barulho (ambient noise) & set silence
 barulho 3) run the barulhometro the first time for maximum noise (vote
@@ -410,7 +420,7 @@ barulho 3) run the barulhometro the first time for maximum noise (vote
 #X msg 486 59 \; pd dsp 1 \; ctrl 1 \; conn1 1 \; NoiseSum 1 \;;
 #X obj 259 332 max 1;
 #X obj 15 159 r bang_silence;
-#N canvas 343 171 861 559 connections 0;
+#N canvas 341 169 861 559 connections 0;
 #X obj 29 39 netreceive 9000;
 #X text 25 13 receive from barulhometroCTRL;
 #X obj 2 120 sel 0;
