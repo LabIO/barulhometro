@@ -1,4 +1,4 @@
-#N canvas 121 240 748 439 10;
+#N canvas 441 298 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -38,7 +38,7 @@
 #X obj 270 309 line;
 #X obj 303 380 *;
 #X obj 272 285 pack f 2000;
-#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 299 259 metro 2000;
 #X msg 284 502 text LabIO;
@@ -364,7 +364,7 @@ create :0.0 \, 1, f 62;
 #X connect 12 0 14 0;
 #X restore 527 208 pd GO;
 #X text 190 22 VOTE;
-#N canvas 70 121 503 604 BARULHOMETRO 0;
+#N canvas 68 119 503 604 BARULHOMETRO 0;
 #X obj 87 435 text2d;
 #X obj 87 201 translateXYZ;
 #X floatatom 110 113 5 0 0 0 - - -, f 5;
@@ -372,7 +372,7 @@ create :0.0 \, 1, f 62;
 #X floatatom 176 176 5 0 0 0 - - -, f 5;
 #X msg 107 304 font FONTS/MAKISUPA.TTF;
 #X obj 124 245 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -391,10 +391,11 @@ create :0.0 \, 1, f 62;
 2 \;;
 #X msg 166 -28 \; Barulho-size 50 \; Barulho-Pos-X 0 \; Barulho-Pos-Y
 -1 \;;
-#X obj -15 -102 sel 2 3 4;
-#X obj 229 -76 sel 2 4;
 #X msg 315 -24 \; Barulho-size 25 \; Barulho-Pos-X -0.3 \; Barulho-Pos-Y
 2 \;;
+#X obj 229 -76 sel 2 4 5;
+#X floatatom 182 -105 5 0 0 0 - - -, f 5;
+#X obj -15 -102 sel 2 3 4 5;
 #X connect 1 0 0 0;
 #X connect 2 0 1 1;
 #X connect 3 0 1 2;
@@ -406,23 +407,26 @@ create :0.0 \, 1, f 62;
 #X connect 7 0 8 0;
 #X connect 8 0 14 0;
 #X connect 9 0 7 0;
-#X connect 10 0 23 0;
+#X connect 10 0 26 0;
 #X connect 11 0 7 0;
 #X connect 12 0 7 0;
 #X connect 13 0 24 0;
+#X connect 13 0 25 0;
 #X connect 14 0 1 0;
 #X connect 15 0 17 0;
 #X connect 16 0 2 0;
 #X connect 17 0 0 1;
 #X connect 18 0 3 0;
 #X connect 20 0 0 0;
-#X connect 23 0 11 0;
-#X connect 23 1 11 0;
-#X connect 23 2 11 0;
-#X connect 23 3 12 0;
 #X connect 24 0 22 0;
-#X connect 24 1 25 0;
-#X connect 24 2 21 0;
+#X connect 24 1 23 0;
+#X connect 24 2 23 0;
+#X connect 24 3 21 0;
+#X connect 26 0 11 0;
+#X connect 26 1 11 0;
+#X connect 26 2 11 0;
+#X connect 26 3 11 0;
+#X connect 26 4 12 0;
 #X restore 191 159 pd BARULHOMETRO;
 #N canvas 143 272 498 353 TIMER 0;
 #X obj 118 270 text2d;
@@ -472,7 +476,7 @@ create :0.0 \, 1, f 62;
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
 #X floatatom 269 71 5 0 0 0 - - -, f 5;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 143 35 gemhead;
 #X obj 430 -23 inlet;
@@ -582,7 +586,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X msg 123 248 0 2000;
 #X obj 123 223 delay 500;
 #X floatatom 189 580 5 0 0 0 - - -, f 5;
-#X obj 49 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 49 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 56 3 inlet;
 #X msg 150 346 1;
@@ -597,7 +601,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 251 40 f;
 #X obj 280 40 + 1;
 #X floatatom 232 86 5 0 0 0 - - -, f 5;
-#X obj 104 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 104 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 252 62 mod 5;
 #X obj 78 393 random 3;
@@ -791,7 +795,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #N canvas 29 77 1044 650 ShowBar 0;
 #X obj 181 350 hsv2rgb;
 #X obj 25 285 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10567 1;
+-258113 -260097 10475 1;
 #X obj 121 170 expr 1 - $f1/$f2;
 #X floatatom 199 275 5 0 0 1 shift_value - -, f 5;
 #X obj 181 296 -;
@@ -908,7 +912,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X restore 106 61 pd ShowBar;
 #X obj 160 39 tgl 15 0 colORstar colORstar-r empty 17 7 0 10 -257985
 -1 -1 1 1;
-#N canvas 492 76 673 663 VOTE 0;
+#N canvas 490 76 673 663 VOTE 0;
 #X obj 300 576 text2d;
 #X floatatom 333 551 5 0 0 0 - - -, f 5;
 #X floatatom 313 159 5 0 0 0 - - -, f 5;
@@ -920,7 +924,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 300 406 min 10;
 #X obj 300 430 max 0;
 #X obj 216 124 spigot;
-#X obj 249 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 249 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 285 58 0;
 #X msg 340 56 1;
@@ -1081,7 +1085,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 347 20 Jan 2015;
-#N canvas 20 76 1116 663 conn-in 1;
+#N canvas 18 76 1116 663 conn-in 0;
 #X obj 7 16 netreceive 3000;
 #X obj 8 550 line;
 #X obj 136 462 s ctrl;
@@ -1223,20 +1227,19 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 207 435 bng 60 250 50 0 calculaB empty calcB 10 15 0 12 -262144
 -1 -1;
 #X obj 55 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoA votoA 0 -12 0 20
--262144 -1 -1 3.67 256;
+-262144 -1 -1 4 256;
 #X obj 203 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoB votoB 0 -12 0
-20 -262144 -1 -1 5 256;
+20 -262144 -1 -1 3.84 256;
 #X restore 109 307 pd FINAL;
 #X obj 12 387 declare iemnet cyclone list-abs zexy;
-#X text 7 365 Junho 2016;
 #X obj 107 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 1 76 1226 663 JURI-FINAL 1;
+#N canvas 1 76 1226 663 JURI-FINAL 0;
 #X obj 176 197 text2d;
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
 #X floatatom 269 71 5 0 0 0 - - -, f 5;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 143 35 gemhead;
 #X obj 449 -83 inlet;
@@ -1348,7 +1351,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 589 1249 r JuriSet-N;
 #X obj 582 1386 r JuriSet-N;
 #X msg 477 801 0;
-#X obj 517 771 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 517 771 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 928 906 text2d;
 #X obj 961 877 r JuriSize-p;
@@ -1358,7 +1361,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 954 833 r JuriSet-N;
 #X obj 962 695 gemhead;
 #X msg 928 694 0;
-#X obj 968 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 968 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 553 115 translateXYZ -3 0.4 0;
 #X obj 554 857 translateXYZ 3 0.4 0;
@@ -1584,6 +1587,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 170 0 4 0;
 #X connect 171 0 118 0;
 #X restore 107 238 pd JURI-FINAL;
+#X text 7 365 Set 2016;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;
 #X connect 5 0 3 0;
@@ -1597,4 +1601,4 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 38 0 37 0;
 #X connect 40 0 39 0;
 #X connect 45 0 11 0;
-#X connect 49 0 50 0;
+#X connect 48 0 49 0;
