@@ -1,4 +1,4 @@
-#N canvas 131 280 748 439 10;
+#N canvas 127 276 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -797,7 +797,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #N canvas 29 77 1044 650 ShowBar 0;
 #X obj 181 350 hsv2rgb;
 #X obj 25 285 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10404 1;
+-258113 -260097 10633 1;
 #X obj 121 170 expr 1 - $f1/$f2;
 #X floatatom 199 275 5 0 0 1 shift_value - -, f 5;
 #X obj 181 296 -;

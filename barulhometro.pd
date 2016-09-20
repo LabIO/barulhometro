@@ -1,4 +1,4 @@
-#N canvas 349 111 827 592 10;
+#N canvas 345 107 827 592 10;
 #X declare iemnet cyclone;
 #N canvas 216 225 524 424 calc_barulho 0;
 #X obj 65 148 +;
@@ -54,7 +54,7 @@
 #X obj 395 287 f;
 #X obj 363 465 r barulho_vote;
 #X obj 457 488 r timer_ctrl;
-#N canvas 673 86 635 536 interface 1;
+#N canvas 669 82 635 536 interface 1;
 #N canvas 1 76 892 663 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
