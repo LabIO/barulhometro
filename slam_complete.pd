@@ -1,4 +1,4 @@
-#N canvas 127 276 748 439 10;
+#N canvas 125 274 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -23,7 +23,7 @@
 #X msg 292 420 font FONTS/MAKISUPA.TTF;
 #X obj 105 100 gemhead;
 #X obj 98 34 inlet;
-#X obj 105 70 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 105 70 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 106 126 alpha;
 #X obj 386 316 line;
@@ -374,7 +374,7 @@ create :0.0 \, 1, f 62;
 #X floatatom 176 176 5 0 0 0 - - -, f 5;
 #X msg 107 304 font FONTS/MAKISUPA.TTF;
 #X obj 124 245 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -577,7 +577,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 51 98 alpha;
 #X obj 47 312 colorRGB;
 #X obj 323 68 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
--1 1;
+-1 3;
 #X obj 122 275 line;
 #X msg 89 233 0;
 #X obj 212 161 sel 0 1 2 3 4;
@@ -797,7 +797,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #N canvas 29 77 1044 650 ShowBar 0;
 #X obj 181 350 hsv2rgb;
 #X obj 25 285 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10633 1;
+-258113 -260097 10667 1;
 #X obj 121 170 expr 1 - $f1/$f2;
 #X floatatom 199 275 5 0 0 1 shift_value - -, f 5;
 #X obj 181 296 -;
@@ -1243,7 +1243,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
 #X floatatom 269 71 5 0 0 0 - - -, f 5;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 143 35 gemhead;
 #X obj 449 -83 inlet;
@@ -1355,7 +1355,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 589 1249 r JuriSet-N;
 #X obj 582 1386 r JuriSet-N;
 #X msg 477 801 0;
-#X obj 517 771 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 517 771 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 928 906 text2d;
 #X obj 961 877 r JuriSize-p;
@@ -1365,7 +1365,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 954 833 r JuriSet-N;
 #X obj 962 695 gemhead;
 #X msg 928 694 0;
-#X obj 968 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 968 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 553 115 translateXYZ -3 0.4 0;
 #X obj 554 857 translateXYZ 3 0.4 0;

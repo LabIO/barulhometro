@@ -1,11 +1,11 @@
-#N canvas 173 97 658 413 10;
-#X obj 260 160 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992
--262144 0;
+#N canvas 171 95 658 413 10;
+#X obj 0 0 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992 -262144
+0;
 #X obj 1 160 cnv 10 250 150 empty empty empty 20 12 0 14 -45076 -262144
 0;
 #X obj 220 1 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 3 69 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 1
+#X obj 3 69 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 511 311 739 353 viewport 0;
 #X obj 290 302 s ViewPort;
@@ -15,7 +15,7 @@
 #X obj 328 180 * 160;
 #X obj 290 201 pack f f;
 #X obj 184 38 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 3;
+-1 0;
 #X obj 184 18 r \$0-numview;
 #N canvas 1 83 450 300 line2 0;
 #X obj 145 38 inlet time;
@@ -199,10 +199,10 @@
 #X restore 547 34 pd viewport;
 #N canvas 86 105 450 341 label 0;
 #X obj 39 23 r \$0-l1-snd;
-#X floatatom 39 46 5 0 0 0 - - -;
+#X floatatom 39 46 5 0 0 0 - - -, f 5;
 #X obj 39 97 s \$0-l1-rcv;
 #X msg 39 69 label value:\$1;
-#X floatatom 196 45 5 0 0 0 - - -;
+#X floatatom 196 45 5 0 0 0 - - -, f 5;
 #X obj 196 22 r \$0-l2-snd;
 #X obj 196 116 s \$0-l2-rcv;
 #X msg 196 88 label v:\$1 \, label_pos \$1 -6;
@@ -362,7 +362,7 @@
 #X restore 546 94 pd position;
 #X obj 2 312 cnv 15 510 30 empty empty SLAM_TIME! 200 16 0 20 -233017
 -66577 0;
-#N canvas 21 96 1227 671 communica 1;
+#N canvas 19 76 1227 663 communica 0;
 #X obj 33 593 netsend;
 #X obj 32 628 s connect;
 #X obj 29 16 r bang_con;
@@ -432,8 +432,8 @@
 #X msg 29 78 connect 10.42.0.65 9000;
 #X obj 1068 251 r saveA;
 #X obj 1072 304 r saveB;
-#X msg 1068 278 send jurisaveA bang;
-#X msg 1072 330 send jurisaveB bang;
+#X msg 1068 278 send juriSaveA bang;
+#X msg 1071 330 send juriSaveB bang;
 #X connect 0 0 1 0;
 #X connect 2 0 66 0;
 #X connect 3 0 43 0;
@@ -521,15 +521,15 @@ calculate directly in the android pathc (barulhometroCTRL);
 #X obj 22 202 bng 90 250 50 0 barulhoGO empty BARULHO! 7 45 0 16 -257985
 -258113 -258113;
 #X obj 190 40 tgl 20 0 soundCheck empty Vin 0 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 144 187 bng 50 250 50 0 set10 empty set10 8 25 0 10 -262144
 -1 -1;
 #X obj 262 185 bng 40 250 50 0 calcula empty calcula 0 7 0 10 -262144
 -1 -1;
 #X obj 4 96 tgl 30 0 withBarulho empty empty -5 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X obj 193 82 vsl 10 30 0 100 0 0 empty soundIN-r IN 0 -9 0 10 -262144
--1 -1 1400 1;
+-1 -1 0 1;
 #X obj 26 69 bng 20 250 50 0 bang_discon empty disc 0 7 0 10 -262144
 -1 -1;
 #X obj 220 34 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
@@ -596,7 +596,7 @@ calculate directly in the android pathc (barulhometroCTRL);
 -1 -1;
 #X obj 314 269 bng 30 250 50 0 mode5 empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 993 118 372 226 juri 1;
+#N canvas 991 116 372 226 juri 0;
 #X obj 0 33 r mode3;
 #X obj 33 145 s mode;
 #X msg -1 63 3;
