@@ -1,4 +1,4 @@
-#N canvas 125 274 748 439 10;
+#N canvas 123 272 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -38,7 +38,7 @@
 #X obj 270 309 line;
 #X obj 303 380 *;
 #X obj 272 285 pack f 2000;
-#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 299 259 metro 2000;
 #X msg 284 502 text LabIO;
@@ -178,54 +178,54 @@ create :0.0 \, 1, f 62;
 1 1;
 #X obj 323 104 tgl 30 0 empty empty Create_Window -5 -12 0 18 -262144
 -1 -1 0 1;
-#N canvas 702 148 463 429 EXTRATIME 0;
+#N canvas 156 254 463 429 EXTRATIME 0;
 #X obj 203 4 r extraTime;
 #X msg 47 79 \; barraCor 1 1 1 \;;
 #X obj 203 33 t b b;
-#X msg 230 66 \; barraCor 1 0 0 \; textCor 1 0 0 \; barraMove 8 10000
-\;;
 #X obj 203 140 delay 10000;
-#X obj 171 215 metro 1000;
+#X obj 196 255 metro 1000;
 #X msg 199 161 1;
-#X obj 179 375 s toText;
+#X obj 212 395 s toText;
 #X obj 196 187 t f f;
-#X obj 279 215 s MostraTexto;
+#X obj 304 255 s MostraTexto;
 #X obj 150 179 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 241 236 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 266 276 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 279 242 r resetCounter;
+#X obj 304 282 r resetCounter;
 #X obj 89 128 r resetCounter;
 #X msg 87 163 0;
 #X obj 28 135 r Stop;
-#X obj 187 327 f;
-#X obj 217 328 + 1;
-#X msg 254 279 -1;
+#X obj 212 367 f;
+#X obj 242 368 + 1;
+#X msg 279 319 -1;
+#X msg 230 66 \; barraMove 0.01 \; barraCor 1 0 0 \; textCor 1 0 0
+\; barraMove 8 10000 \;;
 #X connect 0 0 2 0;
-#X connect 2 0 4 0;
-#X connect 2 1 3 0;
-#X connect 4 0 6 0;
-#X connect 5 0 16 0;
-#X connect 6 0 8 0;
-#X connect 8 0 5 0;
-#X connect 8 1 9 0;
-#X connect 10 0 5 0;
-#X connect 12 0 11 0;
-#X connect 12 0 18 0;
-#X connect 13 0 14 0;
-#X connect 14 0 5 0;
-#X connect 15 0 14 0;
-#X connect 16 0 17 0;
-#X connect 16 0 7 0;
-#X connect 17 0 16 1;
-#X connect 18 0 16 0;
+#X connect 2 0 3 0;
+#X connect 2 1 18 0;
+#X connect 3 0 5 0;
+#X connect 4 0 15 0;
+#X connect 5 0 7 0;
+#X connect 7 0 4 0;
+#X connect 7 1 8 0;
+#X connect 9 0 4 0;
+#X connect 11 0 10 0;
+#X connect 11 0 17 0;
+#X connect 12 0 13 0;
+#X connect 13 0 4 0;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 1;
+#X connect 17 0 15 0;
 #X restore 527 231 pd EXTRATIME;
 #N canvas 41 291 310 330 TEXTO 0;
 #X obj 50 2 gemhead;
 #X obj 50 241 text2d 0;
 #X msg 73 163 text \$1;
 #X obj 50 27 alpha;
-#X obj 50 -21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 50 -21 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 73 136 r toText;
 #X obj 65 -140 r MostraTexto;
@@ -260,78 +260,106 @@ create :0.0 \, 1, f 62;
 #X connect 16 1 17 0;
 #X connect 17 1 4 0;
 #X restore 527 255 pd TEXTO;
-#N canvas 124 83 1057 650 BARRA 0;
+#N canvas 213 89 1057 650 BARRA 0;
 #X obj 58 343 gemhead;
 #X obj 58 531 rectangle 0.96 3.96;
-#X obj 58 501 translateXYZ 0 0 0;
-#X obj 403 453 line;
-#X obj 403 561 s timer;
-#X obj 128 472 r timer;
-#X obj 58 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 762 538 s timer;
+#X obj 154 478 r timer;
+#X obj 58 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X msg 424 410 -8;
-#X obj 424 389 r barraReset;
-#X obj 435 513 sel 0;
-#X obj 435 536 s extraTime;
+#X msg 720 317 -8;
+#X obj 720 296 r barraReset;
+#X obj 688 661 s extraTime;
 #X obj 58 441 colour;
 #X obj 91 411 r barraCor;
-#X obj 403 361 r barraMove;
-#X obj 350 337 r Stop;
-#X msg 350 377 stop;
+#X obj 700 188 r barraMove;
+#X obj 646 244 r Stop;
+#X msg 646 284 stop;
 #X obj 58 369 translateXYZ 5.5 0 0;
 #X obj 91 220 gemhead;
 #X obj 91 269 colourRGB 1 0 0;
 #X obj 91 295 rectangle 0.96 0.03;
-#X floatatom 191 463 5 0 0 0 - - -, f 5;
-#X obj 251 467 loadbang;
 #X obj 58 5 r MostraBarra;
-#X msg 248 494 -2.5;
 #X obj 97 37 r Mode;
 #X obj 97 59 == 1;
 #X obj 58 109 spigot;
 #X obj 97 83 t f f;
 #X obj 129 107 sel 1;
-#X msg 444 20 \; barraMove 0 100;
-#X obj 268 305 r timerPause;
-#X obj 268 328 sel 1 0;
-#X text 223 23 implementar a pausa do Timer;
+#X obj 564 212 r timerPause;
+#X obj 564 235 sel 1 0;
 #X obj 91 246 translateXYZ 3 3.96 0;
-#X obj 612 395 print;
-#X obj 403 478 t f f;
-#X connect 0 0 16 0;
-#X connect 2 0 1 0;
-#X connect 3 0 35 0;
-#X connect 5 0 2 2;
-#X connect 6 0 0 0;
-#X connect 6 0 17 0;
-#X connect 7 0 3 0;
-#X connect 8 0 7 0;
-#X connect 9 0 10 0;
-#X connect 11 0 2 0;
-#X connect 12 0 11 1;
-#X connect 13 0 3 0;
-#X connect 14 0 15 0;
-#X connect 15 0 3 0;
-#X connect 16 0 11 0;
-#X connect 17 0 33 0;
+#X obj 585 369 r timer;
+#X obj 567 393 f;
+#X obj 58 501 translateXYZ -2.5 0 0;
+#X obj 564 257 t b b;
+#X obj 558 489 / 8;
+#X obj 557 467 * -180000;
+#X obj 540 525 f;
+#X obj 731 237 print move;
+#X obj 758 348 print reset;
+#X obj 567 415 t f f;
+#X msg 500 571 \; barraMove 0 \$1;
+#X obj 700 470 line 0 100;
+#X obj 944 213 s extraTime;
+#X obj 944 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 688 628 spigot;
+#X obj 700 504 sel 0;
+#X obj 700 526 t b b;
+#X msg 718 593 0, f 2;
+#X obj 759 561 r barraMove;
+#X obj 759 583 b;
+#X msg 759 605 1;
+#X connect 0 0 13 0;
+#X connect 3 0 28 2;
+#X connect 4 0 0 0;
+#X connect 4 0 14 0;
+#X connect 5 0 34 0;
+#X connect 5 0 37 0;
+#X connect 6 0 5 0;
+#X connect 8 0 28 0;
+#X connect 9 0 8 1;
+#X connect 10 0 33 0;
+#X connect 10 0 37 0;
+#X connect 11 0 12 0;
+#X connect 12 0 37 0;
+#X connect 13 0 8 0;
+#X connect 14 0 25 0;
+#X connect 15 0 16 0;
+#X connect 17 0 20 0;
 #X connect 18 0 19 0;
-#X connect 20 0 2 2;
-#X connect 21 0 23 0;
-#X connect 22 0 26 0;
-#X connect 23 0 2 1;
-#X connect 24 0 25 0;
-#X connect 25 0 27 0;
-#X connect 26 0 6 0;
-#X connect 27 0 26 1;
-#X connect 27 1 28 0;
-#X connect 28 1 6 0;
-#X connect 30 0 31 0;
-#X connect 31 0 15 0;
-#X connect 33 0 18 0;
-#X connect 35 0 4 0;
-#X connect 35 1 9 0;
+#X connect 19 0 21 0;
+#X connect 20 0 4 0;
+#X connect 21 0 20 1;
+#X connect 21 1 22 0;
+#X connect 22 1 4 0;
+#X connect 23 0 24 0;
+#X connect 24 0 29 0;
+#X connect 24 1 32 0;
+#X connect 25 0 15 0;
+#X connect 26 0 27 1;
+#X connect 27 0 35 0;
+#X connect 28 0 1 0;
+#X connect 29 0 27 0;
+#X connect 29 1 12 0;
+#X connect 30 0 32 1;
+#X connect 31 0 30 0;
+#X connect 32 0 36 0;
+#X connect 35 0 31 0;
+#X connect 35 1 37 0;
+#X connect 37 0 41 0;
+#X connect 39 0 38 0;
+#X connect 40 0 7 0;
+#X connect 41 0 42 0;
+#X connect 41 1 2 0;
+#X connect 42 0 43 0;
+#X connect 42 1 40 0;
+#X connect 43 0 40 1;
+#X connect 44 0 45 0;
+#X connect 45 0 46 0;
+#X connect 46 0 40 1;
 #X restore 527 278 pd BARRA;
-#N canvas 296 105 459 632 GO 0;
+#N canvas 12 107 459 632 GO 0;
 #X obj 120 42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 137 39 GO!;
@@ -374,7 +402,7 @@ create :0.0 \, 1, f 62;
 #X floatatom 176 176 5 0 0 0 - - -, f 5;
 #X msg 107 304 font FONTS/MAKISUPA.TTF;
 #X obj 124 245 loadbang;
-#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 91 -20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 89 5 gemhead;
 #X obj 98 -93 inlet;
@@ -430,7 +458,7 @@ create :0.0 \, 1, f 62;
 #X connect 26 3 11 0;
 #X connect 26 4 12 0;
 #X restore 191 159 pd BARULHOMETRO;
-#N canvas 143 272 498 353 TIMER 0;
+#N canvas 141 270 498 353 TIMER 0;
 #X obj 118 270 text2d;
 #X floatatom 151 229 5 0 0 0 - - -, f 5;
 #X floatatom 159 146 5 0 0 0 - - -, f 5;
@@ -442,7 +470,7 @@ create :0.0 \, 1, f 62;
 #X obj 159 116 r T_X;
 #X obj 200 117 r T_Y;
 #X obj 241 118 r T_Z;
-#X obj 118 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 118 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 118 32 inlet;
 #X obj 118 86 gemhead 51;
@@ -577,7 +605,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 51 98 alpha;
 #X obj 47 312 colorRGB;
 #X obj 323 68 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
--1 3;
+-1 4;
 #X obj 122 275 line;
 #X msg 89 233 0;
 #X obj 212 161 sel 0 1 2 3 4;
@@ -797,7 +825,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #N canvas 29 77 1044 650 ShowBar 0;
 #X obj 181 350 hsv2rgb;
 #X obj 25 285 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10667 1;
+-258113 -260097 10684 1;
 #X obj 121 170 expr 1 - $f1/$f2;
 #X floatatom 199 275 5 0 0 1 shift_value - -, f 5;
 #X obj 181 296 -;
@@ -1087,7 +1115,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 347 20 Jan 2015;
-#N canvas 16 76 1116 663 conn-in 0;
+#N canvas 10 76 1116 663 conn-in 0;
 #X obj 7 16 netreceive 3000;
 #X obj 8 550 line;
 #X obj 136 462 s ctrl;
@@ -1149,6 +1177,8 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 1462 293 s calc_juri;
 #X obj 1510 241 s calculaB;
 #X obj 140 22 s connectionStatus;
+#X obj 1077 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
 #X connect 0 0 28 0;
 #X connect 0 1 54 0;
 #X connect 1 0 19 0;
@@ -1174,6 +1204,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 28 13 23 0;
 #X connect 28 14 24 0;
 #X connect 28 15 25 0;
+#X connect 28 15 55 0;
 #X connect 28 16 31 0;
 #X connect 28 17 34 0;
 #X connect 28 18 38 0;
@@ -1243,7 +1274,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
 #X floatatom 269 71 5 0 0 0 - - -, f 5;
-#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 385 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 143 35 gemhead;
 #X obj 449 -83 inlet;
@@ -1355,7 +1386,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 589 1249 r JuriSet-N;
 #X obj 582 1386 r JuriSet-N;
 #X msg 477 801 0;
-#X obj 517 771 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 517 771 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 928 906 text2d;
 #X obj 961 877 r JuriSize-p;
@@ -1365,7 +1396,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 954 833 r JuriSet-N;
 #X obj 962 695 gemhead;
 #X msg 928 694 0;
-#X obj 968 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 968 664 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 553 115 translateXYZ -3 0.4 0;
 #X obj 554 857 translateXYZ 3 0.4 0;

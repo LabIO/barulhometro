@@ -1,4 +1,4 @@
-#N canvas 264 89 827 592 10;
+#N canvas 262 87 827 592 10;
 #X declare iemnet cyclone;
 #N canvas 216 225 524 424 calc_barulho 0;
 #X obj 65 148 +;
@@ -54,7 +54,7 @@
 #X obj 395 287 f;
 #X obj 363 465 r barulho_vote;
 #X obj 457 488 r timer_ctrl;
-#N canvas 400 141 635 536 interface 1;
+#N canvas 398 139 635 536 interface 1;
 #N canvas 1 77 892 663 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
@@ -67,7 +67,7 @@
 #X obj 464 390 bng 30 250 50 0 zera_votos r_timer_ctrl zera_voto -7
 -7 0 10 -191407 -1 -1;
 #X obj 109 114 vradio 120 1 0 4 empty state-r empty 0 -8 0 10 -262144
--1 -1 4;
+-1 -1 1;
 #X obj 140 603 s Mode;
 #X text 113 115 Geral;
 #X text 114 237 Timer;
@@ -76,7 +76,7 @@
 #X obj 58 267 r Mode;
 #X obj 55 292 sel 2;
 #X obj 502 306 tgl 50 0 empty dispTimer-r resume_time -7 60 0 10 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 589 637 s RecoverTimer;
 #X obj 245 392 nbx 4 32 -1e+37 1e+37 0 0 /juri/1_\$1 juri1-r empty
 0 -8 0 26 -262144 -1 -1 0 256;
@@ -137,7 +137,7 @@
 #X obj 589 135 nbx 7 24 -1e+37 1e+37 0 0 NoiseSum-interface empty SumCalib
 -60 15 0 12 -262144 -1 -1 0 256;
 #X obj 523 229 nbx 5 28 -1e+37 1e+37 0 0 empty BarulhoVote-s Barulho_Vote
-6 40 0 20 -262144 -1 -1 5.56354 256;
+6 40 0 20 -262144 -1 -1 69313.4 256;
 #N canvas 767 137 453 451 INSTRUCTIONS 0;
 #X text 32 307 'barulhometro_ctrl' is to also to bang/start the barulhometro
 \; 'resume time' is the show again the timer bar (in case of misunderstanding
@@ -163,7 +163,7 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 737 62 spigot;
 #X obj 788 63 r chkSoundIN;
 #X obj 601 114 nbx 7 14 -1e+37 1e+37 0 0 empty NoiseSum CheckSum -50
-8 0 10 -262144 -1 -1 17934.5 256;
+8 0 10 -262144 -1 -1 6931.34 256;
 #X obj 245 173 tgl 30 1 connNET empty connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 741 107 line;
@@ -241,10 +241,10 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X connect 6 0 1 0;
 #X restore 129 141 pd CONTROL;
 #X obj 410 247 nbx 7 28 -1e+37 1e+37 0 0 NoiseSum-r empty empty 0 -8
-0 20 -262144 -1 -1 17934.5 256;
+0 20 -262144 -1 -1 6931.34 256;
 #X obj 259 360 s NoiseSum;
 #X obj 415 368 nbx 5 28 -1e+37 1e+37 0 0 BarulhoVote-s empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 5.56354 256;
+6 40 0 20 -262144 -1 -1 69313.4 256;
 #X obj 415 431 s barulho_vote;
 #N canvas 342 396 448 185 bugs 0;
 #X text 29 51 o [pd control] serve a lançar os 5 segundos \, e a zerar
@@ -282,7 +282,7 @@ do juri;
 #X obj 263 84 tgl 30 1 empty connNET connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 263 129 s conn2;
-#N canvas 159 109 1166 595 com_send 0;
+#N canvas 157 107 1166 595 com_send 0;
 #X obj 31 4 r conn1;
 #X obj 18 80 t f b;
 #X obj 59 81 t b f;
@@ -349,6 +349,9 @@ do juri;
 #X obj 866 486 r juri;
 #X obj 866 511 cyclone/prepend send;
 #X obj 866 534 s sent_it;
+#X obj 906 384 r timerPause;
+#X msg 906 406 send /timerPause \$1;
+#X obj 906 429 s sent_it;
 #X connect 1 0 6 1;
 #X connect 1 1 7 0;
 #X connect 2 0 18 0;
@@ -410,6 +413,8 @@ do juri;
 #X connect 56 0 16 0;
 #X connect 59 0 60 0;
 #X connect 60 0 61 0;
+#X connect 62 0 63 0;
+#X connect 63 0 64 0;
 #X restore 366 530 pd com_send;
 #X text 12 16 1) check the silence barulho (ambient noise) & set silence
 barulho 3) run the barulhometro the first time for maximum noise (vote
@@ -417,7 +422,7 @@ barulho 3) run the barulhometro the first time for maximum noise (vote
 #X obj 77 236 + 0;
 #X obj 259 332 max 1;
 #X obj 15 159 r bang_silence;
-#N canvas 331 165 861 559 connections 0;
+#N canvas 325 159 861 559 connections 0;
 #X obj 50 -11 netreceive 9000;
 #X text 46 -37 receive from barulhometroCTRL;
 #X obj 2 120 sel 0;
@@ -458,7 +463,7 @@ barulho 3) run the barulhometro the first time for maximum noise (vote
 #X obj 286 372 t a a;
 #X obj 56 402 sel 0 1;
 #X msg 24 466 disconnect;
-#X obj 652 133 s timerPause;
+#X obj 653 133 s timerPause;
 #X obj 647 212 s v;
 #X obj 644 188 s goJuriMusic;
 #X obj 759 172 s vid1;
@@ -523,7 +528,7 @@ vid3 vid4 pause killvid juriSaveA juriSaveB;
 #X connect 47 28 48 0;
 #X connect 47 29 49 0;
 #X connect 50 0 51 0;
-#X restore 571 13 pd connections;
+#X restore 366 555 pd connections;
 #X text 484 524 Jan 2015;
 #N canvas 1 76 457 476 musicas 0;
 #X msg 68 245 play;
