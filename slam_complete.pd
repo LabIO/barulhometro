@@ -1,4 +1,4 @@
-#N canvas 121 270 748 439 10;
+#N canvas 119 268 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -110,7 +110,7 @@
 #X obj 105 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 18 42 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#N canvas 1 328 309 334 init 0;
+#N canvas 1 326 309 334 init 0;
 #X obj 38 12 loadbang;
 #X msg 39 35 \; Mode 0 \; db_range 55 \; shiftH 0.04 \; size 15 \;
 sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
@@ -600,7 +600,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 51 98 alpha;
 #X obj 47 312 colorRGB;
 #X obj 323 68 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
--1 4;
+-1 1;
 #X obj 122 275 line;
 #X msg 89 233 0;
 #X obj 212 161 sel 0 1 2 3 4;
@@ -820,7 +820,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X text 103 22 SHOW BARULHO;
 #X obj 106 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 25 76 1044 650 ShowBar 0;
+#N canvas 423 89 1044 650 ShowBar 1;
 #X obj 68 136 r ctrl;
 #X obj 20 155 inlet;
 #X obj 127 246 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -871,7 +871,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 241 267 outlet;
 #X obj 241 222 hsv2rgb;
 #X obj 45 181 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10649 1;
+-258113 -260097 10559 1;
 #X obj 181 42 expr 1 - $f1/$f2;
 #X floatatom 259 147 5 0 0 1 shift_value - -, f 5;
 #X obj 241 168 -;
@@ -944,7 +944,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X restore 106 61 pd ShowBar;
 #X obj 160 39 tgl 15 0 colORstar colORstar-r empty 17 7 0 10 -257985
 -1 -1 1 1;
-#N canvas 486 76 673 663 VOTE 1;
+#N canvas 484 76 673 663 VOTE 0;
 #X obj 300 576 text2d;
 #X floatatom 333 551 5 0 0 0 - - -, f 5;
 #X floatatom 313 159 5 0 0 0 - - -, f 5;
@@ -960,7 +960,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 1;
 #X msg 285 58 0;
 #X msg 340 56 1;
-#X obj 192 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 192 16 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 190 -7 inlet;
 #X obj 315 -50 r Mode;
@@ -1118,9 +1118,8 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 347 20 Jan 2015;
-#N canvas 10 76 1116 663 conn-in 0;
+#N canvas 4 76 1116 663 conn-in 0;
 #X obj 7 16 netreceive 3000;
-#X obj 8 550 line;
 #X obj 136 462 s ctrl;
 #X obj 71 492 s barulho_vote;
 #X obj 220 438 s StopTimer;
@@ -1133,7 +1132,6 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 395 436 s MostraBarra;
 #X obj 1115 919 s JuriVote-1-set;
 #X obj 525 442 s zera_votos;
-#X msg 8 522 \$1 400;
 #X text 90 618 Input de som am DBs;
 #X text 184 495 Voto do público;
 #X obj 589 403 s pubYA;
@@ -1182,58 +1180,56 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 140 22 s connectionStatus;
 #X obj 1077 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X connect 0 0 28 0;
-#X connect 0 1 54 0;
-#X connect 1 0 19 0;
-#X connect 6 0 5 0;
-#X connect 6 1 4 0;
-#X connect 13 0 1 0;
-#X connect 18 0 8 0;
-#X connect 19 0 17 0;
-#X connect 19 1 18 0;
-#X connect 28 0 13 0;
-#X connect 28 1 3 0;
-#X connect 28 2 2 0;
-#X connect 28 3 6 0;
-#X connect 28 4 7 0;
-#X connect 28 5 9 0;
-#X connect 28 6 10 0;
-#X connect 28 8 12 0;
-#X connect 28 9 16 0;
-#X connect 28 9 26 0;
-#X connect 28 10 20 0;
-#X connect 28 11 21 0;
-#X connect 28 12 22 0;
-#X connect 28 13 23 0;
-#X connect 28 14 24 0;
-#X connect 28 15 25 0;
-#X connect 28 15 55 0;
-#X connect 28 16 31 0;
-#X connect 28 17 34 0;
-#X connect 28 18 38 0;
-#X connect 28 19 42 0;
-#X connect 28 20 46 0;
-#X connect 28 21 50 0;
-#X connect 28 22 29 0;
-#X connect 28 23 30 0;
-#X connect 31 0 11 0;
-#X connect 31 1 32 0;
-#X connect 31 2 33 0;
-#X connect 34 0 37 0;
-#X connect 34 1 36 0;
-#X connect 34 2 35 0;
-#X connect 38 0 41 0;
-#X connect 38 1 40 0;
-#X connect 38 2 39 0;
-#X connect 42 0 45 0;
-#X connect 42 1 44 0;
-#X connect 42 2 43 0;
-#X connect 46 0 49 0;
-#X connect 46 1 48 0;
-#X connect 46 2 47 0;
-#X connect 50 0 52 0;
-#X connect 50 1 51 0;
-#X connect 50 2 53 0;
+#X connect 0 0 26 0;
+#X connect 0 1 52 0;
+#X connect 5 0 4 0;
+#X connect 5 1 3 0;
+#X connect 16 0 7 0;
+#X connect 17 0 15 0;
+#X connect 17 1 16 0;
+#X connect 26 0 17 0;
+#X connect 26 1 2 0;
+#X connect 26 2 1 0;
+#X connect 26 3 5 0;
+#X connect 26 4 6 0;
+#X connect 26 5 8 0;
+#X connect 26 6 9 0;
+#X connect 26 8 11 0;
+#X connect 26 9 14 0;
+#X connect 26 9 24 0;
+#X connect 26 10 18 0;
+#X connect 26 11 19 0;
+#X connect 26 12 20 0;
+#X connect 26 13 21 0;
+#X connect 26 14 22 0;
+#X connect 26 15 23 0;
+#X connect 26 15 53 0;
+#X connect 26 16 29 0;
+#X connect 26 17 32 0;
+#X connect 26 18 36 0;
+#X connect 26 19 40 0;
+#X connect 26 20 44 0;
+#X connect 26 21 48 0;
+#X connect 26 22 27 0;
+#X connect 26 23 28 0;
+#X connect 29 0 10 0;
+#X connect 29 1 30 0;
+#X connect 29 2 31 0;
+#X connect 32 0 35 0;
+#X connect 32 1 34 0;
+#X connect 32 2 33 0;
+#X connect 36 0 39 0;
+#X connect 36 1 38 0;
+#X connect 36 2 37 0;
+#X connect 40 0 43 0;
+#X connect 40 1 42 0;
+#X connect 40 2 41 0;
+#X connect 44 0 47 0;
+#X connect 44 1 46 0;
+#X connect 44 2 45 0;
+#X connect 48 0 50 0;
+#X connect 48 1 49 0;
+#X connect 48 2 51 0;
 #X restore 17 12 pd conn-in;
 #N canvas 149 122 387 574 FINAL 0;
 #X obj 63 29 nbx 4 25 -1e+37 1e+37 0 0 barA empty barA 0 -12 0 20 -262144
@@ -1267,7 +1263,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 55 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoA votoA 0 -12 0 20
 -262144 -1 -1 0 256;
 #X obj 203 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoB votoB 0 -12 0
-20 -262144 -1 -1 0 256;
+20 -262144 -1 -1 5.9 256;
 #X restore 109 307 pd FINAL;
 #X obj 12 387 declare iemnet cyclone list-abs zexy;
 #X obj 107 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
