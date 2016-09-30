@@ -1,4 +1,4 @@
-#N canvas 119 268 748 439 10;
+#N canvas 115 264 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -38,7 +38,7 @@
 #X obj 270 309 line;
 #X obj 303 380 *;
 #X obj 272 285 pack f 2000;
-#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 299 259 metro 2000;
 #X msg 284 502 text LabIO;
@@ -110,9 +110,9 @@
 #X obj 105 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 18 42 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#N canvas 1 326 309 334 init 0;
+#N canvas 1 322 309 334 init 0;
 #X obj 38 12 loadbang;
-#X msg 39 35 \; Mode 0 \; db_range 55 \; shiftH 0.04 \; size 15 \;
+#X msg 39 35 \; Mode 0 \; db_range 55 \; shiftH 0.45 \; size 15 \;
 sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 \; MostraTexto 0 \; MostraBarra 0 \; colORstar-r 1 \; name_color-set
 0.07 \; pubYA 0 \;;
@@ -600,7 +600,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 51 98 alpha;
 #X obj 47 312 colorRGB;
 #X obj 323 68 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
--1 1;
+-1 4;
 #X obj 122 275 line;
 #X msg 89 233 0;
 #X obj 212 161 sel 0 1 2 3 4;
@@ -820,10 +820,10 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X text 103 22 SHOW BARULHO;
 #X obj 106 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 423 89 1044 650 ShowBar 1;
+#N canvas 319 85 1044 650 ShowBar 0;
 #X obj 68 136 r ctrl;
 #X obj 20 155 inlet;
-#X obj 127 246 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 127 246 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 136 134 loadbang;
 #X msg 136 194 0;
@@ -848,16 +848,16 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 440 349 rectangle 0 0.3;
 #X msg 694 250 0;
 #X obj 837 219 loadbang;
-#X obj 637 38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 604 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 227 382 r dbT;
 #X obj 350 381 r db_range;
 #X obj 227 404 expr ($f1/$f2)*3.5;
-#X floatatom 203 474 5 0 0 0 - - -, f 5;
-#X obj 227 426 t f f;
-#X obj 127 591 rectangle 3 0;
-#X text 242 474 Position;
-#X obj 168 497 - 3.2;
+#X floatatom 232 515 5 0 0 0 - - -, f 5;
+#X obj 224 484 t f f;
+#X obj 158 619 rectangle 3 0;
+#X text 239 532 Position;
+#X obj 197 538 - 3.2;
 #X obj 653 105 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X floatatom 757 283 5 0 0 0 - - -, f 5;
@@ -871,7 +871,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 241 267 outlet;
 #X obj 241 222 hsv2rgb;
 #X obj 45 181 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10559 1;
+-258113 -260097 5397 1;
 #X obj 181 42 expr 1 - $f1/$f2;
 #X floatatom 259 147 5 0 0 1 shift_value - -, f 5;
 #X obj 241 168 -;
@@ -891,7 +891,9 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 10 0 5 0;
 #X connect 10 0 2 0;
 #X restore 172 347 pd changeCOR;
-#X obj 67 533 translateXYZ 0 -4 -0.01;
+#X obj 128 591 translateXYZ 0 -4 -0.01;
+#X obj 224 459 line 0 50;
+#X obj 227 430 pack f 350;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
 #X connect 2 0 8 0;
@@ -926,7 +928,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 26 0 19 0;
 #X connect 27 0 29 0;
 #X connect 28 0 29 1;
-#X connect 29 0 31 0;
+#X connect 29 0 46 0;
 #X connect 30 0 34 1;
 #X connect 31 0 34 0;
 #X connect 31 1 32 2;
@@ -941,6 +943,8 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 42 0 22 0;
 #X connect 43 0 7 1;
 #X connect 44 0 32 0;
+#X connect 45 0 31 0;
+#X connect 46 0 45 0;
 #X restore 106 61 pd ShowBar;
 #X obj 160 39 tgl 15 0 colORstar colORstar-r empty 17 7 0 10 -257985
 -1 -1 1 1;
@@ -1118,7 +1122,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 347 20 Jan 2015;
-#N canvas 4 76 1116 663 conn-in 0;
+#N canvas 125 84 1046 577 conn-in 0;
 #X obj 7 16 netreceive 3000;
 #X obj 136 462 s ctrl;
 #X obj 71 492 s barulho_vote;
@@ -1148,10 +1152,6 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 -1 -1;
 #X obj 1792 588 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 7 53 route /dbs /barulho_vote /ctrl /timer_ctrl /desliga /Mode
-/RecoverTimer /juri /zera_votos /pubYA /LogoSel /logoON /palcoH /palcoS
-/palcoV /timerPause /juri/1 /juri/2 /juri/3 /juri/4 /juri/5 /juri/calc
-/juri/save/A /juri/save/B, f 238;
 #X obj 1531 173 s gravaBarulhoFinal-A;
 #X obj 1600 141 s gravaBarulhoFinal-B;
 #X obj 1115 829 Patches/juriRoute;
@@ -1180,56 +1180,64 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 140 22 s connectionStatus;
 #X obj 1077 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X connect 0 0 26 0;
-#X connect 0 1 52 0;
+#X obj 7 53 route /dbs /barulho_vote /ctrl /timer_ctrl /desliga /Mode
+/RecoverTimer /juri /zera_votos /pubYA /LogoSel /logoON /palcoH /palcoS
+/palcoV /timerPause /juri/1 /juri/2 /juri/3 /juri/4 /juri/5 /juri/calc
+/juri/save/A /juri/save/B /maxNoiseDB, f 254;
+#X obj 1711 116 s db_range;
+#X obj 1705 81 + 3;
+#X connect 0 0 53 0;
+#X connect 0 1 51 0;
 #X connect 5 0 4 0;
 #X connect 5 1 3 0;
 #X connect 16 0 7 0;
 #X connect 17 0 15 0;
 #X connect 17 1 16 0;
-#X connect 26 0 17 0;
-#X connect 26 1 2 0;
-#X connect 26 2 1 0;
-#X connect 26 3 5 0;
-#X connect 26 4 6 0;
-#X connect 26 5 8 0;
-#X connect 26 6 9 0;
-#X connect 26 8 11 0;
-#X connect 26 9 14 0;
-#X connect 26 9 24 0;
-#X connect 26 10 18 0;
-#X connect 26 11 19 0;
-#X connect 26 12 20 0;
-#X connect 26 13 21 0;
-#X connect 26 14 22 0;
-#X connect 26 15 23 0;
-#X connect 26 15 53 0;
-#X connect 26 16 29 0;
-#X connect 26 17 32 0;
-#X connect 26 18 36 0;
-#X connect 26 19 40 0;
-#X connect 26 20 44 0;
-#X connect 26 21 48 0;
-#X connect 26 22 27 0;
-#X connect 26 23 28 0;
-#X connect 29 0 10 0;
-#X connect 29 1 30 0;
-#X connect 29 2 31 0;
-#X connect 32 0 35 0;
-#X connect 32 1 34 0;
-#X connect 32 2 33 0;
-#X connect 36 0 39 0;
-#X connect 36 1 38 0;
-#X connect 36 2 37 0;
-#X connect 40 0 43 0;
-#X connect 40 1 42 0;
-#X connect 40 2 41 0;
-#X connect 44 0 47 0;
-#X connect 44 1 46 0;
-#X connect 44 2 45 0;
-#X connect 48 0 50 0;
-#X connect 48 1 49 0;
-#X connect 48 2 51 0;
+#X connect 28 0 10 0;
+#X connect 28 1 29 0;
+#X connect 28 2 30 0;
+#X connect 31 0 34 0;
+#X connect 31 1 33 0;
+#X connect 31 2 32 0;
+#X connect 35 0 38 0;
+#X connect 35 1 37 0;
+#X connect 35 2 36 0;
+#X connect 39 0 42 0;
+#X connect 39 1 41 0;
+#X connect 39 2 40 0;
+#X connect 43 0 46 0;
+#X connect 43 1 45 0;
+#X connect 43 2 44 0;
+#X connect 47 0 49 0;
+#X connect 47 1 48 0;
+#X connect 47 2 50 0;
+#X connect 53 0 17 0;
+#X connect 53 1 2 0;
+#X connect 53 2 1 0;
+#X connect 53 3 5 0;
+#X connect 53 4 6 0;
+#X connect 53 5 8 0;
+#X connect 53 6 9 0;
+#X connect 53 8 11 0;
+#X connect 53 9 14 0;
+#X connect 53 9 24 0;
+#X connect 53 10 18 0;
+#X connect 53 11 19 0;
+#X connect 53 12 20 0;
+#X connect 53 13 21 0;
+#X connect 53 14 22 0;
+#X connect 53 15 23 0;
+#X connect 53 15 52 0;
+#X connect 53 16 28 0;
+#X connect 53 17 31 0;
+#X connect 53 18 35 0;
+#X connect 53 19 39 0;
+#X connect 53 20 43 0;
+#X connect 53 21 47 0;
+#X connect 53 22 26 0;
+#X connect 53 23 27 0;
+#X connect 53 24 55 0;
+#X connect 55 0 54 0;
 #X restore 17 12 pd conn-in;
 #N canvas 149 122 387 574 FINAL 0;
 #X obj 63 29 nbx 4 25 -1e+37 1e+37 0 0 barA empty barA 0 -12 0 20 -262144
@@ -1263,7 +1271,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 55 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoA votoA 0 -12 0 20
 -262144 -1 -1 0 256;
 #X obj 203 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoB votoB 0 -12 0
-20 -262144 -1 -1 5.9 256;
+20 -262144 -1 -1 0 256;
 #X restore 109 307 pd FINAL;
 #X obj 12 387 declare iemnet cyclone list-abs zexy;
 #X obj 107 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
