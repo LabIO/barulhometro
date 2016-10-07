@@ -1,11 +1,11 @@
-#N canvas 167 97 658 413 10;
-#X obj 0 160 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992
--262144 0;
+#N canvas 171 95 658 413 10;
+#X obj 0 0 cnv 10 250 150 empty ViewPort empty 20 12 0 14 -128992 -262144
+0;
 #X obj 1 160 cnv 10 250 150 empty empty empty 20 12 0 14 -45076 -262144
 0;
 #X obj 220 1 bng 30 250 50 0 \$0-mode1 empty geral 0 15 0 10 -262144
 -1 -1;
-#X obj 13 84 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 1
+#X obj 3 69 tgl 20 0 empty connect empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 511 311 739 353 viewport 0;
 #X obj 290 302 s ViewPort;
@@ -15,7 +15,7 @@
 #X obj 328 180 * 160;
 #X obj 290 201 pack f f;
 #X obj 184 38 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
--1 2;
+-1 0;
 #X obj 184 18 r \$0-numview;
 #N canvas 1 83 450 300 line2 0;
 #X obj 145 38 inlet time;
@@ -362,7 +362,7 @@
 #X restore 546 94 pd position;
 #X obj 2 312 cnv 15 510 30 empty empty SLAM_TIME! 200 16 0 20 -233017
 -66577 0;
-#N canvas 9 81 1227 663 communica 0;
+#N canvas 19 76 1227 663 communica 0;
 #X obj 33 593 netsend;
 #X obj 32 628 s connect;
 #X obj 29 16 r bang_con;
@@ -429,16 +429,13 @@
 #X obj 468 250 r pause_vid;
 #X obj 480 311 r killvid;
 #X msg 480 336 send killvid bang;
+#X msg 29 78 connect 10.42.0.65 9000;
 #X obj 1068 251 r saveA;
 #X obj 1072 304 r saveB;
 #X msg 1068 278 send juriSaveA bang;
 #X msg 1071 330 send juriSaveB bang;
-#X msg 39 48 connect 10.42.0.65 9000;
-#X msg 29 78 connect 172.24.1.1 9000, f 25;
-#X obj 980 104 r reset_vote;
-#X msg 980 134 send reset_vote bang;
 #X connect 0 0 1 0;
-#X connect 2 0 71 0;
+#X connect 2 0 66 0;
 #X connect 3 0 43 0;
 #X connect 4 0 0 0;
 #X connect 5 0 4 0;
@@ -500,15 +497,13 @@
 #X connect 63 0 62 0;
 #X connect 64 0 65 0;
 #X connect 65 0 0 0;
-#X connect 66 0 68 0;
+#X connect 66 0 0 0;
 #X connect 67 0 69 0;
-#X connect 68 0 0 0;
+#X connect 68 0 70 0;
 #X connect 69 0 0 0;
-#X connect 71 0 0 0;
-#X connect 72 0 73 0;
-#X connect 73 0 0 0;
+#X connect 70 0 0 0;
 #X restore 546 12 pd communica;
-#X obj 11 27 bng 50 250 50 0 bang_con empty conn 0 7 0 10 -262144 -1
+#X obj 4 32 bng 30 250 50 0 bang_con empty conn 0 7 0 10 -262144 -1
 -1;
 #N canvas 1 85 450 300 ideas 0;
 #X text 10 156 keep the option of sending 4 to \$0-num-view: because
@@ -519,7 +514,7 @@ duma bola/farol no display \; toggles para accionar formas tipo bola/farol
 \; 2 timer: 3 barulhometro: 4 juri: number boxes for 5 juri \, maybe
 calculate directly in the android pathc (barulhometroCTRL);
 #X restore 546 116 pd ideas;
-#X obj 278 43 bng 70 250 50 0 timerStart empty Start 10 37 0 16 -4034
+#X obj 278 43 bng 70 250 50 0 timerStart empty Start 17 7 0 10 -4034
 -1 -1;
 #X obj 389 102 tgl 30 0 dispTimer empty displ 0 7 0 10 -262144 -1 -1
 0 1;
@@ -531,11 +526,11 @@ calculate directly in the android pathc (barulhometroCTRL);
 -1 -1;
 #X obj 262 185 bng 40 250 50 0 calcula empty calcula 0 7 0 10 -262144
 -1 -1;
-#X obj 13 107 tgl 40 0 withBarulho empty empty -5 7 0 10 -262144 -1
--1 0 1;
+#X obj 4 96 tgl 30 0 withBarulho empty empty -5 7 0 10 -262144 -1 -1
+0 1;
 #X obj 193 82 vsl 10 30 0 100 0 0 empty soundIN-r IN 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 36 84 bng 20 250 50 0 bang_discon empty disc 0 10 0 8 -262144
+#X obj 26 69 bng 20 250 50 0 bang_discon empty disc 0 7 0 10 -262144
 -1 -1;
 #X obj 220 34 bng 30 250 50 0 \$0-mode2 empty timer 0 15 0 10 -262144
 -1 -1;
@@ -577,11 +572,11 @@ calculate directly in the android pathc (barulhometroCTRL);
 0;
 #X obj 83 5 tgl 10 0 empty connInput connInput 17 7 0 10 -262144 -1
 -1 0 1;
-#X text 14 125 Noise;
-#X text 17 135 Juri;
+#X text 3 95 Noise;
+#X text 4 106 Juri;
 #X obj 416 284 numberbox 50 22 foobar juri5 0 99999 0;
 #X obj 416 260 numberbox 50 22 foobar juri4 0 99999 0;
-#X obj 416 235 numberbox 50 22 foobar juri3 0 99999 0;
+#X obj 416 234 numberbox 50 22 foobar juri3 0 99999 0;
 #X obj 416 210 numberbox 50 22 foobar juri2 0 99999 0;
 #X obj 416 185 numberbox 50 22 foobar juri1 0 99999 0;
 #X obj 262 241 bng 25 250 50 0 saveA empty empty 7 7 0 10 -262144 -1
@@ -589,10 +584,12 @@ calculate directly in the android pathc (barulhometroCTRL);
 #X obj 421 399 s juri;
 #X obj 262 277 bng 25 250 50 0 saveB empty empty 5 7 0 10 -262144 -1
 -1;
-#X text 270 227 BAR.;
-#X text 347 215 GERAL;
-#X text 348 248 A;
-#X text 348 284 B;
+#X text 270 243 A;
+#X text 262 224 BAR.;
+#X text 270 279 B;
+#X text 356 196 GERAL;
+#X text 357 237 A;
+#X text 356 275 B;
 #X obj 314 198 bng 30 250 50 0 mode3 empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 314 234 bng 30 250 50 0 mode4 empty empty 17 7 0 10 -262144
@@ -614,8 +611,3 @@ calculate directly in the android pathc (barulhometroCTRL);
 #X connect 5 0 3 0;
 #X connect 6 0 4 0;
 #X restore 547 140 pd juri;
-#X text 257 251 saveA;
-#X text 257 287 saveB;
-#X obj 376 279 bng 20 250 50 0 reset_vote empty empty 17 7 0 10 -262144
--1 -1;
-#X text 369 285 reset;
