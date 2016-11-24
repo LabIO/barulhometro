@@ -1,11 +1,12 @@
-#N canvas 321 76 1018 663 10;
+#N struct 1009-f float x;
+#N canvas 319 76 1018 663 10;
 #X obj 3 -14 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-1-set empty 0
--8 0 25 -262144 -1 -1 1 256;
+-8 0 25 -262144 -1 -1 0 256;
 #N canvas 912 111 449 187 tab_votos 0;
 #X obj 55 56 tabwrite votos;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array votos 6 float 3;
-#A 0 1 3 4 5 6 1.02198;
+#A 0 1 3 4 5 6 0;
 #X coords 0 11 6 -1 200 100 1 0 0;
 #X restore 203 31 graph;
 #X floatatom 133 33 5 0 0 0 - - -, f 5;
@@ -27,28 +28,28 @@
 #X obj 3 27 t f f;
 #X obj 3 75 s JuriVote-1;
 #X obj 3 126 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-2-set empty 0
--8 0 25 -262144 -1 -1 3 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 191 tabwrite votos;
 #X obj 111 147 loadbang;
 #X obj 3 167 t f f;
 #X msg 111 168 1;
 #X obj 3 215 s JuriVote-2;
 #X obj 3 256 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-3-set empty 0
--8 0 25 -262144 -1 -1 4 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 321 tabwrite votos;
 #X obj 111 277 loadbang;
 #X obj 3 297 t f f;
 #X msg 111 298 2;
 #X obj 3 345 s JuriVote-3;
 #X obj 3 386 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-4-set empty 0
--8 0 25 -262144 -1 -1 5 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 451 tabwrite votos;
 #X obj 111 407 loadbang;
 #X obj 3 427 t f f;
 #X msg 112 428 3;
 #X obj 3 475 s JuriVote-4;
 #X obj 3 506 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-5-set empty 0
--8 0 25 -262144 -1 -1 6 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 571 tabwrite votos;
 #X obj 111 527 loadbang;
 #X obj 3 547 t f f;
@@ -89,14 +90,14 @@
 #X msg 653 213 list 3 4 5 6 7;
 #X obj 693 418 list split 4;
 #X obj 190 18 nbx 12 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
--262144 -1 -1 1.02198 256;
+-262144 -1 -1 0 256;
 #X obj 532 637 print JURI AVERAGE;
 #X obj 553 -32 + 1;
 #X floatatom 551 30 5 0 0 0 - - -, f 5;
 #X obj 596 368 print split1;
 #X obj 545 513 print split2;
 #X obj 573 288 print sort;
-#N canvas 1 76 1310 663 FINAL_COUNT 0;
+#N canvas 1 76 1310 663 FINAL_COUNT 1;
 #X obj 18 -73 table votos_final;
 #X msg 16 2 \; votos_final bounds 0 0 11 10 \; votos_final resize 12
 ;
@@ -104,50 +105,50 @@
 #X obj 356 592 hradio 15 1 0 12 empty empty empty 0 -8 0 10 -262144
 -1 -1 10;
 #X obj 226 101 nbx 5 14 -1e+37 1e+37 0 0 empty juriA-1 juriA-1 0 -8
-0 10 -262144 -1 -1 2 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 227 122 t f b;
 #X obj 377 705 tabread votos_final;
 #X obj 377 668 hradio 15 1 0 12 empty empty empty 0 -8 0 10 -262144
 -1 -1 11;
 #X floatatom 377 727 5 0 0 0 - - -, f 5;
 #X obj 40 258 nbx 5 14 -1e+37 1e+37 0 0 empty barA barA 0 -8 0 10 -262144
--1 -1 0.71 256;
+-1 -1 0 256;
 #X obj 54 389 nbx 5 14 -1e+37 1e+37 0 0 empty barB barB 0 -8 0 10 -262144
--1 -1 1.02 256;
+-1 -1 0 256;
 #X obj 54 408 t f b;
 #X obj 43 282 t f b;
 #X obj 409 110 nbx 5 14 -1e+37 1e+37 0 0 empty juriB-1 juriB-1 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 409 132 t f b;
 #X obj 225 185 nbx 5 14 -1e+37 1e+37 0 0 empty juriA-2 juriA-2 0 -8
-0 10 -262144 -1 -1 3 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 225 212 t f b;
 #X obj 222 275 nbx 5 14 -1e+37 1e+37 0 0 empty juriA-3 juriA-3 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 222 302 t f b;
 #X obj 219 375 nbx 5 14 -1e+37 1e+37 0 0 empty juriA-4 juriA-4 0 -8
-0 10 -262144 -1 -1 4 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 219 402 t f b;
 #X obj 220 464 nbx 5 14 -1e+37 1e+37 0 0 empty juriA-5 juriA-5 0 -8
-0 10 -262144 -1 -1 5 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 220 491 t f b;
 #X obj 444 198 nbx 5 14 -1e+37 1e+37 0 0 empty juriB-2 juriB-2 0 -8
-0 10 -262144 -1 -1 5 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 444 225 t f b;
 #X obj 475 290 nbx 5 14 -1e+37 1e+37 0 0 empty juriB-3 juriB-3 0 -8
-0 10 -262144 -1 -1 5 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 475 317 t f b;
 #X obj 488 386 nbx 5 14 -1e+37 1e+37 0 0 empty juriB-4 juriB-4 0 -8
-0 10 -262144 -1 -1 6 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 488 413 t f b;
 #X obj 475 482 nbx 5 14 -1e+37 1e+37 0 0 empty juriB-5 juriB-5 0 -8
-0 10 -262144 -1 -1 5 256;
+0 10 -262144 -1 -1 0 256;
 #X obj 475 509 t f b;
 #X obj 17 -32 loadbang;
 #X obj 637 -161 r calculaA;
 #X obj 1247 -95 r calculaB;
-#X obj 745 825 s votoA;
-#X obj 1178 876 s votoB;
+#X obj 744 775 s votoA;
+#X obj 1352 849 s votoB;
 #X msg 617 185 add2 \$1;
 #X msg 741 238 set list;
 #X obj 703 390 list split 1;
@@ -202,7 +203,7 @@
 #X text 1191 389 sort ascending;
 #X text 1220 467 out the min;
 #X text 1250 563 out the max;
-#X floatatom 1353 829 12 0 0 0 - - -, f 12;
+#X floatatom 1352 829 12 0 0 0 - - -, f 12;
 #X obj 1246 -42 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 741 409 450 300 ROUND 0;
@@ -220,7 +221,7 @@
 #X restore 1352 799 pd ROUND;
 #X obj 1415 800 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 1207 749 12 0 0 0 - - -, f 12;
+#X floatatom 1191 761 12 0 0 0 - - -, f 12;
 #X msg 1352 750 0 \, \$1 1500;
 #X msg 1312 358 list 4 5 5 6 5;
 #X obj 1352 563 list split 4;
