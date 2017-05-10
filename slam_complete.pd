@@ -1,5 +1,5 @@
 #N struct 1009-f float x;
-#N canvas 557 129 748 439 10;
+#N canvas 526 141 748 439 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -39,7 +39,7 @@
 #X obj 270 309 line;
 #X obj 303 380 *;
 #X obj 272 285 pack f 2000;
-#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 277 252 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 299 259 metro 2000;
 #X msg 284 502 text LabIO;
@@ -111,12 +111,12 @@
 #X obj 105 112 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 18 42 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#N canvas 1 320 309 334 init 0;
+#N canvas 45 332 309 334 init 0;
 #X obj 38 12 loadbang;
 #X msg 39 35 \; Mode 0 \; db_range 55 \; shiftH 0.45 \; size 15 \;
 sizeVOTE 150 \; sizeBARU 30 \; T_X 3 \; T_Y -2.5 \; T_Z 0 \; ctrl 0
 \; MostraTexto 0 \; MostraBarra 0 \; colORstar-r 1 \; name_color-set
-0.07 \; pubYA 0 \;;
+0.07 \; pubYA 0 \; BarraNoise 0 \;;
 #X connect 0 0 1 0;
 #X restore 15 197 pd init;
 #X obj 310 14 cnv 15 340 150 empty empty empty 20 12 0 14 -262130 -66577
@@ -391,7 +391,7 @@ create :0.0 \, 1, f 62;
 #X connect 12 0 10 0;
 #X restore 527 208 pd GO;
 #X text 190 22 VOTE;
-#N canvas 349 104 503 604 BARULHOMETRO 1;
+#N canvas 346 108 503 604 BARULHOMETRO 0;
 #X obj 89 435 text2d;
 #X floatatom 116 113 5 0 0 0 - - -, f 5;
 #X floatatom 139 174 5 0 0 0 - - -, f 5;
@@ -457,7 +457,7 @@ create :0.0 \, 1, f 62;
 #X connect 23 0 22 0;
 #X connect 24 0 0 0;
 #X restore 191 159 pd BARULHOMETRO;
-#N canvas 139 268 568 398 TIMER 0;
+#N canvas 136 272 568 398 TIMER 0;
 #X obj 118 270 text2d;
 #X floatatom 151 229 5 0 0 0 - - -, f 5;
 #X floatatom 159 146 5 0 0 0 - - -, f 5;
@@ -505,7 +505,7 @@ create :0.0 \, 1, f 62;
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 69 5 0 0 0 - - -, f 5;
 #X floatatom 269 71 5 0 0 0 - - -, f 5;
-#X obj 390 5 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 390 5 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 181 35 gemhead;
 #X obj 390 -23 inlet;
@@ -611,7 +611,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X msg 123 248 0 2000;
 #X obj 123 223 delay 500;
 #X floatatom 189 580 5 0 0 0 - - -, f 5;
-#X obj 49 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 49 42 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 56 3 inlet;
 #X msg 150 346 1;
@@ -626,7 +626,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 251 40 f;
 #X obj 280 40 + 1;
 #X floatatom 232 86 5 0 0 0 - - -, f 5;
-#X obj 104 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 104 22 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 252 62 mod 5;
 #X obj 78 393 random 3;
@@ -823,13 +823,13 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X text 103 22 SHOW BARULHO;
 #X obj 106 40 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 233 175 1044 650 ShowBar 0;
+#N canvas 233 304 1044 650 ShowBar 0;
 #X obj 278 102 inlet;
 #X obj 357 15 loadbang;
 #X obj 357 47 delay 600;
-#X obj 127 309 alpha;
+#X obj 127 292 alpha;
 #X obj 127 386 color 1 1 1;
-#X obj 127 266 gemhead;
+#X obj 127 268 gemhead;
 #X obj 431 289 color;
 #X obj 431 262 alpha;
 #X obj 539 266 expr $f1 -3;
@@ -841,12 +841,12 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 440 349 rectangle 0 0.3;
 #X msg 694 250 0;
 #X obj 837 219 loadbang;
-#X obj 227 382 r dbT;
-#X obj 350 381 r db_range;
-#X obj 227 404 expr ($f1/$f2)*3.5;
+#X obj 224 385 r dbT;
+#X obj 347 384 r db_range;
+#X obj 224 407 expr ($f1/$f2)*3.5;
 #X floatatom 232 515 5 0 0 0 - - -, f 5;
 #X obj 224 484 t f f;
-#X obj 158 619 rectangle 3 0;
+#X obj 128 619 rectangle 3 0;
 #X text 239 532 Position;
 #X obj 197 538 - 3.2;
 #X floatatom 757 283 5 0 0 0 - - -, f 5;
@@ -855,11 +855,11 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 431 234 gemhead 50;
 #X msg 656 355 text make some noise!;
 #X msg 877 470 66;
-#N canvas 1 76 555 341 changeCOR 0;
+#N canvas 45 81 555 341 changeCOR 0;
 #X obj 241 267 outlet;
 #X obj 241 222 hsv2rgb;
 #X obj 38 222 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 10590 1;
+-258113 -260097 10662 1;
 #X obj 181 42 expr 1 - $f1/$f2;
 #X floatatom 259 147 5 0 0 1 shift_value - -, f 5;
 #X obj 241 168 -;
@@ -884,7 +884,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 12 0 11 0;
 #X restore 172 347 pd changeCOR;
 #X obj 224 459 line 0 50;
-#X obj 227 430 pack f 400;
+#X obj 224 433 pack f 400;
 #X obj 500 -2 r barulho_timer;
 #X obj 552 185 * 0.3;
 #X obj 500 20 t f f;
@@ -896,9 +896,15 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 413 84 delay 400;
 #X obj 630 174 r ShowBar_onOff;
 #X obj 431 208 r ShowBar_onOff;
-#X obj 127 232 r ShowBar_onOff;
+#X obj 127 172 r ShowBar_onOff;
 #X obj 390 157 s ShowBar_onOff;
 #X floatatom 621 47 5 0 0 0 - - -, f 5;
+#X obj 180 207 r BarraNoise;
+#X text 197 238 Desactivado por defeito;
+#X text 195 254 Activar se necessario;
+#X obj 127 241 spigot 0;
+#X obj 54 194 loadbang;
+#X msg 54 216 0;
 #X connect 0 0 46 0;
 #X connect 1 0 2 0;
 #X connect 2 0 39 0;
@@ -948,7 +954,11 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 42 0 39 0;
 #X connect 43 0 27 0;
 #X connect 44 0 28 0;
-#X connect 45 0 5 0;
+#X connect 45 0 51 0;
+#X connect 48 0 51 1;
+#X connect 51 0 5 0;
+#X connect 52 0 53 0;
+#X connect 53 0 5 0;
 #X restore 106 61 pd ShowBar;
 #X obj 160 39 tgl 15 0 colORstar colORstar-r empty 17 7 0 10 -257985
 -1 -1 1 1;
@@ -1124,7 +1134,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 347 20 Jan 2015;
-#N canvas 90 104 1106 663 conn-in 0;
+#N canvas 78 120 1106 663 conn-in 0;
 #X obj 27 16 netreceive 3000;
 #X obj 164 192 s ctrl;
 #X obj 96 355 s barulho_vote;
@@ -1136,7 +1146,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 55 547 outlet;
 #X obj 350 408 s Mode;
 #X obj 415 436 s MostraBarra;
-#X obj 1135 919 s JuriVote-1-set;
+#X obj 1135 969 s JuriVote-1-set;
 #X obj 545 442 s zera_votos;
 #X text 110 546 Input de som am DBs;
 #X text 204 495 Voto do público;
@@ -1154,43 +1164,45 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 -1 -1;
 #X obj 1812 588 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1529 173 s gravaBarulhoFinal-A;
-#X obj 1598 149 s gravaBarulhoFinal-B;
-#X obj 1135 829 Patches/juriRoute;
-#X obj 1155 894 s juriA-1;
-#X obj 1188 865 s juriB-1;
-#X obj 1204 698 Patches/juriRoute;
-#X obj 1258 733 s juriB-2;
-#X obj 1224 763 s juriA-2;
-#X obj 1204 788 s JuriVote-2-set;
-#X obj 1274 579 Patches/juriRoute;
-#X obj 1328 614 s juriB-3;
-#X obj 1298 642 s juriA-3;
-#X obj 1274 669 s JuriVote-3-set;
-#X obj 1343 452 Patches/juriRoute;
+#X obj 1474 226 s gravaBarulhoFinal-A;
+#X obj 1540 199 s gravaBarulhoFinal-B;
+#X obj 1135 879 Patches/juriRoute;
+#X obj 1155 944 s juriA-1;
+#X obj 1188 915 s juriB-1;
+#X obj 1204 748 Patches/juriRoute;
+#X obj 1258 783 s juriB-2;
+#X obj 1224 813 s juriA-2;
+#X obj 1204 838 s JuriVote-2-set;
+#X obj 1274 629 Patches/juriRoute;
+#X obj 1328 664 s juriB-3;
+#X obj 1298 692 s juriA-3;
+#X obj 1274 719 s JuriVote-3-set;
+#X obj 1343 502 Patches/juriRoute;
 #X obj 1397 487 s juriB-4;
-#X obj 1367 515 s juriA-4;
-#X obj 1343 542 s JuriVote-4-set;
-#X obj 1412 322 Patches/juriRoute;
-#X obj 1466 357 s juriB-5;
-#X obj 1436 385 s juriA-5;
-#X obj 1412 412 s JuriVote-5-set, f 17;
-#X obj 1482 203 Patches/juriRoute;
-#X obj 1496 266 s calculaA;
-#X obj 1482 293 s calc_juri;
-#X obj 1530 241 s calculaB;
+#X obj 1367 565 s juriA-4;
+#X obj 1343 592 s JuriVote-4-set;
+#X obj 1352 372 Patches/juriRoute;
+#X obj 1406 407 s juriB-5;
+#X obj 1376 435 s juriA-5;
+#X obj 1352 462 s JuriVote-5-set, f 17;
+#X obj 1412 253 Patches/juriRoute;
+#X obj 1426 316 s calculaA;
+#X obj 1412 343 s calc_juri;
+#X obj 1460 291 s calculaB;
 #X obj 160 22 s connectionStatus;
 #X obj 1097 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 1666 114 s db_range;
-#X obj 1666 89 + 3;
+#X obj 1605 174 s db_range;
+#X obj 1605 149 + 3;
+#X obj 1671 143 s barulho_timer;
+#X obj 491 553 Patches/web-control;
 #X obj 28 54 route /dbs /barulho_vote /ctrl /timer_ctrl /desliga /Mode
 /RecoverTimer /juri /zera_votos /pubYA /LogoSel /logoON /palcoH /palcoS
 /palcoV /timerPause /juri/1 /juri/2 /juri/3 /juri/4 /juri/5 /juri/calc
-/juri/save/A /juri/save/B /maxNoiseDB /barulho_timer, f 254;
-#X obj 1734 93 s barulho_timer;
-#X obj 491 553 Patches/web-control;
-#X connect 0 0 55 0;
+/juri/save/A /juri/save/B /maxNoiseDB /barulho_timer /BarraNoise,
+f 254;
+#X obj 1737 112 s BarraNoise;
+#X connect 0 0 57 0;
 #X connect 0 1 51 0;
 #X connect 5 0 4 0;
 #X connect 5 1 3 0;
@@ -1216,33 +1228,34 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 47 1 48 0;
 #X connect 47 2 50 0;
 #X connect 54 0 53 0;
-#X connect 55 0 17 0;
-#X connect 55 1 2 0;
-#X connect 55 2 1 0;
-#X connect 55 3 5 0;
-#X connect 55 4 6 0;
-#X connect 55 5 8 0;
-#X connect 55 6 9 0;
-#X connect 55 8 11 0;
-#X connect 55 9 14 0;
-#X connect 55 9 24 0;
-#X connect 55 10 18 0;
-#X connect 55 11 19 0;
-#X connect 55 12 20 0;
-#X connect 55 13 21 0;
-#X connect 55 14 22 0;
-#X connect 55 15 23 0;
-#X connect 55 15 52 0;
-#X connect 55 16 28 0;
-#X connect 55 17 31 0;
-#X connect 55 18 35 0;
-#X connect 55 19 39 0;
-#X connect 55 20 43 0;
-#X connect 55 21 47 0;
-#X connect 55 22 26 0;
-#X connect 55 23 27 0;
-#X connect 55 24 54 0;
-#X connect 55 25 56 0;
+#X connect 57 0 17 0;
+#X connect 57 1 2 0;
+#X connect 57 2 1 0;
+#X connect 57 3 5 0;
+#X connect 57 4 6 0;
+#X connect 57 5 8 0;
+#X connect 57 6 9 0;
+#X connect 57 8 11 0;
+#X connect 57 9 14 0;
+#X connect 57 9 24 0;
+#X connect 57 10 18 0;
+#X connect 57 11 19 0;
+#X connect 57 12 20 0;
+#X connect 57 13 21 0;
+#X connect 57 14 22 0;
+#X connect 57 15 23 0;
+#X connect 57 15 52 0;
+#X connect 57 16 28 0;
+#X connect 57 17 31 0;
+#X connect 57 18 35 0;
+#X connect 57 19 39 0;
+#X connect 57 20 43 0;
+#X connect 57 21 47 0;
+#X connect 57 22 26 0;
+#X connect 57 23 27 0;
+#X connect 57 24 54 0;
+#X connect 57 25 55 0;
+#X connect 57 26 58 0;
 #X restore 17 12 pd conn-in;
 #N canvas 147 120 387 574 FINAL 0;
 #X obj 63 29 nbx 4 25 -1e+37 1e+37 0 0 barA empty barA 0 -12 0 20 -262144
@@ -1278,7 +1291,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X obj 203 528 nbx 4 25 -1e+37 1e+37 0 0 empty votoB votoB 0 -12 0
 20 -262144 -1 -1 0 256;
 #X restore 109 307 pd FINAL;
-#X obj 12 387 declare iemnet cyclone list-abs zexy;
+#X obj 12 407 declare iemnet cyclone list-abs zexy;
 #X obj 107 216 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 0 155 1226 663 JURI-FINAL 0;
@@ -1656,7 +1669,7 @@ JuriSet-N font FONTS/MAKISUPA.TTF \; JuriSize-p 40 \; JuriSet-N text
 #X connect 186 0 184 0;
 #X connect 187 0 185 0;
 #X restore 107 238 pd JURI-FINAL;
-#X text 6 365 Nov 2016;
+#X text 6 365 Abril 2017;
 #X connect 1 0 2 0;
 #X connect 3 0 4 0;
 #X connect 5 0 3 0;
