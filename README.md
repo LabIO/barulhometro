@@ -38,6 +38,8 @@ A computer with Pd, a microphone and a video beamer.
 Video TUTORIAL
 https://youtu.be/mPs9cOwZWu4
 
+LINKS
+https://youtu.be/Tv19viEMy3g
 
 LICENSE
 This software follows the GNU General Public License v3.0.
