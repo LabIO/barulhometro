@@ -3,7 +3,7 @@
 
 Barulhometro is an application written in [Pure Data] (http://www.puredata.info) to be used at Poetry Slam events to calculate a score based on the noise level made by the audience after each poem. It also calculates the average of the human jury scores, and displays a countdown timer.
 
-At the moment only the Portuguese version is available.
+At the moment it is in Portuguese and English but language can be quickly costumized.
 
 ##INSTALLATION
 
@@ -16,8 +16,10 @@ At the moment only the Portuguese version is available.
      
     
 * Windows
+Never tried yet but should work.
 
 * Mac OSX
+Never tried yet but should work.
 
 
 ##USAGE
@@ -31,10 +33,11 @@ At the moment only the Portuguese version is available.
   * Use the radio button to control the Timer, Barulhometro and Jury Count
 
 TECHNICAL REQUIREMENTS
-A computer with Pd, a microphone and a viedo beamer. 
+A computer with Pd, a microphone and a video beamer. 
+
+Video TUTORIAL
+https://youtu.be/mPs9cOwZWu4
 
 
 LICENSE
 This software follows the GNU General Public License v3.0.
-
-
