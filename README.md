@@ -16,10 +16,10 @@ At the moment it is in Portuguese and English but language can be quickly costum
      
     
 * Windows
-Never tried yet but should work.
+Not tried yet but should work.
 
 * Mac OSX
-Never tried yet but should work.
+Not tried yet but should work.
 
 
 ##USAGE
@@ -32,14 +32,14 @@ Never tried yet but should work.
   * In the barulhometro window click on the green button "set_value_10"
   * Use the radio button to control the Timer, Barulhometro and Jury Count
 
-TECHNICAL REQUIREMENTS
+##TECHNICAL REQUIREMENTS
 A computer with Pd, a microphone and a video beamer. 
 
-Video TUTORIAL
+##Video TUTORIAL
 https://youtu.be/mPs9cOwZWu4
 
-LINKS
+##LINKS
 https://youtu.be/Tv19viEMy3g
 
-LICENSE
+##LICENSE
 This software follows the GNU General Public License v3.0.
