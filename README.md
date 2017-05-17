@@ -11,8 +11,8 @@ It is running also on a RaspberryPi as a start up program, therefore also people
 
 * Linux
   * [Download and install Pure Data] (http://www.puredata.info/docs/faq/debian)
-  * Install Git. Writing in your terminal `sudo apt-get install git` works on Debian based, like Ubuntu.
-  * Get the Barulhometro. Writing this in your terminal `git clone https://github.com/LabIO/barulhometro`
+  * Install Git. typing in your terminal `sudo apt-get install git` works on Debian based, like Ubuntu.
+  * Get the Barulhometro. Typing this in your terminal `git clone https://github.com/LabIO/barulhometro`
     or click the download button down on the right
   * Enter the directory "barulhometro" `cd barulhometro/` and run the script "slam_setup.sh" `./slam_setup.sh`
      
