@@ -1,4 +1,4 @@
-#N canvas 126 361 819 663 10;
+#N canvas 124 104 819 663 10;
 #X declare iemnet cyclone;
 #N canvas 366 220 878 519 calc_barulho 0;
 #X obj 303 383 /;
@@ -29,7 +29,7 @@
 #X obj 280 263 t f f b;
 #X obj 514 146 r setValue;
 #X obj 514 273 s maxNoiseDB;
-#X obj 332 137 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 332 137 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 19 285 table noiseValues 110;
 #X msg 256 166 \; noiseValues const 0;
@@ -69,14 +69,14 @@
 14 -4034 -1 -1;
 #X obj 326 264 r ctrl;
 #X obj 129 81 tgl 50 0 empty ctrl-r control 55 25 0 14 -159808 -1 -1
-1 1;
+0 1;
 #X obj 486 11 loadbang;
 #X text 404 202 3) write this value in the box below;
 #X obj 395 287 f;
 #X obj 619 498 r barulho_vote;
 #X obj 713 541 r timer_ctrl;
-#N canvas 280 356 635 536 interface 1;
-#N canvas 45 81 892 663 INTERFACE-GOP 0;
+#N canvas 281 132 635 536 interface 1;
+#N canvas 43 81 892 663 INTERFACE-GOP 1;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
 #X obj 242 235 bng 120 250 50 0 empty timerON-r timer_on 17 45 0 13
@@ -213,6 +213,9 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 574 301 tgl 15 0 BarraNoise empty empty 17 7 0 10 -262144 -1
 -1 0 1;
 #X text 591 300 Show Noise bar;
+#X text 360 543 Normal;
+#X text 401 567 FinA;
+#X text 433 568 FinB;
 #X connect 0 0 3 0;
 #X connect 1 0 4 0;
 #X connect 2 0 73 0;
@@ -295,7 +298,7 @@ do juri;
 #X obj 17 284 hip~ 100;
 #X obj 35 384 s dbs;
 #X obj 116 244 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
--8 0 15 -262144 -1 -1 58.2332 256;
+-8 0 15 -262144 -1 -1 0 256;
 #X obj 145 477 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 9 544 s noiseLevel;
 #X obj 16 316 lop~ 10000;

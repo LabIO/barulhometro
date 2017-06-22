@@ -1,4 +1,4 @@
-#N canvas 406 243 793 436 10;
+#N canvas 404 243 793 436 10;
 #X obj 284 88 r <PD;
 #X obj 208 18 web-server 8999 PD;
 #X obj 20 218 s PD>;
@@ -11,7 +11,7 @@
 #X obj 119 198 metro 1000;
 #X obj 119 220 0;
 #X obj 149 220 + 1;
-#X obj 119 242 s PD>;
+#X obj 103 252 s PD>;
 #X obj 20 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 550 203 print NOTSET;
@@ -27,6 +27,14 @@
 #X obj 294 169 route test1 test2 hello final1 final2;
 #X obj 447 280 s FinalNome-1;
 #X obj 498 249 s FinalNome-2;
+#X obj 202 311 r FinalNome-2;
+#X obj 31 302 r FinalNome-1;
+#X obj 30 393 s PD>;
+#X obj 34 335 list;
+#X obj 216 398 s PD>;
+#X obj 220 340 list;
+#X obj 202 369 list prepend Finalista 2:;
+#X obj 16 364 list prepend Finalista 1:;
 #X connect 0 0 18 0;
 #X connect 1 0 5 0;
 #X connect 3 0 2 0;
@@ -46,3 +54,9 @@
 #X connect 22 3 23 0;
 #X connect 22 4 24 0;
 #X connect 22 5 14 0;
+#X connect 25 0 30 0;
+#X connect 26 0 28 0;
+#X connect 28 0 32 0;
+#X connect 30 0 31 0;
+#X connect 31 0 29 0;
+#X connect 32 0 27 0;
