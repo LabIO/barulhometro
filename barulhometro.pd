@@ -1,4 +1,4 @@
-#N canvas 124 104 819 663 10;
+#N canvas 460 78 819 663 10;
 #X declare iemnet cyclone;
 #N canvas 366 220 878 519 calc_barulho 0;
 #X obj 303 383 /;
@@ -75,8 +75,8 @@
 #X obj 395 287 f;
 #X obj 619 498 r barulho_vote;
 #X obj 713 541 r timer_ctrl;
-#N canvas 281 132 635 536 interface 1;
-#N canvas 43 81 892 663 INTERFACE-GOP 1;
+#N canvas 50 431 635 536 interface 1;
+#N canvas 35 81 892 663 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
 #X obj 242 235 bng 120 250 50 0 empty timerON-r timer_on 17 45 0 13
@@ -88,7 +88,7 @@
 #X obj 464 390 bng 30 250 50 0 zera_votos r_reset_vote zera_voto -7
 -7 0 10 -191407 -1 -1;
 #X obj 109 114 vradio 120 1 0 4 empty state-r empty 0 -8 0 10 -262144
--1 -1 2;
+-1 -1 3;
 #X obj 140 603 s Mode;
 #X text 113 115 Geral;
 #X text 114 237 Timer;
@@ -130,7 +130,7 @@
 #X text 309 481 JURI 3;
 #X text 363 438 Calcula VOTOS;
 #X obj 383 381 tgl 49 0 pubYA withBarulho-r Média_COM_Público -5
--10 0 10 -191407 -1 -1 0 1;
+-10 0 10 -191407 -1 -1 1 1;
 #X obj 538 382 vradio 16 1 0 13 Logo-Sel empty empty 0 -8 0 10 -262144
 -1 -1 0;
 #X text 557 383 Portugal Slam;
@@ -147,10 +147,10 @@
 #X obj 245 124 tgl 30 1 connOSC empty connOSC -5 -7 0 10 -260097 -1
 -1 0 1;
 #X obj 292 129 tgl 50 0 chkSoundIN chkSoundIN-r check_soundIN 55 25
-0 14 -204786 -1 -1 0 1;
+0 14 -204786 -1 -1 1 1;
 #X obj 737 42 r noiseLevel;
 #X obj 291 186 nbx 5 28 -1e+37 1e+37 0 0 empty noiseLevel2CTRL empty
-0 -8 0 20 -262144 -1 -1 0 256;
+0 -8 0 20 -262144 -1 -1 30.2049 256;
 #X obj 512 105 cnv 15 180 180 empty empty empty 20 12 0 14 -203904
 -66577 0;
 #X obj 632 170 bng 50 250 50 0 setValue empty set_value_10 -100 25
@@ -197,7 +197,7 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X text 557 445 Cascais;
 #X obj 751 162 s noiseLevel2CTRL;
 #X obj 373 560 hradio 30 1 0 3 empty empty empty 0 -8 0 10 -262144
--1 -1 0;
+-1 -1 1;
 #X obj 441 464 bng 25 250 50 0 gravaBarulhoFinal-A juriSaveA empty
 17 7 0 10 -262144 -1 -1;
 #X obj 441 500 bng 25 250 50 0 gravaBarulhoFinal-B juriSaveB empty
@@ -210,8 +210,8 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X msg 456 639 /juri/save/B bang;
 #X obj 279 675 s Mode;
 #X obj 293 635 + 3;
-#X obj 574 301 tgl 15 0 BarraNoise empty empty 17 7 0 10 -262144 -1
--1 0 1;
+#X obj 574 301 tgl 15 0 BarraNoise BarraNoise-r empty 17 7 0 10 -262144
+-1 -1 1 1;
 #X text 591 300 Show Noise bar;
 #X text 360 543 Normal;
 #X text 401 567 FinA;
@@ -300,7 +300,7 @@ do juri;
 #X obj 116 244 nbx 5 28 -1e+37 1e+37 0 0 empty empty set_silence 0
 -8 0 15 -262144 -1 -1 0 256;
 #X obj 145 477 vu 34 160 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 9 544 s noiseLevel;
+#X obj 18 544 s noiseLevel;
 #X obj 16 316 lop~ 10000;
 #X obj 18 489 - 40;
 #X obj 406 218 r NoiseSum;
@@ -459,7 +459,7 @@ do juri;
 barulho 3) run the barulhometro the first time for maximum noise (vote
 10) on 5 seconds 4);
 #X obj 293 372 max 1;
-#N canvas 250 76 950 663 connections 0;
+#N canvas 248 78 950 663 connections 1;
 #X obj 50 -11 netreceive 9000;
 #X text 46 -37 receive from barulhometroCTRL;
 #X obj 2 188 sel 0;
@@ -477,7 +477,7 @@ barulho 3) run the barulhometro the first time for maximum noise (vote
 #X obj 201 598 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 22 448 send to barulhometroCTRL;
-#X obj 305 414 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 305 414 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 218 247 s setValue;
 #X text 6 294 METE O VIEW > MODE;
@@ -518,6 +518,7 @@ bangSilence set10 calcula withBarulho juri1 juri2 juri3 juri4 juri5
 mode palcoH palcoS palcoV logoON timerPause /v /goJuriMusic vid1 vid2
 vid3 vid4 pause killvid juriSaveA juriSaveB reset_vote;
 #X msg 559 102 \; r_reset_vote bang;
+#X obj 619 459 Patches/web-control;
 #X connect 0 0 51 0;
 #X connect 2 0 3 0;
 #X connect 4 0 5 0;
@@ -674,17 +675,17 @@ file=/tmp/labio ./videos/alex.mp4;
 #X connect 3 0 2 0;
 #X connect 4 0 2 1;
 #X restore 96 195 pd SET_SILENCE;
-#X obj 130 411 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 144 411 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 1 76 450 300 CHEKA_INPUT 0;
-#X obj 145 142 - 100;
-#X obj 118 22 r dbs;
-#X obj 113 69 Patches/labio-mux2;
-#X obj 177 39 r noiseLevel;
-#X obj 145 164 outlet;
-#X obj 342 133 loadbang;
-#X msg 342 155 0;
-#X obj 381 85 inlet;
+#N canvas 1 78 450 300 CHEKA_INPUT 0;
+#X obj 113 242 - 100;
+#X obj 113 12 r dbs;
+#X obj 113 169 Patches/labio-mux2;
+#X obj 174 39 r noiseLevel;
+#X obj 113 264 outlet;
+#X obj 256 120 loadbang;
+#X msg 256 142 0;
+#X obj 236 95 inlet dbs/noiseLVL;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
@@ -692,8 +693,8 @@ file=/tmp/labio ./videos/alex.mp4;
 #X connect 5 0 6 0;
 #X connect 6 0 2 2;
 #X connect 7 0 2 2;
-#X restore 130 442 pd CHEKA_INPUT;
-#X text 125 395 dbs / noiseLevel;
+#X restore 144 442 pd CHEKA_INPUT;
+#X text 139 395 dbs / noiseLevel;
 #X obj 215 597 r noiseLevel;
 #X text 556 251 Soma do nível de barulho;
 #X text 558 265 durante 5 segundos.;

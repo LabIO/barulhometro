@@ -85,12 +85,15 @@ switch {
   <h3>Geral</h3>
   <p>General Settings</p>
   <br>
-  <h2>Noise Juri</h2>
-
-<label class="switch">
-  <input id="noiseJuri" type="checkbox" checked>
-  <div class="slider"></div>
-</label>
+  <h2>Noise Juri
+  <label class="switch"> <input id="noiseJuri" type="checkbox" checked> <div class="slider"></div></label> 
+</h2><br>
+<h2>Animation
+  <label class="switch"> <input id="animation" type="checkbox" checked> <div class="slider"></div></label> 
+</h2><br>
+<h2>VU Meter
+  <label class="switch"> <input id="vumeter" type="checkbox" checked> <div class="slider"></div></label> 
+</h2><br>
 
 <br><br>
 
@@ -132,11 +135,33 @@ function openMode(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+
+function noisejuriTGL() {
+if (document.getElementById("noiseJuri").checked==true) {
+     aciles.send(server, "noiseJuri " + "1");
+     ev.target.value = "";
+    document.getElementById("noiseJuri").checked=false;
+}
+else {
+    aciles.send(server, "noiseJuri " + "0");
+    ev.target.value = "";
+    document.getElementById("noiseJuri").checked=true;
+}
+}
+
 </script>
 
 
   
- <!-- <p><button type="button" id="button1">Click Me!</button></p> -->
+ <!-- <p><button type="button" id="button1">Click Me!</button></p> 
+
+
+
+
+--------- JAVASCRIPT -------
+
+-->
   
   <textarea id="receiver"></textarea>
   
@@ -169,16 +194,65 @@ function openMode(evt, cityName) {
     ev.target.value = "";
   };
 
- document.getElementById("noiseJuri").checked = function(ev) {
-    if (ev.keyCode == 13) {
-      aciles.send(server, "NoiseJuri " + ev.target.value);
-      ev.target.value = "";
-    }
+  document.getElementById("noiseJuri").onclick = function() {
+      noisejuriTGL();
+}
+
+
+
+// BOTÃO DA ANIMATION ON/OFF
+
+  document.getElementById("animation").onclick = function() {
+
+if (document.getElementById("animation").checked==true) {
+     aciles.send(server, "animation " + "1");
+     ev.target.value = "";
+    document.getElementById("noiseJuri").checked=false;
+}
+else {
+    aciles.send(server, "animation " + "0");
+    ev.target.value = "";
+    document.getElementById("animation").checked=true;
+}
+}
+
+// BOTÃO VU METER ON/OFF
+document.getElementById("vumeter").onclick = function() {
+
+if (document.getElementById("vumeter").checked==true) {
+     aciles.send(server, "vumeter " + "1");
+     ev.target.value = "";
+    document.getElementById("vumeter").checked=false;
+}
+else {
+    aciles.send(server, "vumeter " + "0");
+    ev.target.value = "";
+    document.getElementById("vumeter").checked=true;
+}
+}
+
+
+
+/*
+
   };
-  document.getElementById("NoiseJuri").onblur = function(ev) {
-    aciles.send(server, "NoiseJuri " + ev.target.value);
+  document.getElementById("noiseJuri").onblur = function(ev) {
+    aciles.send(server, "noiseJuri " + ev.target.value);
     ev.target.value = "";
   };
+
+
+
+*/
+
+
+
+
+
+
+
+ 
+
   </script>
 </body>
 </html>
