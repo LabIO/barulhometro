@@ -1,4 +1,4 @@
-#N canvas 460 78 819 663 10;
+#N canvas 458 78 819 663 10;
 #X declare iemnet cyclone;
 #N canvas 366 220 878 519 calc_barulho 0;
 #X obj 303 383 /;
@@ -69,14 +69,14 @@
 14 -4034 -1 -1;
 #X obj 326 264 r ctrl;
 #X obj 129 81 tgl 50 0 empty ctrl-r control 55 25 0 14 -159808 -1 -1
-0 1;
+1 1;
 #X obj 486 11 loadbang;
 #X text 404 202 3) write this value in the box below;
 #X obj 395 287 f;
 #X obj 619 498 r barulho_vote;
 #X obj 713 541 r timer_ctrl;
-#N canvas 50 431 635 536 interface 1;
-#N canvas 35 81 892 663 INTERFACE-GOP 0;
+#N canvas 48 431 635 536 interface 1;
+#N canvas 29 81 892 663 INTERFACE-GOP 0;
 #X obj 244 362 bng 20 250 50 0 empty empty barulhometro_ctrl 23 7 0
 10 -4034 -1 -1;
 #X obj 242 235 bng 120 250 50 0 empty timerON-r timer_on 17 45 0 13
@@ -88,7 +88,7 @@
 #X obj 464 390 bng 30 250 50 0 zera_votos r_reset_vote zera_voto -7
 -7 0 10 -191407 -1 -1;
 #X obj 109 114 vradio 120 1 0 4 empty state-r empty 0 -8 0 10 -262144
--1 -1 3;
+-1 -1 2;
 #X obj 140 603 s Mode;
 #X text 113 115 Geral;
 #X text 114 237 Timer;
@@ -147,10 +147,10 @@
 #X obj 245 124 tgl 30 1 connOSC empty connOSC -5 -7 0 10 -260097 -1
 -1 0 1;
 #X obj 292 129 tgl 50 0 chkSoundIN chkSoundIN-r check_soundIN 55 25
-0 14 -204786 -1 -1 1 1;
+0 14 -204786 -1 -1 0 1;
 #X obj 737 42 r noiseLevel;
 #X obj 291 186 nbx 5 28 -1e+37 1e+37 0 0 empty noiseLevel2CTRL empty
-0 -8 0 20 -262144 -1 -1 30.2049 256;
+0 -8 0 20 -262144 -1 -1 0 256;
 #X obj 512 105 cnv 15 180 180 empty empty empty 20 12 0 14 -203904
 -66577 0;
 #X obj 632 170 bng 50 250 50 0 setValue empty set_value_10 -100 25
@@ -158,7 +158,7 @@
 #X obj 589 135 nbx 7 24 -1e+37 1e+37 0 0 NoiseSum-interface empty SumCalib
 -60 15 0 12 -262144 -1 -1 0 256;
 #X obj 523 229 nbx 5 28 -1e+37 1e+37 0 0 empty BarulhoVote-s Barulho_Vote
-6 40 0 20 -262144 -1 -1 0 256;
+6 40 0 20 -262144 -1 -1 27163.4 256;
 #N canvas 767 137 453 451 INSTRUCTIONS 0;
 #X text 32 307 'barulhometro_ctrl' is to also to bang/start the barulhometro
 \; 'resume time' is the show again the timer bar (in case of misunderstanding
@@ -184,7 +184,7 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 737 62 spigot;
 #X obj 788 63 r chkSoundIN;
 #X obj 601 114 nbx 7 14 -1e+37 1e+37 0 0 empty NoiseSum CheckSum -50
-8 0 10 -262144 -1 -1 1 256;
+8 0 10 -262144 -1 -1 2716.34 256;
 #X obj 245 173 tgl 30 1 connNET empty connNET -5 -7 0 10 -260097 -1
 -1 1 1;
 #X obj 741 107 line;
@@ -211,7 +211,7 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X obj 279 675 s Mode;
 #X obj 293 635 + 3;
 #X obj 574 301 tgl 15 0 BarraNoise BarraNoise-r empty 17 7 0 10 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X text 591 300 Show Noise bar;
 #X text 360 543 Normal;
 #X text 401 567 FinA;
@@ -274,10 +274,10 @@ as a juri \; _click 'Calcula VOTOS' \;;
 #X connect 9 0 7 0;
 #X restore 129 141 pd CONTROL;
 #X obj 410 247 nbx 7 28 -1e+37 1e+37 0 0 NoiseSum-r empty empty 0 -8
-0 20 -262144 -1 -1 1 256;
+0 20 -262144 -1 -1 2716.34 256;
 #X obj 293 400 s NoiseSum;
 #X obj 395 408 nbx 5 28 -1e+37 1e+37 0 0 BarulhoVote-s empty Barulho_Vote
-6 40 0 20 -262144 -1 -1 0 256;
+6 40 0 20 -262144 -1 -1 27163.4 256;
 #X obj 395 471 s barulho_vote;
 #N canvas 342 396 448 185 bugs 0;
 #X text 29 51 o [pd control] serve a lançar os 5 segundos \, e a zerar
@@ -459,7 +459,7 @@ do juri;
 barulho 3) run the barulhometro the first time for maximum noise (vote
 10) on 5 seconds 4);
 #X obj 293 372 max 1;
-#N canvas 248 78 950 663 connections 1;
+#N canvas 244 78 950 663 connections 0;
 #X obj 50 -11 netreceive 9000;
 #X text 46 -37 receive from barulhometroCTRL;
 #X obj 2 188 sel 0;
@@ -477,7 +477,7 @@ barulho 3) run the barulhometro the first time for maximum noise (vote
 #X obj 201 598 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 22 448 send to barulhometroCTRL;
-#X obj 305 414 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 305 414 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 218 247 s setValue;
 #X text 6 294 METE O VIEW > MODE;

@@ -75,10 +75,10 @@ switch {
 </head>
 <body>
 <div class="tab">
-  <button class="tablinks" onclick="openMode(event, 'Geral')">Geral</button>
-  <button class="tablinks" onclick="openMode(event, 'Timer')">Timer</button>
-  <button class="tablinks" onclick="openMode(event, 'Barulhometro')">Barulhometro</button>
-  <button class="tablinks" onclick="openMode(event, 'Juri')">Juri</button>
+  <button id="GeralBTN" class="tablinks" onclick="openMode(event, 'Geral')">Geral</button>
+  <button id="TimerBTN" class="tablinks">Timer</button>
+  <button id="BarulhometroBTN" class="tablinks" onclick="openMode(event, 'Barulhometro')">Barulhometro</button>
+  <button id="JuriBTN" class="tablinks" onclick="openMode(event, 'Juri')">Juri</button>
 </div>
 
 <div id="Geral" class="tabcontent">
@@ -86,13 +86,13 @@ switch {
   <p>General Settings</p>
   <br>
   <h2>Noise Juri
-  <label class="switch"> <input id="noiseJuri" type="checkbox" checked> <div class="slider"></div></label> 
+  <input id="noiseJuri" type="checkbox" checked>
 </h2><br>
 <h2>Animation
-  <label class="switch"> <input id="animation" type="checkbox" checked> <div class="slider"></div></label> 
+  <input id="animation" type="checkbox" checked>
 </h2><br>
 <h2>VU Meter
-  <label class="switch"> <input id="vumeter" type="checkbox" checked> <div class="slider"></div></label> 
+  <input id="vumeter" type="checkbox" checked>
 </h2><br>
 
 <br><br>
@@ -104,6 +104,12 @@ switch {
 <div id="Timer" class="tabcontent">
   <h3>Timer</h3>
   <p>Control countdown timer</p> 
+<br>
+ <h2>START
+  <button id="StartTimer" type="button"> Start Timer </button>
+</h2><br>
+
+
 </div>
 
 <div id="Barulhometro" class="tabcontent">
@@ -231,10 +237,44 @@ else {
 }
 }
 
+// Likar mudança de tab com mudança de modo do barulhómetro.
+document.getElementById("GeralBTN").onclick = function(ev) {
+    aciles.send(server, "State " + "0");
+    ev.target.value = "";
+    openMode(event, 'Geral');
+}
+
+document.getElementById("TimerBTN").onclick = function(ev) {
+    aciles.send(server, "State " + "1");
+    ev.target.value = "";
+    openMode(event, 'Timer');
+}
+
+document.getElementById("BarulhometroBTN").onclick = function(ev) {
+    aciles.send(server, "State " + "2");
+    ev.target.value = "";
+    openMode(event, 'Barulhometro');
+}
+
+document.getElementById("JuriBTN").onclick = function(ev) {
+    aciles.send(server, "State " + "3");
+    ev.target.value = "";
+    openMode(event, 'Juri');
+}
+
+
+// Botão do Timer:
+
+document.getElementById("StartTimer").onclick = function(ev) {
+    aciles.send(server, "StartTimer " + "1");
+    ev.target.value = "";
+    openMode(event, 'Barulhometro');
+}
+
+
 
 
 /*
-
   };
   document.getElementById("noiseJuri").onblur = function(ev) {
     aciles.send(server, "noiseJuri " + ev.target.value);

@@ -1,4 +1,4 @@
-#N canvas 449 216 814 548 10;
+#N canvas 76 268 1113 587 10;
 #X obj 284 88 r <PD;
 #X obj 208 18 web-server 8999 PD;
 #X obj 20 218 s PD>;
@@ -14,7 +14,7 @@
 #X obj 119 248 s PD>;
 #X obj 20 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 760 260 print NOTSET;
+#X obj 767 205 print NOTSET;
 #X obj 264 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 307 206 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -35,10 +35,13 @@
 #X obj 202 369 list prepend Finalista 2:;
 #X obj 16 364 list prepend Finalista 1:;
 #X obj 468 404 send withBarulho-r;
-#X obj 637 315 send BarraNoise-r;
+#X obj 638 339 send BarraNoise-r;
+#X obj 653 290 s chkSoundIN-r;
+#X obj 667 258 s state-r;
+#X obj 809 291 print;
 #X obj 294 169 route test1 test2 hello noiseJuri final1 final2 animation
-vumeter, f 67;
-#X obj 695 252 s chkSoundIN-r;
+vumeter State StartTimer, f 67;
+#X obj 707 230 s timerON-r;
 #X connect 0 0 18 0;
 #X connect 1 0 5 0;
 #X connect 3 0 2 0;
@@ -49,7 +52,7 @@ vumeter, f 67;
 #X connect 11 0 10 1;
 #X connect 13 0 3 0;
 #X connect 18 0 19 0;
-#X connect 19 0 34 0;
+#X connect 19 0 37 0;
 #X connect 21 0 20 0;
 #X connect 21 1 17 0;
 #X connect 24 0 29 0;
@@ -58,12 +61,14 @@ vumeter, f 67;
 #X connect 29 0 30 0;
 #X connect 30 0 28 0;
 #X connect 31 0 26 0;
-#X connect 34 0 15 0;
-#X connect 34 1 16 0;
-#X connect 34 2 21 0;
-#X connect 34 3 32 0;
-#X connect 34 4 22 0;
-#X connect 34 5 23 0;
-#X connect 34 6 33 0;
-#X connect 34 7 35 0;
-#X connect 34 8 14 0;
+#X connect 37 0 15 0;
+#X connect 37 1 16 0;
+#X connect 37 2 21 0;
+#X connect 37 3 32 0;
+#X connect 37 4 22 0;
+#X connect 37 5 23 0;
+#X connect 37 6 33 0;
+#X connect 37 7 34 0;
+#X connect 37 8 35 0;
+#X connect 37 9 38 0;
+#X connect 37 10 14 0;
