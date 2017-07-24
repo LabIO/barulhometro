@@ -31,7 +31,6 @@
       height: 80%;
       margin-left: 5%;
     }
-
 div.tab button {
     background-color: inherit;
     float: left;
@@ -42,17 +41,14 @@ div.tab button {
     transition: 0.3s;
     font-size: 17px;
 }
-
 /* Change background color of buttons on hover */
 div.tab button:hover {
     background-color: #ddd;
 }
-
 /* Create an active/current tablink class */
 div.tab button.active {
     background-color: #ccc;
 }
-
 /* Style the tab content */
 .tabcontent {
     display: none;
@@ -60,16 +56,12 @@ div.tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
-
 switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-
-
-
 </style>
 <script src="aciles.js" type="text/javascript"></script>
 </head>
@@ -79,7 +71,10 @@ switch {
   <button id="TimerBTN" class="tablinks">Timer</button>
   <button id="BarulhometroBTN" class="tablinks" onclick="openMode(event, 'Barulhometro')">Barulhometro</button>
   <button id="JuriBTN" class="tablinks" onclick="openMode(event, 'Juri')">Juri</button>
+  <button id="JuriFinalBTN" class="tablinks" onclick="openMode(event, 'F-juri')">Juri Final</button>
 </div>
+
+<!-- Tab GERAL -->
 
 <div id="Geral" class="tabcontent">
   <h3>Geral</h3>
@@ -96,10 +91,10 @@ switch {
 </h2><br>
 
 <br><br>
-
-
-
 </div>
+
+
+<!-- Tab do TIMER -->
 
 <div id="Timer" class="tabcontent">
   <h3>Timer</h3>
@@ -107,23 +102,77 @@ switch {
 <br>
  <h2>START
   <button id="StartTimer" type="button"> Start Timer </button>
+</h2><br><br><br>
+
+<h2>Pause Timer 
+  <input id="TimerPause" type="checkbox" checked>
 </h2><br>
 
+<h2>Show/Hide Column
+  <input id="MostraBarra" type="checkbox" checked>
+</h2><br>
 
 </div>
+
+
+<!-- TAB DO BARULHOMETRO -->
 
 <div id="Barulhometro" class="tabcontent">
   <h3>Barulhometro</h3>
   <p>Control of noise meter</p>
+<br>
+
+<h2>
+
+NOISE
+  <button id="MedeBarulho" type="button"> Go! </button>
+<br><br><br>
+
+Set 10
+  <button id="Set10" type="button"> Go! </button>
+<br><br><br>
+
+Set Silence
+  <button id="SetSilence" type="button"> Go! </button>
+<br><br><br>
+
+Set final A
+  <button id="Set-A" type="button"> F-A </button>
+<br><br><br>
+
+Set final B
+  <button id="Set-B" type="button"> F-B </button>
+
+</h2>
 </div>
+
+
+<!-- TAB DO JURI -->
 
 <div id="Juri" class="tabcontent">
   <h3>Juri</h3>
   <p>Input Juri votes</p>
   <br>
+  <p><input placeholder="JURI 1" id="juri1"/></p>
+  <p><input placeholder="JURI 2" id="juri2"/></p>
+  <p><input placeholder="JURI 3" id="juri3"/></p>
+  <p><input placeholder="JURI 4" id="juri4"/></p>
+  <p><input placeholder="JURI 5" id="juri5"/></p>
+
+
+</div>
+
+
+<!-- TAB DO JURI FINAL -->
+
+<div id="F-juri" class="tabcontent">
+  <h3>Juri Final</h3>
+  <p>Input Juri final</p>
+
+  <br>
   <p><input placeholder="Primeiro Finalista" id="sender"/></p>
   <p><input placeholder="Segundo Finalista" id="sender2"/></p>
-  <br>
+<br>
 
 </div>
 
@@ -141,8 +190,6 @@ function openMode(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
-
 function noisejuriTGL() {
 if (document.getElementById("noiseJuri").checked==true) {
      aciles.send(server, "noiseJuri " + "1");
@@ -155,18 +202,12 @@ else {
     document.getElementById("noiseJuri").checked=true;
 }
 }
-
 </script>
 
 
   
  <!-- <p><button type="button" id="button1">Click Me!</button></p> 
-
-
-
-
 --------- JAVASCRIPT -------
-
 -->
   
   <textarea id="receiver"></textarea>
@@ -188,7 +229,6 @@ else {
     aciles.send(server, "final1 " + ev.target.value);
     ev.target.value ="";
   };
-
   document.getElementById("sender2").onkeydown = function(ev) {
     if (ev.keyCode == 13) {
       aciles.send(server, "final2 " + ev.target.value);
@@ -199,21 +239,18 @@ else {
     aciles.send(server, "final2 " + ev.target.value);
     ev.target.value = "";
   };
-
   document.getElementById("noiseJuri").onclick = function() {
       noisejuriTGL();
 }
 
 
-
-// BOTÃO DA ANIMATION ON/OFF
+// BOTÃO DA ANIMATION ON/OFF:
 
   document.getElementById("animation").onclick = function() {
-
 if (document.getElementById("animation").checked==true) {
      aciles.send(server, "animation " + "1");
      ev.target.value = "";
-    document.getElementById("noiseJuri").checked=false;
+    document.getElementById("animation").checked=false;
 }
 else {
     aciles.send(server, "animation " + "0");
@@ -222,9 +259,9 @@ else {
 }
 }
 
+
 // BOTÃO VU METER ON/OFF
 document.getElementById("vumeter").onclick = function() {
-
 if (document.getElementById("vumeter").checked==true) {
      aciles.send(server, "vumeter " + "1");
      ev.target.value = "";
@@ -237,61 +274,178 @@ else {
 }
 }
 
-// Likar mudança de tab com mudança de modo do barulhómetro.
+
+// LINKAR MUDANÇA DE TAB COM MUDANÇA DE MODO DO BARULHÓMETRO.
+
 document.getElementById("GeralBTN").onclick = function(ev) {
     aciles.send(server, "State " + "0");
     ev.target.value = "";
     openMode(event, 'Geral');
 }
-
 document.getElementById("TimerBTN").onclick = function(ev) {
     aciles.send(server, "State " + "1");
     ev.target.value = "";
     openMode(event, 'Timer');
 }
-
 document.getElementById("BarulhometroBTN").onclick = function(ev) {
     aciles.send(server, "State " + "2");
     ev.target.value = "";
     openMode(event, 'Barulhometro');
 }
-
 document.getElementById("JuriBTN").onclick = function(ev) {
     aciles.send(server, "State " + "3");
     ev.target.value = "";
     openMode(event, 'Juri');
 }
 
+document.getElementById("JuriFinalBTN").onclick = function(ev) {
+    aciles.send(server, "State " + "4");
+    ev.target.value = "";
+    openMode(event, 'F-juri');
+}
 
-// Botão do Timer:
+
+// BOTÂO DO TIMER:
 
 document.getElementById("StartTimer").onclick = function(ev) {
     aciles.send(server, "StartTimer " + "1");
     ev.target.value = "";
     openMode(event, 'Barulhometro');
 }
-
-
-
-
-/*
-  };
-  document.getElementById("noiseJuri").onblur = function(ev) {
-    aciles.send(server, "noiseJuri " + ev.target.value);
-    ev.target.value = "";
-  };
-
-
-
-*/
-
-
-
-
-
-
-
  
+
+
+// TOGGLE DA TIMER PAUSE :
+
+  document.getElementById("TimerPause").onclick = function() {
+if (document.getElementById("TimerPause").checked==true) {
+     aciles.send(server, "TimerPause " + "1");
+     ev.target.value = "";
+    document.getElementById("TimerPause").checked=false;
+}
+else {
+    aciles.send(server, "TimerPause " + "0");
+    ev.target.value = "";
+    document.getElementById("TimerPause").checked=true;
+}
+}
+
+// TOGGLE DA SHOW COLUMN :
+
+  document.getElementById("MostraBarra").onclick = function() {
+if (document.getElementById("MostraBarra").checked==true) {
+     aciles.send(server, "MostraBarra " + "1");
+     ev.target.value = "";
+    document.getElementById("MostraBarra").checked=false;
+}
+else {
+    aciles.send(server, "MostraBarra " + "0");
+    ev.target.value = "";
+    document.getElementById("MostraBarra").checked=true;
+}
+}
+
+
+
+// BOTÂO DO BARULHO:
+document.getElementById("MedeBarulho").onclick = function(ev) {
+    aciles.send(server, "MedeBarulho " + "1");
+    ev.target.value = "";
+}
+
+
+// BOTÂO DO SET 10:
+document.getElementById("Set10").onclick = function(ev) {
+    aciles.send(server, "Set10 " + "1");
+    ev.target.value = "";
+}
+
+// BOTÂO DO SET SILENCE:
+document.getElementById("SetSilence").onclick = function(ev) {
+    aciles.send(server, "SetSilence " + "1");
+    ev.target.value = "";
+}
+
+// BOTÂO DO SET FINAL A:
+document.getElementById("Set-A").onclick = function(ev) {
+    aciles.send(server, "Set-A " + "1");
+    ev.target.value = "";
+}
+
+
+// BOTÂO DO SET FINAL B:
+document.getElementById("Set-B").onclick = function(ev) {
+    aciles.send(server, "Set-B " + "1");
+    ev.target.value = "";
+}
+
+// CENAS DO JURI
+
+// JURI 1
+document.getElementById("juri1").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri1 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("juri1").onblur = function(ev) {
+    aciles.send(server, "juri1 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+
+// JURI 2
+document.getElementById("juri2").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri2 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("juri2").onblur = function(ev) {
+    aciles.send(server, "juri2 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+// JURI 3
+document.getElementById("juri3").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri3 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("juri3").onblur = function(ev) {
+    aciles.send(server, "juri3 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+// JURI 4
+document.getElementById("juri4").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri4 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("juri4").onblur = function(ev) {
+    aciles.send(server, "juri4 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+// JURI 5
+document.getElementById("juri5").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri5 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("juri5").onblur = function(ev) {
+    aciles.send(server, "juri5 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+
+
+
+
 
   </script>
 </body>
