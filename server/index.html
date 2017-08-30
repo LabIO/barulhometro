@@ -90,6 +90,9 @@ switch {
   <input id="vumeter" type="checkbox" checked>
 </h2><br>
 
+<input type="text" id="ipNumber" value="http://172.24.1.1:8999/">
+
+
 <br><br>
 </div>
 
@@ -213,7 +216,16 @@ else {
   <textarea id="receiver"></textarea>
   
   <script type="text/javascript">
-  server = "http://172.24.1.1:8999/"
+  server = document.getElementById("ipNumber").value;
+  document.getElementById("ipNumber").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+    server = document.getElementById("ipNumber").value;
+
+      
+    }
+  };
+
+
   aciles.receiver(server,
       function(data) { console.log("from server:", data); document.getElementById("receiver").innerHTML += data },
       function(error) { console.log("error:", error); });
