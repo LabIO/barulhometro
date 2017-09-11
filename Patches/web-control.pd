@@ -1,4 +1,4 @@
-#N canvas 1 287 1272 604 10;
+#N canvas 16 84 1272 604 10;
 #X obj 284 88 r <PD;
 #X obj 208 18 web-server 8999 PD;
 #X obj 20 218 s PD>;
@@ -14,7 +14,6 @@
 #X obj 119 248 s PD>;
 #X obj 20 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 1166 201 print NOTSET;
 #X obj 264 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 307 206 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -37,18 +36,25 @@
 #X obj 468 494 send withBarulho-r;
 #X obj 642 413 send BarraNoise-r;
 #X obj 700 390 s chkSoundIN-r;
-#X obj 759 367 s state-r;
+#X obj 768 456 s state-r;
 #X obj 817 346 s timerON-r;
 #X obj 162 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 294 169 route test1 test2 hello noiseJuri final1 final2 animation
-vumeter State StartTimer juri1 juri2 juri3 juri4 juri5, f 125;
 #X obj 875 323 s juri1-r;
 #X obj 933 297 s juri2-r;
 #X obj 991 273 s juri3-r;
 #X obj 1049 249 s juri4-r;
 #X obj 1107 223 s juri5-r;
-#X connect 0 0 18 0;
+#X obj 1203 239 print From-Browser-NOTSET;
+#X obj 1159 302 s bang_silence;
+#X obj 1174 269 s setValue;
+#X obj 1171 243 b;
+#X obj 270 160 route test1 test2 hello noiseJuri final1 final2 animation
+vumeter State StartTimer juri1 juri2 juri3 juri4 juri5 SetSilence Set10
+MedeBarulho, f 125;
+#X obj 1086 427 s state-r;
+#X msg 1086 405 2;
+#X connect 0 0 17 0;
 #X connect 1 0 5 0;
 #X connect 3 0 2 0;
 #X connect 8 0 9 0;
@@ -57,30 +63,35 @@ vumeter State StartTimer juri1 juri2 juri3 juri4 juri5, f 125;
 #X connect 10 0 12 0;
 #X connect 11 0 10 1;
 #X connect 13 0 3 0;
-#X connect 18 0 19 0;
-#X connect 19 0 38 0;
-#X connect 21 0 20 0;
-#X connect 21 1 17 0;
-#X connect 24 0 29 0;
-#X connect 25 0 27 0;
-#X connect 27 0 31 0;
-#X connect 29 0 30 0;
-#X connect 30 0 28 0;
-#X connect 31 0 26 0;
-#X connect 37 0 9 0;
-#X connect 38 0 15 0;
-#X connect 38 1 16 0;
-#X connect 38 2 21 0;
-#X connect 38 3 32 0;
-#X connect 38 4 22 0;
-#X connect 38 5 23 0;
-#X connect 38 6 33 0;
-#X connect 38 7 34 0;
-#X connect 38 8 35 0;
-#X connect 38 9 36 0;
-#X connect 38 10 39 0;
-#X connect 38 11 40 0;
-#X connect 38 12 41 0;
-#X connect 38 13 42 0;
-#X connect 38 14 43 0;
-#X connect 38 15 14 0;
+#X connect 17 0 18 0;
+#X connect 18 0 46 0;
+#X connect 20 0 19 0;
+#X connect 20 1 16 0;
+#X connect 23 0 28 0;
+#X connect 24 0 26 0;
+#X connect 26 0 30 0;
+#X connect 28 0 29 0;
+#X connect 29 0 27 0;
+#X connect 30 0 25 0;
+#X connect 36 0 9 0;
+#X connect 45 0 44 0;
+#X connect 46 0 14 0;
+#X connect 46 1 15 0;
+#X connect 46 2 20 0;
+#X connect 46 3 31 0;
+#X connect 46 4 21 0;
+#X connect 46 5 22 0;
+#X connect 46 6 32 0;
+#X connect 46 7 33 0;
+#X connect 46 8 34 0;
+#X connect 46 9 35 0;
+#X connect 46 10 37 0;
+#X connect 46 11 38 0;
+#X connect 46 12 39 0;
+#X connect 46 13 40 0;
+#X connect 46 14 41 0;
+#X connect 46 15 43 0;
+#X connect 46 16 45 0;
+#X connect 46 17 48 0;
+#X connect 46 18 42 0;
+#X connect 48 0 47 0;
