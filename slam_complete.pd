@@ -1,5 +1,5 @@
 #N struct 1009-f float x;
-#N canvas 623 350 660 369 10;
+#N canvas 663 226 660 369 10;
 #X declare iemnet cyclone list-abs zexy;
 #X obj 323 176 cnv 15 300 130 empty empty empty 20 12 0 14 -204800
 -66577 0;
@@ -68,7 +68,7 @@
 #X obj 503 84 * 0.1;
 #X obj 520 226 + 0.5;
 #X obj 520 204 * 0.4;
-#X obj 402 624 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 402 624 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 305 613 spigot 0;
 #X connect 0 0 1 0;
@@ -477,7 +477,7 @@ bang \; MostraBarra 1 \;;
 #X obj 205 227 juri_count;
 #X obj 191 334 hradio 15 1 0 2 empty empty choose_camera -85 6 0 10
 -262144 -1 -1 0;
-#N canvas 101 72 1226 663 JURI 0;
+#N canvas 99 72 1226 663 JURI 1;
 #X obj 176 197 text2d;
 #X floatatom 193 68 5 0 0 0 - - -, f 5;
 #X floatatom 230 70 5 0 0 0 - - -, f 5;
@@ -557,7 +557,7 @@ bang \; MostraBarra 1 \;;
 #X msg 1112 205 \; JuriSet-N text -;
 #X floatatom 365 537 5 0 0 0 - - -, f 5;
 #X obj 365 568 s JuriSize;
-#N canvas 558 104 688 610 ANIMATION 0;
+#N canvas 556 104 688 610 ANIMATION 1;
 #X obj 50 122 gemhead;
 #X obj 95 588 text2d;
 #X obj 48 466 translateXYZ;
@@ -566,7 +566,7 @@ bang \; MostraBarra 1 \;;
 #X obj 51 158 alpha;
 #X obj 47 312 colorRGB;
 #X obj 323 68 hradio 15 1 0 5 empty empty empty 0 -8 0 10 -262144 -1
--1 0;
+-1 2;
 #X obj 122 275 line;
 #X msg 89 233 0;
 #X obj 212 161 sel 0 1 2 3 4;
@@ -609,10 +609,10 @@ bang \; MostraBarra 1 \;;
 #X obj 501 -116 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 113 19 r TICKn;
-#X obj 113 68 mod 20;
 #X obj 115 96 sel 0;
 #X obj 113 43 spigot;
 #X obj 50 -58 t f f f;
+#X obj 113 68 mod 15;
 #X connect 0 0 5 0;
 #X connect 2 0 43 0;
 #X connect 3 0 1 0;
@@ -642,7 +642,7 @@ bang \; MostraBarra 1 \;;
 #X connect 15 0 8 0;
 #X connect 16 0 15 0;
 #X connect 17 0 1 1;
-#X connect 18 0 50 0;
+#X connect 18 0 49 0;
 #X connect 19 0 18 0;
 #X connect 20 0 6 4;
 #X connect 21 0 22 0;
@@ -672,13 +672,13 @@ bang \; MostraBarra 1 \;;
 #X connect 43 0 1 0;
 #X connect 43 1 17 0;
 #X connect 44 0 1 0;
-#X connect 46 0 49 0;
-#X connect 47 0 48 0;
-#X connect 48 0 27 0;
-#X connect 49 0 47 0;
-#X connect 50 0 0 0;
-#X connect 50 1 49 1;
-#X connect 50 2 35 0;
+#X connect 46 0 48 0;
+#X connect 47 0 27 0;
+#X connect 48 0 50 0;
+#X connect 49 0 0 0;
+#X connect 49 1 48 1;
+#X connect 49 2 35 0;
+#X connect 50 0 47 0;
 #X restore 766 -2 pd ANIMATION;
 #X obj 913 225 translateXYZ -3.89 1.31 0;
 #X obj 909 339 translateXYZ 2.06 -0.01 0;
@@ -831,7 +831,7 @@ bang \; MostraBarra 1 \;;
 #X obj 241 267 outlet;
 #X obj 241 222 hsv2rgb;
 #X obj 38 222 hsl 128 15 0 1 0 0 empty empty color -2 -8 0 10 -191407
--258113 -260097 12700 1;
+-258113 -260097 8785 1;
 #X obj 181 42 expr 1 - $f1/$f2;
 #X floatatom 259 147 5 0 0 1 shift_value - -, f 5;
 #X obj 241 168 -;
@@ -974,7 +974,7 @@ bang \; MostraBarra 1 \;;
 #X obj 494 139 hsl 120 15 0 1 0 0 name_color name_color-set Color -2
 -8 0 10 -262144 -1 -1 833 1;
 #X text 6 265 20 Jan 2015;
-#N canvas 22 98 1276 669 conn-in 0;
+#N canvas 20 98 1276 669 conn-in 0;
 #X obj 27 16 netreceive 3000;
 #X obj 164 192 s ctrl;
 #X obj 96 355 s barulho_vote;
@@ -1054,9 +1054,9 @@ bang \; MostraBarra 1 \;;
 #X obj 1696 240 s speed;
 #X obj 633 590 r speed;
 #X obj 633 655 sel 0 1;
-#X obj 576 657 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 576 657 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 1779 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 1779 76 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj -51 55 route /dbs /barulho_vote /ctrl /timer_ctrl /desliga /Mode
 /RecoverTimer /juri /zera_votos /pubYA /LogoSel /logoON /palcoH /palcoS
@@ -1065,7 +1065,7 @@ bang \; MostraBarra 1 \;;
 FinalNome-2 TICK /speed, f 254;
 #X obj 643 632 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 442 800 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 442 800 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 317 826 Patches/LabIO_mux-2;
 #X obj 309 878 t b b;
@@ -1114,6 +1114,7 @@ FinalNome-2 TICK /speed, f 254;
 #X connect 74 0 71 0;
 #X connect 74 1 69 0;
 #X connect 77 0 17 0;
+#X connect 77 1 2 0;
 #X connect 77 2 1 0;
 #X connect 77 3 5 0;
 #X connect 77 4 6 0;

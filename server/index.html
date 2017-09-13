@@ -165,11 +165,11 @@ Set final B
  Calculate votes mean<br><br>
 
   <br>
-  <p><input placeholder="JURI 1" id="juri1"/></p>
-  <p><input placeholder="JURI 2" id="juri2"/></p>
-  <p><input placeholder="JURI 3" id="juri3"/></p>
-  <p><input placeholder="JURI 4" id="juri4"/></p>
-  <p><input placeholder="JURI 5" id="juri5"/></p>
+  <p><input placeholder="VOTE 1" id="juri1"/></p>
+  <p><input placeholder="VOTE 2" id="juri2"/></p>
+  <p><input placeholder="VOTE 3" id="juri3"/></p>
+  <p><input placeholder="VOTE 4" id="juri4"/></p>
+  <p><input placeholder="VOTE 5" id="juri5"/></p>
 
 <br><br><br><br><br><br><br><br>
  <h2>CLEAR VOTES
@@ -186,10 +186,33 @@ Set final B
   <h3>Juri Final</h3>
   <p>Input Juri final</p>
 
+<br><br>
+Input finalists names
   <br>
-  <p><input placeholder="Primeiro Finalista" id="sender"/></p>
-  <p><input placeholder="Segundo Finalista" id="sender2"/></p>
+  <p><input placeholder="Finalist A name" id="sender"/></p>
+  <p><input placeholder="Finalist B name" id="sender2"/></p>
 <br>
+
+<br>
+ <h2>CALCULATE
+  <button id="Fcalcula"> GO! </button>
+ </h2><br>
+ Calculate votes mean<br><br>
+
+<h2>Finalist Switch
+  <input id="Fswitch" type="checkbox" unchecked>
+</h2><br>
+Unchecked - Finalist A<br>
+Checked - Finalist B 
+
+
+  <br>
+  <p><input placeholder="VOTE 1" id="Fjuri1"/></p>
+  <p><input placeholder="VOTE 2" id="Fjuri2"/></p>
+  <p><input placeholder="VOTE 3" id="Fjuri3"/></p>
+  <p><input placeholder="VOTE 4" id="Fjuri4"/></p>
+  <p><input placeholder="VOTE 5" id="Fjuri5"/></p>
+
 
 </div>
 
@@ -495,7 +518,90 @@ document.getElementById("juri5").onkeydown = function(ev) {
   };
 
 
+// JURI FINAL ////////////////////////////////////////////////
 
+// SWITCH FINALIST  A/B:
+
+  document.getElementById("Fswitch").onclick = function() {
+if (document.getElementById("Fswitch").checked==true) {
+     aciles.send(server, "Fswitch " + "1");
+     ev.target.value = "";
+    document.getElementById("Fswitch").checked=false;
+}
+else {
+    aciles.send(server, "Fswitch " + "0");
+    ev.target.value = "";
+    document.getElementById("Fswitch").checked=true;
+}
+}
+
+// JURI FINAL 1
+document.getElementById("Fjuri1").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri1 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("Fjuri1").onblur = function(ev) {
+    aciles.send(server, "juri1 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+
+// JURI FINAL 2
+document.getElementById("Fjuri2").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri2 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("Fjuri2").onblur = function(ev) {
+    aciles.send(server, "juri2 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+// JURI FINAL 3
+document.getElementById("Fjuri3").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri3 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("Fjuri3").onblur = function(ev) {
+    aciles.send(server, "juri3 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+// JURI FINAL 4
+document.getElementById("Fjuri4").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri4 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("Fjuri4").onblur = function(ev) {
+    aciles.send(server, "juri4 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+// JURI FINAL 5
+document.getElementById("Fjuri5").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "juri5 " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("Fjuri5").onblur = function(ev) {
+    aciles.send(server, "juri5 " + ev.target.value);
+    ev.target.value ="";
+  };
+
+
+// BOTÃO CALCULA MEDIA VOTOS:
+document.getElementById("Fcalcula").onclick = function(ev) {
+    aciles.send(server, "calcula " + "1");
+    ev.target.value = "";
+}
 
 
 
