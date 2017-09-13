@@ -81,15 +81,17 @@ switch {
   <p>General Settings</p>
   <br>
   <h2>Noise Juri
-  <input id="noiseJuri" type="checkbox" checked>
+  <input id="noiseJuri" type="checkbox" unchecked>
 </h2><br>
 <h2>Animation
-  <input id="animation" type="checkbox" checked>
+  <input id="animation" type="checkbox" unchecked>
 </h2><br>
 <h2>VU Meter
   <input id="vumeter" type="checkbox" checked>
 </h2><br>
-
+<h2>Speed
+  <input id="speed" type="checkbox" unchecked>
+</h2><br>
 <!-- <input type="text" id="ipNumber" value="http://172.24.1.1:8999/"> -->
 
 
@@ -154,7 +156,14 @@ Set final B
 
 <div id="Juri" class="tabcontent">
   <h3>Juri</h3>
-  <p>Input Juri votes</p>
+  <p>Input votes and calculate mean</p> 
+
+<br>
+ <h2>CALCULATE
+  <button id="calcula"> GO! </button>
+ </h2><br>
+ Calculate votes mean<br><br>
+
   <br>
   <p><input placeholder="JURI 1" id="juri1"/></p>
   <p><input placeholder="JURI 2" id="juri2"/></p>
@@ -162,6 +171,11 @@ Set final B
   <p><input placeholder="JURI 4" id="juri4"/></p>
   <p><input placeholder="JURI 5" id="juri5"/></p>
 
+<br><br><br><br><br><br><br><br>
+ <h2>CLEAR VOTES
+  <button id="resetVotos"> GO! </button>
+ </h2><br>
+ Clear votes values (Warning!!!)<br>
 
 </div>
 
@@ -288,6 +302,19 @@ else {
 }
 }
 
+// SPEED FAST/SLOW
+document.getElementById("speed").onclick = function() {
+if (document.getElementById("speed").checked==true) {
+     aciles.send(server, "speed " + "1");
+     ev.target.value = "";
+    document.getElementById("speed").checked=false;
+}
+else {
+    aciles.send(server, "speed " + "0");
+    ev.target.value = "";
+    document.getElementById("speed").checked=true;
+}
+}
 
 // LINKAR MUDANÇA DE TAB COM MUDANÇA DE MODO DO BARULHÓMETRO.
 
@@ -394,6 +421,17 @@ document.getElementById("Set-B").onclick = function(ev) {
 }
 
 // CENAS DO JURI
+
+// BOTÃO CALCULA MEDIA VOTOS:
+document.getElementById("calcula").onclick = function(ev) {
+    aciles.send(server, "calcula " + "1");
+    ev.target.value = "";
+}
+
+document.getElementById("resetVotos").onclick = function(ev) {
+    aciles.send(server, "resetVotos " + "1");
+    ev.target.value = "";
+}
 
 // JURI 1
 document.getElementById("juri1").onkeydown = function(ev) {
