@@ -177,6 +177,14 @@ Set final B
  </h2><br>
  Clear votes values (Warning!!!)<br>
 
+<!-- SET AUDIENCE VOTE MANUALLY (CHEAT...)-->
+<br><br><br>
+<h2><br> Set Votes Manually</h2>
+<br><br>
+  <p><input placeholder="MANIPULAUDIENCE" id="MAN_AUDIENCE"/></p>
+
+
+
 </div>
 
 
@@ -516,6 +524,19 @@ document.getElementById("juri5").onkeydown = function(ev) {
     aciles.send(server, "juri5 " + ev.target.value);
     ev.target.value ="";
   };
+
+// SET VOTES MANUALLY
+document.getElementById("MAN_AUDIENCE").onkeydown = function(ev) {
+    if (ev.keyCode == 13) {
+      aciles.send(server, "MAN_AUDIENCE " + ev.target.value);
+      ev.target.value ="";
+    }
+  };
+  document.getElementById("MAN_AUDIENCE").onblur = function(ev) {
+    aciles.send(server, "MAN_AUDIENCE " + ev.target.value);
+    ev.target.value ="";
+  };
+
 
 
 // JURI FINAL ////////////////////////////////////////////////
