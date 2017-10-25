@@ -1,13 +1,13 @@
 #N struct 1009-f float x;
 #N struct 1019-f float x;
-#N canvas 317 76 1018 663 10;
+#N canvas 315 76 1018 663 10;
 #X obj 3 -14 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-1-set empty 0
--8 0 25 -262144 -1 -1 5 256;
+-8 0 25 -262144 -1 -1 1235 256;
 #N canvas 912 111 449 187 tab_votos 0;
 #X obj 55 56 tabwrite votos;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array votos 6 float 3;
-#A 0 5 4 5.5 9 2 0.182092;
+#A 0 1235 234 5.5 9 2 2341.81;
 #X coords 0 11 6 -1 200 100 1 0 0;
 #X restore 203 31 graph;
 #X floatatom 133 33 5 0 0 0 - - -, f 5;
@@ -29,28 +29,28 @@
 #X obj 3 27 t f f;
 #X obj 3 75 s JuriVote-1;
 #X obj 3 126 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-2-set empty 0
--8 0 25 -262144 -1 -1 4 256;
+-8 0 25 -262144 -1 -1 234 256;
 #X obj 30 191 tabwrite votos;
 #X obj 111 147 loadbang;
 #X obj 3 167 t f f;
 #X msg 111 168 1;
 #X obj 3 215 s JuriVote-2;
 #X obj 3 256 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-3-set empty 0
--8 0 25 -262144 -1 -1 5.5 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 321 tabwrite votos;
 #X obj 111 277 loadbang;
 #X obj 3 297 t f f;
 #X msg 111 298 2;
 #X obj 3 345 s JuriVote-3;
 #X obj 3 386 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-4-set empty 0
--8 0 25 -262144 -1 -1 9 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 451 tabwrite votos;
 #X obj 111 407 loadbang;
 #X obj 3 427 t f f;
 #X msg 112 428 3;
 #X obj 3 475 s JuriVote-4;
 #X obj 3 506 nbx 4 30 -1e+37 1e+37 0 0 empty JuriVote-5-set empty 0
--8 0 25 -262144 -1 -1 2 256;
+-8 0 25 -262144 -1 -1 0 256;
 #X obj 30 571 tabwrite votos;
 #X obj 111 527 loadbang;
 #X obj 3 547 t f f;
@@ -88,10 +88,10 @@
 -1 -1;
 #X floatatom 548 604 12 0 0 0 - - -, f 12;
 #X msg 693 605 0 \, \$1 1500;
-#X msg 653 213 list 5 4 5.5 9 2 0.182092;
+#X msg 653 213 list 1235 234 5.5 9 2 2341.81;
 #X obj 693 418 list split 4;
 #X obj 190 18 nbx 12 30 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 25
--262144 -1 -1 0.182092 256;
+-262144 -1 -1 2341.81 256;
 #X obj 532 637 print JURI AVERAGE;
 #X obj 553 -32 + 1;
 #X floatatom 551 30 5 0 0 0 - - -, f 5;
