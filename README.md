@@ -1,4 +1,4 @@
-<img src="IMAGENS/collage.jpg" width="100">
+<img src="IMAGENS/collage.jpg" width="800">
 
 #BARULHOMETRO
 
